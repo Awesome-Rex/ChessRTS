@@ -43,13 +43,34 @@ public class GameplayControl : MonoBehaviour
     //
 
 
-    public static Vector3[] convert2DtoVector3 (bool[,] map) {
+    public static List<Vector3> convert2DtoVector3 (bool[,] map) {
+        List<Vector3> spots = new List<Vector3>();
 
-        return null;
+        for (int x = 0; x < map.GetLength(0); x++) {
+            for (int y = 0; y < map.GetLength(1); y++) {
+                if (map[x, y] == true) {
+                    spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                }
+            }
+        }
+
+        return spots;
     }
-    public static Vector3[] convert2DtoVector3(int[,] map) {
+    public static List<Vector3> convert2DtoVector3(int[,] map) {
+        List<Vector3> spots = new List<Vector3>();
 
-        return null;
+        for (int x = 0; x < map.GetLength(0); x++)
+        {
+            for (int y = 0; y < map.GetLength(1); y++)
+            {
+                if (map[x, y] > 0)
+                {
+                    spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                }
+            }
+        }
+
+        return spots;
     }
 
 

@@ -74,14 +74,41 @@ public class Unit : MonoBehaviour
 
     public void move(Vector3 targetPosition) {
 
-    }
-
-    public void attack(Vector3 targetPosition) {
+    } public void attack(Vector3 targetPosition) {
         //Physics2D.Raycast()
 
         /*if () {
 
         }*/
+    }
+
+    public bool checkMovable(Vector3 targetPosition) {
+        if (!movementAllyCrossable) {
+
+        }
+        if (!movementEnemyCrossable)
+        {
+
+        }
+        if (!movementWallCrossable)
+        {
+
+        }
+        return false;
+    } public bool checkDamagable(Vector3 targetPosition) {
+        if (!movementAllyCrossable)
+        {
+
+        }
+        if (!movementEnemyCrossable)
+        {
+
+        }
+        if (!movementWallCrossable)
+        {
+
+        }
+        return false;
     }
 
     public void onSelect()
