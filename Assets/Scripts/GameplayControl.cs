@@ -55,8 +55,7 @@ public class GameplayControl : MonoBehaviour
         }
 
         return spots;
-    }
-    public static List<Vector3> convert2DtoVector3(int[,] map) {
+    } public static List<Vector3> convert2DtoVector3(int[,] map) {
         List<Vector3> spots = new List<Vector3>();
 
         for (int x = 0; x < map.GetLength(0); x++)
@@ -73,6 +72,43 @@ public class GameplayControl : MonoBehaviour
         return spots;
     }
 
+    public static bool[,] listTo2DArray (List<Vector3> list, Vector2 dimensions)
+    {
+        bool[,] array = new bool[(int)dimensions.x, (int)dimensions.y];
+
+        for (int i = 0; i < list.Count; i++) {
+            array[Mathf.CeilToInt(dimensions.x / 2) + ((int)(list[i].x)), Mathf.CeilToInt(dimensions.y / 2) + -((int)(list[i].y))] = true;
+        }
+
+        return array;
+    }
+    public static int[,] listTo2DArray(List<Vector3> list, List<int> intList, Vector2 dimensions) {
+        int[,] array = new int[(int)dimensions.x, (int)dimensions.y];
+
+        for (int i = 0; i < ((list.Count + intList.Count) / 2); i++)
+        {
+            array[Mathf.CeilToInt(dimensions.x / 2) + ((int)(list[i].x)), Mathf.CeilToInt(dimensions.y / 2) + -((int)(list[i].y))] = intList[i];
+        }
+
+        return array;
+    }
+
+    public static List<int> damageAreaToDamageList(int[,] map) {
+        List<int> damageList = new List<int>();
+
+        for (int x = 0; x < map.GetLength(0); x++)
+        {
+            for (int y = 0; y < map.GetLength(1); y++)
+            {
+                if (map[x, y] > 0)
+                {
+                    damageList.Add(map[x, y]);
+                }
+            }
+        }
+
+        return damageList;
+    }
 
     public void executeUpgrade(Upgrade upgrade) {
         if (upgrade.copiesLeft > 0) {

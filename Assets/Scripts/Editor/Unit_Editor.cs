@@ -85,10 +85,47 @@ public class Unit_Editor : Editor
 
         EditorGUILayout.EndHorizontal();
 
+        GUI.color = Color.red;
+        if (GUILayout.Button("Clear")) {
+            (target as Unit).movementArea = new bool[17, 17];
+        }
+        GUI.color = Color.white;
+
         EditorGUILayout.LabelField("");
         (target as Unit).movementWallCrossable = EditorGUILayout.ToggleLeft("Can move across walls?", (target as Unit).movementWallCrossable);
         (target as Unit).movementAllyCrossable = EditorGUILayout.ToggleLeft("Can move across allies?", (target as Unit).movementAllyCrossable);
         (target as Unit).movementEnemyCrossable = EditorGUILayout.ToggleLeft("Can move across enemies?", (target as Unit).movementEnemyCrossable);
+
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Override Movement List"))
+        {
+            if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount > 0)
+            {
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).GetComponentsInChildren<Transform>())
+                {
+
+                    if (spot.gameObject.tag == "AbilitySpot")
+                    {
+                        Undo.DestroyObjectImmediate(spot.gameObject);
+                    }
+                }
+            }
+
+            List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
+            (target as Unit).movementAreaListed = areas;
+            //visualizes
+            foreach (Vector3 spot in areas)
+            {
+                GameObject movementSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/MovementSpot") as GameObject);
+
+                movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
+                movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+                movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
+            }
+        } if (GUILayout.Button("Load Movement List")) {
+            (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed, new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1)));
+        }
+        EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.LabelField("Damage Area", areaStyle);
 
@@ -165,47 +202,49 @@ public class Unit_Editor : Editor
 
         EditorGUILayout.EndHorizontal();
 
+        GUI.color = Color.red;
+        if (GUILayout.Button("Clear"))
+        {
+            (target as Unit).damageArea = new int[17, 17];
+        }
+        GUI.color = Color.white;
+
         EditorGUILayout.LabelField("");
         (target as Unit).damageWallCrossable = EditorGUILayout.ToggleLeft("Can attack across walls?", (target as Unit).damageWallCrossable);
         (target as Unit).damageAllyCrossable = EditorGUILayout.ToggleLeft("Can attack across allies?", (target as Unit).damageAllyCrossable);
         (target as Unit).damageEnemyCrossable = EditorGUILayout.ToggleLeft("Can attack across enemies?", (target as Unit).damageEnemyCrossable);
         EditorGUILayout.LabelField("");
 
-        {
-            GUIStyle AIStyle = new GUIStyle();
-            AIStyle.fontStyle = FontStyle.Bold;
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Override Damage List")) {
+            if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).childCount > 0)
+            {
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).GetComponentsInChildren<Transform>())
+                {
 
-            //(target as Unit).AI = EditorGUILayout.Toggle("Is this an AI?", (target as Unit).AI/*, AIStyle*/);
-        }
-
-        if (GUILayout.Button("Create visual movement area")) {
-            if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount > 0) {
-                for (int i = 0; i < (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount; i++) {
-                    Undo.DestroyObjectImmediate((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).GetChild(i).gameObject);
+                    if (spot.gameObject.tag == "AbilitySpot")
+                    {
+                        Undo.DestroyObjectImmediate(spot.gameObject);
+                    }
                 }
             }
 
-            List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
-
-            foreach (Vector3 spot in areas) {
-                GameObject movementSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/MovementSpot") as GameObject);
-
-                movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
-                movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
-                movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
-            }
-        }
-        if (GUILayout.Button("Create visual damage area")) {
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
+            List<int> damageList = GameplayControl.damageAreaToDamageList((target as Unit).damageArea);
+            (target as Unit).damageAreaListed = areas;
+            (target as Unit).damageListed = damageList;
 
-            foreach (Vector3 spot in areas)
-            {
-                GameObject movementSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/DamageSpot") as GameObject);
+            for (int index = 0; index < ((areas.Count + damageList.Count) / 2); index++) {
+                GameObject damageSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/DamageSpot") as GameObject);
 
-                movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1));
-                movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+                damageSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1));
+                damageSpotPrefab.transform.position = (target as Unit).transform.position + areas[index];
+                //add damage number
             }
+        } if (GUILayout.Button("Load Damage List")) {
+            (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed, (target as Unit).damageListed, new Vector2((target as Unit).damageArea.GetLength(0), (target as Unit).damageArea.GetLength(1)));
         }
+        EditorGUILayout.EndHorizontal();
 
 
         (target as Unit).AI = EditorGUILayout.BeginToggleGroup("Is this an AI?", (target as Unit).AI);

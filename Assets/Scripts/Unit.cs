@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour
     public bool movementWallCrossable;
     public bool movementAllyCrossable;
     public bool movementEnemyCrossable;
+    public List<Vector3> movementAreaListed = new List<Vector3>();
 
     public enum MovementType {Straight, Autodirect, Jump, Teleport}
 
@@ -16,7 +17,8 @@ public class Unit : MonoBehaviour
     public bool damageWallCrossable;
     public bool damageAllyCrossable;
     public bool damageEnemyCrossable;
-
+    public List<Vector3> damageAreaListed = new List<Vector3>();
+    public List<int> damageListed = new List<int>();
 
     public bool AI = false;
 
@@ -117,21 +119,26 @@ public class Unit : MonoBehaviour
             visualizeMovementArea();
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
             visualizeDamageArea();
+        } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Nothing) {
+
         }
     }
     public void onDeselect() {
         //disable visualized ability
+
+        transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
+        transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.SetActive(false);
     }
 
 
     public void visualizeMovementArea()
     {
-
+        transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(true);
     }
 
     public void visualizeDamageArea()
     {
-
+        transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.SetActive(true);
     }
 
     // Start is called before the first frame update
