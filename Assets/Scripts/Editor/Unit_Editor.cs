@@ -178,6 +178,30 @@ public class Unit_Editor : Editor
             //(target as Unit).AI = EditorGUILayout.Toggle("Is this an AI?", (target as Unit).AI/*, AIStyle*/);
         }
 
+        if (GUILayout.Button("Create visual movement area")) {
+            List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
+
+            foreach (Vector3 spot in areas) {
+                GameObject movementSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/MovementSpot") as GameObject);
+
+                movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
+                movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+                movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
+            }
+        }
+        if (GUILayout.Button("Create visual damage area")) {
+            List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
+
+            foreach (Vector3 spot in areas)
+            {
+                GameObject movementSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/DamageSpot") as GameObject);
+
+                movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1));
+                movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+            }
+        }
+
+
         (target as Unit).AI = EditorGUILayout.BeginToggleGroup("Is this an AI?", (target as Unit).AI);
 
         (target as Unit).defensive = EditorGUILayout.Slider("Defensive/Offensive", (target as Unit).defensive, 0f, 100f);
