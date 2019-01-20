@@ -179,6 +179,12 @@ public class Unit_Editor : Editor
         }
 
         if (GUILayout.Button("Create visual movement area")) {
+            if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount > 0) {
+                for (int i = 0; i < (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount; i++) {
+                    Undo.DestroyObjectImmediate((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).GetChild(i).gameObject);
+                }
+            }
+
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
 
             foreach (Vector3 spot in areas) {
