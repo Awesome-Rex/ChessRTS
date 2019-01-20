@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIExecution : MonoBehaviour
+public class AIUnitExecution : MonoBehaviour
 {
     public void move() {
         

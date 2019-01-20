@@ -84,6 +84,29 @@ public class Unit : MonoBehaviour
         }*/
     }
 
+    public void onSelect()
+    {
+        if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement) {
+            visualizeMovementArea();
+        } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
+            visualizeDamageArea();
+        }
+    }
+    public void onDeselect() {
+        //disable visualized ability
+    }
+
+
+    public void visualizeMovementArea()
+    {
+
+    }
+
+    public void visualizeDamageArea()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

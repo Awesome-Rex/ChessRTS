@@ -30,9 +30,18 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
+    public GameObject targetedObject;
+
+    public enum VisualUnitAbility {Nothing, Movement, Damage}
+    public VisualUnitAbility visualUnitAbility;
+
+    public enum ModularVisualUnitsAbility {Nothing, AllyMovement, AllyDamage, EnemyMovement, EnemyDamage}
+    public ModularVisualUnitsAbility modularVisualUnitsAbility;
+
     //temporary
     private UpgraderFunctions upgraderFunctions;
     //
+
 
     public static Vector3[] convert2DtoVector3 (bool[,] map) {
 
