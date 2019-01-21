@@ -77,7 +77,7 @@ public class GameplayControl : MonoBehaviour
         bool[,] array = new bool[(int)dimensions.x, (int)dimensions.y];
 
         for (int i = 0; i < list.Count; i++) {
-            array[Mathf.CeilToInt(dimensions.x / 2) + ((int)(list[i].x)), Mathf.CeilToInt(dimensions.y / 2) + -((int)(list[i].y))] = true;
+            array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = true;
         }
 
         return array;
@@ -87,7 +87,7 @@ public class GameplayControl : MonoBehaviour
 
         for (int i = 0; i < ((list.Count + intList.Count) / 2); i++)
         {
-            array[Mathf.CeilToInt(dimensions.x / 2) + ((int)(list[i].x)), Mathf.CeilToInt(dimensions.y / 2) + -((int)(list[i].y))] = intList[i];
+            array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
         }
 
         return array;

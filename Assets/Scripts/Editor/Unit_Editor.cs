@@ -97,7 +97,7 @@ public class Unit_Editor : Editor
         (target as Unit).movementEnemyCrossable = EditorGUILayout.ToggleLeft("Can move across enemies?", (target as Unit).movementEnemyCrossable);
 
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Override Movement List"))
+        if (GUILayout.Button("Save Movement Area"))
         {
             if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount > 0)
             {
@@ -157,34 +157,36 @@ public class Unit_Editor : Editor
                     {
                         if (((Unit)target).damageArea[x - 1, y - 1] > 0)
                         {
-                            GUI.color = new Color(1, 0, 0);
+                            GUI.backgroundColor = Color.red;
+                            //GUI.color = Color.white;
                         }
 
-                        GUIStyle tileStyle = new GUIStyle();
+                        /*GUIStyle tileStyle = new GUIStyle();
                         tileStyle.alignment = TextAnchor.MiddleCenter;
                         tileStyle.fontSize = 10;
-                        tileStyle.margin = new RectOffset(0, 0, 0, 0);
+                        tileStyle.margin = new RectOffset(0, 0, 0, 0);*/
 
-                        ((Unit)target).damageArea[x - 1, y - 1] = EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1], tileStyle, verticalLayout);
+                        ((Unit)target).damageArea[x - 1, y - 1] = EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1]/*, tileStyle*/, verticalLayout);
 
-                        GUI.color = Color.white;
+                        GUI.backgroundColor = Color.white;
+                        //GUI.color = Color.black;
                     }
                     else
                     {
                         GUI.enabled = false;
-                        GUI.color = new Color(0, 0, 1);
+                        GUI.backgroundColor = Color.blue;
+                        //GUI.color = Color.white;
 
-                        GUIStyle originStyle = new GUIStyle();
+                        /*GUIStyle originStyle = new GUIStyle();
                         originStyle.alignment = TextAnchor.MiddleCenter;
                         originStyle.fontSize = 10;
-                        originStyle.margin = new RectOffset(0, 0, 0, 0);
+                        originStyle.margin = new RectOffset(0, 0, 0, 0);*/
 
-                        GUI.color = new Color(1, 0, 0);
-                        EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1], originStyle, verticalLayout);
-                        GUI.color = Color.white;
-
+                        EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1]/*, originStyle*/, verticalLayout);
+                        
                         GUI.enabled = true;
-                        GUI.color = new Color(1, 1, 1);
+                        GUI.backgroundColor = Color.white;
+                        //GUI.color = Color.black;
                     }
                 }
                 else if (x == 0)
@@ -192,7 +194,7 @@ public class Unit_Editor : Editor
                     GUIStyle rowStyle = new GUIStyle();
                     rowStyle.fontSize = 10;
                     rowStyle.alignment = TextAnchor.MiddleRight;
-                    rowStyle.margin = new RectOffset(5, 5, 0, 0);
+                    //rowStyle.margin = new RectOffset(5, 5, 0, 0);
 
                     EditorGUILayout.LabelField((y - 1).ToString(), rowStyle, verticalLayout);
                 }
@@ -213,10 +215,9 @@ public class Unit_Editor : Editor
         (target as Unit).damageWallCrossable = EditorGUILayout.ToggleLeft("Can attack across walls?", (target as Unit).damageWallCrossable);
         (target as Unit).damageAllyCrossable = EditorGUILayout.ToggleLeft("Can attack across allies?", (target as Unit).damageAllyCrossable);
         (target as Unit).damageEnemyCrossable = EditorGUILayout.ToggleLeft("Can attack across enemies?", (target as Unit).damageEnemyCrossable);
-        EditorGUILayout.LabelField("");
 
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Override Damage List")) {
+        if (GUILayout.Button("Save Damage Area")) {
             if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).childCount > 0)
             {
                 foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).GetComponentsInChildren<Transform>())
@@ -246,7 +247,7 @@ public class Unit_Editor : Editor
         }
         EditorGUILayout.EndHorizontal();
 
-
+        EditorGUILayout.LabelField("");
         (target as Unit).AI = EditorGUILayout.BeginToggleGroup("Is this an AI?", (target as Unit).AI);
 
         (target as Unit).defensive = EditorGUILayout.Slider("Defensive/Offensive", (target as Unit).defensive, 0f, 100f);
