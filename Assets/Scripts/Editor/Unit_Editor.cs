@@ -147,7 +147,7 @@ public class Unit_Editor : Editor
                 EditorGUILayout.LabelField(string.Empty, colStyle, GUILayout.Width(5));
             }
 
-            GUILayoutOption[] verticalLayout = { GUILayout.Width(20)/*, GUILayout.Height(15)*/};
+            GUILayoutOption[] verticalLayout = { GUILayout.Width(20)};
 
             for (int y = 1; y < 18; y++)
             {
@@ -158,35 +158,21 @@ public class Unit_Editor : Editor
                         if (((Unit)target).damageArea[x - 1, y - 1] > 0)
                         {
                             GUI.backgroundColor = Color.red;
-                            //GUI.color = Color.white;
                         }
-
-                        /*GUIStyle tileStyle = new GUIStyle();
-                        tileStyle.alignment = TextAnchor.MiddleCenter;
-                        tileStyle.fontSize = 10;
-                        tileStyle.margin = new RectOffset(0, 0, 0, 0);*/
 
                         ((Unit)target).damageArea[x - 1, y - 1] = EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1]/*, tileStyle*/, verticalLayout);
 
                         GUI.backgroundColor = Color.white;
-                        //GUI.color = Color.black;
                     }
                     else
                     {
                         GUI.enabled = false;
                         GUI.backgroundColor = Color.blue;
-                        //GUI.color = Color.white;
 
-                        /*GUIStyle originStyle = new GUIStyle();
-                        originStyle.alignment = TextAnchor.MiddleCenter;
-                        originStyle.fontSize = 10;
-                        originStyle.margin = new RectOffset(0, 0, 0, 0);*/
-
-                        EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1]/*, originStyle*/, verticalLayout);
+                        EditorGUILayout.IntField(((Unit)target).damageArea[x - 1, y - 1], verticalLayout);
                         
                         GUI.enabled = true;
                         GUI.backgroundColor = Color.white;
-                        //GUI.color = Color.black;
                     }
                 }
                 else if (x == 0)
@@ -194,7 +180,6 @@ public class Unit_Editor : Editor
                     GUIStyle rowStyle = new GUIStyle();
                     rowStyle.fontSize = 10;
                     rowStyle.alignment = TextAnchor.MiddleRight;
-                    //rowStyle.margin = new RectOffset(5, 5, 0, 0);
 
                     EditorGUILayout.LabelField((y - 1).ToString(), rowStyle, verticalLayout);
                 }
