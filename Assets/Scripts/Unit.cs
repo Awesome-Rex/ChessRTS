@@ -106,7 +106,7 @@ public class Unit : MonoBehaviour
         {
 
         }
-        return false;
+        return true;
     } public bool checkDamagable(Vector3 targetPosition) {
         if (!movementAllyCrossable)
         {
@@ -120,7 +120,7 @@ public class Unit : MonoBehaviour
         {
 
         }
-        return false;
+        return true;
     }
 
     public void onSelect()

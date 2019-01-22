@@ -48,48 +48,73 @@ public class SelectionManagement : MonoBehaviour
             Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
-            targetPosition = inputPosition;
 
-            if (targetedObject != null && inputPosition != targetedObject.transform.position)
+            bool includedInArea = false;
+            if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing)
             {
-                targetedObject.selected = false;
-                objectSelected = false;
-
+                if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
+                {
+                    foreach (Vector3 spot in targetedObject.GetComponent<Unit>().movementAreaListed)
+                    {
+                        if (inputPosition == spot)
+                        {
+                            includedInArea = true;
+                        }
+                    }
+                } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
+                {
+                    foreach (Vector3 spot in targetedObject.GetComponent<Unit>().damageAreaListed)
+                    {
+                        if (inputPosition == spot)
+                        {
+                            includedInArea = true;
+                        }
+                    }
+                }
             }
 
-            Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, LayerMask.NameToLayer("Object")).collider != null ? 
-                Physics2D.Raycast(inputPosition, Vector3.zero, 0f, LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() : 
-                null;
+            //if player unit not selected
+            if (
+                !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing)
+                || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing))
+                ) {
+                //check if selection is outside of movement or damage area
+                
+                targetPosition = inputPosition;
 
-            if (targetedObjectCast != null) {
-                targetedObject = targetedObjectCast;
-
-                targetedObjectCast.selected = !targetedObjectCast.selected;
-                objectSelected = targetedObjectCast.selected;
-
-                if (objectSelected)
+                if (targetedObject != null && inputPosition != targetedObject.transform.position)
                 {
+                    targetedObject.selected = false;
+                    objectSelected = false;
+
+                }
+
+                Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, LayerMask.NameToLayer("Object")).collider != null ?
+                    Physics2D.Raycast(inputPosition, Vector3.zero, 0f, LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
+                    null;
+
+                if (targetedObjectCast != null) {
+                    targetedObject = targetedObjectCast;
+
+                    targetedObjectCast.selected = !targetedObjectCast.selected;
+                    objectSelected = targetedObjectCast.selected;
+
+                    if (objectSelected)
+                    {
+                        targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    }
+                    else if (!objectSelected)
+                    {
+                        targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
+                    }
+                } else
+                {
+                    targetedObject = null;
+
+                    objectSelected = false;
                     targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
                 }
-                else if (!objectSelected)
-                {
-                    targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
-                }
-            } else
-            {
-                targetedObject = null;
-
-                objectSelected = false;
-                targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
-
-            /*if (objectSelected) {
-                targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
-            } else if (!objectSelected) {
-                targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
-            }*/
-
-            // display selected data
         }
 
         if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f) {

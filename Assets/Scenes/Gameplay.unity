@@ -509,7 +509,7 @@ MonoBehaviour:
   turnsLife: 0
   turnsNature: 0
   turnsDeath: 0
-  visualUnitAbility: 0
+  visualUnitAbility: 1
   modularVisualUnitsAbility: 0
 --- !u!4 &162877652
 Transform:
@@ -2362,6 +2362,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  deselectEvents:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!61 &1765844914
