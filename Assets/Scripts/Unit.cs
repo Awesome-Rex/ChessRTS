@@ -75,13 +75,23 @@ public class Unit : MonoBehaviour
     public float retreatInfluence = 0;
 
     public void move(Vector3 targetPosition) {
+        //animate transition
 
+        transform.position = targetPosition;
     } public void attack(Vector3 targetPosition) {
-        //Physics2D.Raycast()
+        Health damageTarget = Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider != null ? Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider.GetComponent<Health>() : null;
 
-        /*if () {
+        if (damageTarget != null) {
+            //checks if given damage is in damage area
 
-        }*/
+            //foreach (Vector3 damagePosition in damageAreaListed) {
+                //if (damagePosition == targetPosition) {
+                    //raycast and subtract health
+
+                    damageTarget.takeDamage(damageListed[damageAreaListed.IndexOf(targetPosition)]);
+                //}
+            //}
+        }
     }
 
     public bool checkMovable(Vector3 targetPosition) {

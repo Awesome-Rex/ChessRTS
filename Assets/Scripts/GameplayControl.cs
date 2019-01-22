@@ -17,21 +17,6 @@ public class GameplayControl : MonoBehaviour
     public int turnsNature;
     public int turnsDeath;
 
-    public GameObject targetPositionObject;
-    public Vector3 targetPosition
-    {
-        get
-        {
-            return targetPositionObject.transform.position;
-        }
-        set
-        {
-            targetPositionObject.transform.position = value;
-        }
-    }
-
-    public GameObject targetedObject;
-
     public enum VisualUnitAbility {Nothing, Movement, Damage}
     public VisualUnitAbility visualUnitAbility;
 
