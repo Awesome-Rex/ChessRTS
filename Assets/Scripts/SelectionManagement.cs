@@ -53,6 +53,7 @@ public class SelectionManagement : MonoBehaviour
             if (targetedObject != null && inputPosition != targetedObject.transform.position)
             {
                 targetedObject.selected = false;
+                objectSelected = false;
 
             }
 
@@ -65,10 +66,28 @@ public class SelectionManagement : MonoBehaviour
 
                 targetedObjectCast.selected = !targetedObjectCast.selected;
                 objectSelected = targetedObjectCast.selected;
+
+                if (objectSelected)
+                {
+                    targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                else if (!objectSelected)
+                {
+                    targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
+                }
             } else
             {
                 targetedObject = null;
+
+                objectSelected = false;
+                targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
+
+            /*if (objectSelected) {
+                targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
+            } else if (!objectSelected) {
+                targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
+            }*/
 
             // display selected data
         }
