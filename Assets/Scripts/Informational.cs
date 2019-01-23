@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+public class Informational : MonoBehaviour
 {
-    public int addedGems;
-    public int addedMoney;
+    public string name;
 
-    public void collect() {
-        Game.currentGame.gems += addedGems;
-        Game.currentGame.money += addedMoney;
+    public Sprite sampleImage;
 
-        Destroy(gameObject);
-    }
+    [TextArea] public string description;
 
     // Start is called before the first frame update
     void Start()

@@ -17,37 +17,38 @@ public class PlayerUnitExecution : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        if (GameplayControl.gameplayControl.currentTurn == SideDefine_Comp.side) {
+        if (GameplayControl.gameplayControl.currentTurn == SideDefine_Comp.side && GetComponent<Selectable>().selected) {
 
-            if (/*on click*//*) {
+            if (Input.GetMouseButtonDown(0)) {
+                Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+
                 if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement) {
-                    Vector3 selectedSpot = Vector3.positiveInfinity;
+                    Vector3 selectedSpot = transform.position;
 
                     foreach (Vector3 spot in Unit_Comp.movementAreaListed) {
-                        if (/*cursor position rounded == spot*//*) {
-/*                            selectedSpot = spot;
-                            break;
+                        if (inputPosition == transform.position + spot) {
+                            selectedSpot = transform.position + spot;
                         }
                     }
 
-                    if (selectedSpot != Vector3.positiveInfinity) {
+                    if (selectedSpot != transform.position) {
                         if (Unit_Comp.checkMovable(selectedSpot)) {
                             Unit_Comp.move(selectedSpot);
                         }
                     }
                 } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
-                    Vector3 selectedSpot = Vector3.positiveInfinity;
+                    Vector3 selectedSpot = transform.position;
 
                     foreach (Vector3 spot in Unit_Comp.damageAreaListed)
                     {
-                        if (/*cursor position rounded == spot*//*)
-/*                        {
-                            selectedSpot = spot;
-                            break;
+                        if (inputPosition == transform.position + spot)
+                        {
+                            selectedSpot = transform.position + spot;
                         }
                     }
 
-                    if (selectedSpot != Vector3.positiveInfinity)
+                    if (selectedSpot != transform.position)
                     {
                         if (Unit_Comp.checkDamagable(selectedSpot))
                         {
@@ -57,6 +58,6 @@ public class PlayerUnitExecution : MonoBehaviour
                 }
             }
             
-        }*/
+        }
     }
 }

@@ -77,6 +77,10 @@ public class Unit : MonoBehaviour
     public void move(Vector3 targetPosition) {
         //animate transition
 
+        if (GetComponent<Selectable>().selected)
+        {
+            GameplayControl.gameplayControl.GetComponent<SelectionManagement>().relocateSelected(targetPosition);
+        }
         transform.position = targetPosition;
     } public void attack(Vector3 targetPosition) {
         Health damageTarget = Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider != null ? Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider.GetComponent<Health>() : null;

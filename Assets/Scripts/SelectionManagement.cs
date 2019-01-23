@@ -35,10 +35,15 @@ public class SelectionManagement : MonoBehaviour
 
     public Selectable hoveredObject;
 
+    public void relocateSelected (Vector3 newPosition)
+    {
+        targetPosition = newPosition;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -50,13 +55,13 @@ public class SelectionManagement : MonoBehaviour
 
 
             bool includedInArea = false;
-            if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing)
+            if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
             {
                 if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                 {
                     foreach (Vector3 spot in targetedObject.GetComponent<Unit>().movementAreaListed)
                     {
-                        if (inputPosition == spot)
+                        if (inputPosition == targetedObject.transform.position + spot)
                         {
                             includedInArea = true;
                         }
@@ -65,7 +70,7 @@ public class SelectionManagement : MonoBehaviour
                 {
                     foreach (Vector3 spot in targetedObject.GetComponent<Unit>().damageAreaListed)
                     {
-                        if (inputPosition == spot)
+                        if (inputPosition == targetedObject.transform.position + spot)
                         {
                             includedInArea = true;
                         }
@@ -75,8 +80,8 @@ public class SelectionManagement : MonoBehaviour
 
             //if player unit not selected
             if (
-                !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing)
-                || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing))
+                !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+                || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
                 ) {
                 //check if selection is outside of movement or damage area
                 
