@@ -74,6 +74,9 @@ public class Unit : MonoBehaviour
     public float defenseInfluence = 0;
     public float retreatInfluence = 0;
 
+    //temp
+    private Selectable Selectable_Comp;
+
     public void move(Vector3 targetPosition) {
         //animate transition
 
@@ -158,12 +161,44 @@ public class Unit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Selectable_Comp = GetComponent<Selectable>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f) {
+            if (Selectable_Comp.selected)
+            {
+                if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement && GameplayControl.gameplayControl.visualUnitAbilityMovement != GameplayControl.VisualUnitAbility.Nothing)
+                {
+                    Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+
+                    bool includedInArea = false;
+                    
+                    foreach (Vector3 movementSpot in movementAreaListed)
+                    {
+                        if (movementSpot == inputPosition)
+                        {
+                            includedInArea = true;
+                            break;
+                        }
+                    }
+
+                    if (includedInArea) {
+                        /*if ()
+                        {
+                            //show extra movement area
+                        } else if ()
+                        {
+                            // show extra damage area
+                        }*/
+                    }
+                } else {
+                    //disable visual areas
+                }
+            }
+        }
     }
 }

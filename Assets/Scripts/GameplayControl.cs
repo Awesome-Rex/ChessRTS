@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Side { Life, Nature, Death }
+public enum Side { Life, Nature, Death, Nothing }
 
 public class GameplayControl : MonoBehaviour
 {
@@ -22,6 +22,8 @@ public class GameplayControl : MonoBehaviour
 
     public enum ModularVisualUnitsAbility {Nothing, AllyMovement, AllyDamage, EnemyMovement, EnemyDamage}
     public ModularVisualUnitsAbility modularVisualUnitsAbility;
+
+    public VisualUnitAbility visualUnitAbilityMovement;
 
     //temporary
     private UpgraderFunctions upgraderFunctions;
@@ -93,6 +95,17 @@ public class GameplayControl : MonoBehaviour
         }
 
         return damageList;
+    }
+
+    public static bool objectInSpot (Vector3 spot)
+    {
+        RaycastHit2D objectCast = Physics2D.Raycast(spot, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+
+        if (objectCast.collider != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void executeUpgrade(Upgrade upgrade) {
