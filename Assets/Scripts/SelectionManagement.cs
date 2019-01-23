@@ -86,7 +86,7 @@ public class SelectionManagement : MonoBehaviour
                 //check if selection is outside of movement or damage area
                 
                 targetPosition = inputPosition;
-
+                //////////////////////////error
                 if (targetedObject != null && inputPosition != targetedObject.transform.position)
                 {
                     targetedObject.selected = false;
@@ -94,8 +94,8 @@ public class SelectionManagement : MonoBehaviour
 
                 }
 
-                Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, LayerMask.NameToLayer("Object")).collider != null ?
-                    Physics2D.Raycast(inputPosition, Vector3.zero, 0f, LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
+                Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
+                    Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
                     null;
 
                 if (targetedObjectCast != null) {
