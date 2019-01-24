@@ -74,6 +74,8 @@ public class Unit : MonoBehaviour
     public float defenseInfluence = 0;
     public float retreatInfluence = 0;
 
+    public float sidePriority;
+
     //temp
     private Selectable Selectable_Comp;
 

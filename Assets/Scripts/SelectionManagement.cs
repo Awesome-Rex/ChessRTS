@@ -35,6 +35,8 @@ public class SelectionManagement : MonoBehaviour
 
     public Selectable hoveredObject;
 
+    public bool hoverException;
+
     public void relocateSelected (Vector3 newPosition)
     {
         targetPosition = newPosition;
@@ -44,6 +46,7 @@ public class SelectionManagement : MonoBehaviour
     void Start()
     {
         targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+        hoverException = false;
     }
 
     // Update is called once per frame
@@ -122,13 +125,15 @@ public class SelectionManagement : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f) {
-            Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+        if (!hoverException) {
+            if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f) {
+                Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
-            hoverPosition = inputPosition;
+                hoverPosition = inputPosition;
 
-            //display selected hover data
+                //display selected hover data
+            }
         }
     }
 }
