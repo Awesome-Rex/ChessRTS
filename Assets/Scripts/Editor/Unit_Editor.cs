@@ -109,6 +109,16 @@ public class Unit_Editor : Editor
                         Undo.DestroyObjectImmediate(spot.gameObject);
                     }
                 }
+            } if ((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).childCount > 0)
+            {
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).GetComponentsInChildren<Transform>())
+                {
+
+                    if (spot.gameObject.tag == "AbilitySpot")
+                    {
+                        Undo.DestroyObjectImmediate(spot.gameObject);
+                    }
+                }
             }
 
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
@@ -116,11 +126,21 @@ public class Unit_Editor : Editor
             //visualizes
             foreach (Vector3 spot in areas)
             {
-                GameObject movementSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/MovementSpot") as GameObject);
+                GameObject movementSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MovementSpot")) as GameObject;
 
                 movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
                 movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
                 movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
+
+
+                (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).position = (target as Unit).transform.position;
+                GameObject extraMovementSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MovementSpot")) as GameObject;
+
+                extraMovementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0));
+                extraMovementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+                extraMovementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
+
+                extraMovementSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }
         } if (GUILayout.Button("Load Movement List")) {
             (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed, new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1)));
@@ -213,6 +233,16 @@ public class Unit_Editor : Editor
                         Undo.DestroyObjectImmediate(spot.gameObject);
                     }
                 }
+            } if ((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).childCount > 0)
+            {
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).GetComponentsInChildren<Transform>())
+                {
+
+                    if (spot.gameObject.tag == "AbilitySpot")
+                    {
+                        Undo.DestroyObjectImmediate(spot.gameObject);
+                    }
+                }
             }
 
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
@@ -221,11 +251,20 @@ public class Unit_Editor : Editor
             (target as Unit).damageListed = damageList;
 
             for (int index = 0; index < ((areas.Count + damageList.Count) / 2); index++) {
-                GameObject damageSpotPrefab = Instantiate(Resources.Load("Prefabs/AbilitySpots/DamageSpot") as GameObject);
+                GameObject damageSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/DamageSpot")) as GameObject;
 
                 damageSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1));
                 damageSpotPrefab.transform.position = (target as Unit).transform.position + areas[index];
                 //add damage number
+
+
+                (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).position = (target as Unit).transform.position;
+                GameObject extraDamageSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/DamageSpot")) as GameObject;
+
+                extraDamageSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1));
+                extraDamageSpotPrefab.transform.position = (target as Unit).transform.position + (target as Unit).damageAreaListed[index];
+
+                extraDamageSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }
         } if (GUILayout.Button("Load Damage List")) {
             (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed, (target as Unit).damageListed, new Vector2((target as Unit).damageArea.GetLength(0), (target as Unit).damageArea.GetLength(1)));

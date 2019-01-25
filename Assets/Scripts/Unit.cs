@@ -74,7 +74,10 @@ public class Unit : MonoBehaviour
     public float defenseInfluence = 0;
     public float retreatInfluence = 0;
 
-    public float sidePriority;
+    public float priority;
+
+    public bool hasDeterminedPriority;
+    public float determinedPriority;
 
     //temp
     private Selectable Selectable_Comp;
@@ -181,7 +184,7 @@ public class Unit : MonoBehaviour
                     
                     foreach (Vector3 movementSpot in movementAreaListed)
                     {
-                        if (movementSpot == inputPosition)
+                        if (movementSpot + transform.position == inputPosition)
                         {
                             includedInArea = true;
                             break;
@@ -189,17 +192,37 @@ public class Unit : MonoBehaviour
                     }
 
                     if (includedInArea) {
-                        /*if ()
+                        if (GameplayControl.gameplayControl.visualUnitAbilityMovement == GameplayControl.VisualUnitAbility.Movement)
                         {
+                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(true);
+                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).position = inputPosition;
+
+                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                             //show extra movement area
-                        } else if ()
+                        } else if (GameplayControl.gameplayControl.visualUnitAbilityMovement == GameplayControl.VisualUnitAbility.Damage)
                         {
+                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(true);
+                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).position = inputPosition;
+
+                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                             // show extra damage area
-                        }*/
+                        }
+                    } else
+                    {
+                        transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
+                        transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
+                        //disable visual areas
                     }
                 } else {
+                    transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
+                    transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                     //disable visual areas
                 }
+            } else
+            {
+                transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
+                transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
+                //disable visual areass
             }
         }
     }
