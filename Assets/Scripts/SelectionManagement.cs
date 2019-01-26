@@ -47,6 +47,15 @@ public class SelectionManagement : MonoBehaviour
     {
         targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
         hoverException = false;
+
+        /////////////// test
+        Selectable targetedObjectCast = Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
+                    Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
+                    null;
+        if (targetedObjectCast != null)
+        {
+            Debug.Log("Found!");
+        }
     }
 
     // Update is called once per frame
@@ -57,8 +66,20 @@ public class SelectionManagement : MonoBehaviour
             inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
 
+            bool inputOnTargetObject = false;
+
+            Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
+                    Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
+                    null;
+
+            if (targetedObjectCast != null && targetedObject != null && targetedObjectCast == targetedObject)
+            {
+                inputOnTargetObject = true;
+            }
+
+
             bool includedInArea = false;
-            if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+            if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
             {
                 if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                 {
@@ -83,23 +104,19 @@ public class SelectionManagement : MonoBehaviour
 
             //if player unit not selected
             if (
-                !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
-                || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && inputPosition != targetedObject.transform.position && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
+                !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+                || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
                 ) {
                 //check if selection is outside of movement or damage area
                 
                 targetPosition = inputPosition;
-                //////////////////////////error
-                if (targetedObject != null && inputPosition != targetedObject.transform.position)
+                // fixed ////////////////////////error
+                if (targetedObject != null && /*inputPosition != targetedObject.transform.position*/ !inputOnTargetObject)
                 {
                     targetedObject.selected = false;
                     objectSelected = false;
 
                 }
-
-                Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
-                    Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
-                    null;
 
                 if (targetedObjectCast != null) {
                     targetedObject = targetedObjectCast;
