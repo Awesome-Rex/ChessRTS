@@ -106,7 +106,45 @@ public class GameplayControl : MonoBehaviour
         } else {
             return false;
         }
+    } public static bool objectInSpot (List<Vector3> matter, Vector3 spot)
+    {
+        foreach (Vector3 matterSpot in matter) {
+            RaycastHit2D objectCast = Physics2D.Raycast(spot + matterSpot, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+
+            if (objectCast.collider != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
+
+    public static bool containedInArea (Vector3 location, List<Vector3> area, Vector3 areaLocation)
+    {
+        foreach (Vector3 areaSpot in area)
+        {
+            if (location == areaLocation + areaSpot)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    } public static bool containedInArea (List<Vector3> matter, Vector3 location, List<Vector3> area, Vector3 areaLocation)
+    {
+        foreach (Vector3 matterSpot in matter)
+        {
+            foreach (Vector3 areaSpot in area) {
+                if (!(location + matterSpot == areaLocation + areaSpot))
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    } 
 
     public void executeUpgrade(Upgrade upgrade) {
         if (upgrade.copiesLeft > 0) {
