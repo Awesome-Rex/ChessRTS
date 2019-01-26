@@ -115,7 +115,10 @@ public class Matter_Editor : Editor
                 movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
                 */
 
-                
+                /*foreach ()
+                {
+
+                }*/
             }
         }
         if (GUILayout.Button("Load Matter List"))
