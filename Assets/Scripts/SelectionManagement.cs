@@ -20,6 +20,9 @@ public class SelectionManagement : MonoBehaviour
     public Selectable targetedObject;
     public bool objectSelected;
 
+    public bool selectionException;
+
+
     public GameObject hoverPositionObject;
     public Vector3 hoverPosition
     {
@@ -42,102 +45,123 @@ public class SelectionManagement : MonoBehaviour
         targetPosition = newPosition;
     }
 
+
+    public IEnumerator selectionExceptionFrame ()
+    {
+        selectionException = true;
+
+        yield return null;
+
+        selectionException = false;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+
+        selectionException = false;
         hoverException = false;
 
         /////////////// test
-        Selectable targetedObjectCast = Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
+        /*Selectable targetedObjectCast = Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
                     Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
                     null;
         if (targetedObjectCast != null)
         {
             Debug.Log("Found!");
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+        if (!selectionException) {
+            if (Input.GetMouseButtonDown(0)) {
+                Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
 
-            bool inputOnTargetObject = false;
+                bool inputOnTargetObject = false;
 
-            Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
-                    Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
-                    null;
+                Selectable targetedObjectCast = Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
+                        Physics2D.Raycast(inputPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
+                        null;
 
-            if (targetedObjectCast != null && targetedObject != null && targetedObjectCast == targetedObject)
-            {
-                inputOnTargetObject = true;
-            }
-
-
-            bool includedInArea = false;
-            if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
-            {
-                if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
+                if (targetedObjectCast != null && targetedObject != null && targetedObjectCast == targetedObject)
                 {
-                    foreach (Vector3 spot in targetedObject.GetComponent<Unit>().movementAreaListed)
+                    inputOnTargetObject = true;
+                }
+
+
+                bool includedInArea = false;
+                if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+                {
+                    if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                     {
-                        if (inputPosition == targetedObject.transform.position + spot)
+                        foreach (Vector3 spot in targetedObject.GetComponent<Unit>().movementAreaListed)
                         {
-                            includedInArea = true;
+                            if (inputPosition == targetedObject.transform.position + spot)
+                            {
+                                includedInArea = true;
+                            }
                         }
-                    }
-                } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
-                {
-                    foreach (Vector3 spot in targetedObject.GetComponent<Unit>().damageAreaListed)
+                    } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
                     {
-                        if (inputPosition == targetedObject.transform.position + spot)
+                        foreach (Vector3 spot in targetedObject.GetComponent<Unit>().damageAreaListed)
                         {
-                            includedInArea = true;
+                            if (inputPosition == targetedObject.transform.position + spot)
+                            {
+                                includedInArea = true;
+                            }
                         }
                     }
                 }
-            }
 
-            //if player unit not selected
-            if (
-                !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
-                || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
-                ) {
-                //check if selection is outside of movement or damage area
-                
-                targetPosition = inputPosition;
-                // fixed ////////////////////////error
-                if (targetedObject != null && /*inputPosition != targetedObject.transform.position*/ !inputOnTargetObject)
-                {
-                    targetedObject.selected = false;
-                    objectSelected = false;
+                //if player unit not selected
+                if (
+                    !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+                    || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
+                    ) {
+                    //check if selection is outside of movement or damage area
 
-                }
-
-                if (targetedObjectCast != null) {
-                    targetedObject = targetedObjectCast;
-
-                    targetedObjectCast.selected = !targetedObjectCast.selected;
-                    objectSelected = targetedObjectCast.selected;
-
-                    if (objectSelected)
+                    targetPosition = inputPosition;
+                    // fixed ////////////////////////error
+                    if (targetedObject != null && /*inputPosition != targetedObject.transform.position*/ !inputOnTargetObject)
                     {
+                        targetedObject.selected = false;
+                        objectSelected = false;
+
+                    }
+
+                    if (targetedObjectCast != null) {
+                        targetedObject = targetedObjectCast;
+                        targetPosition = targetedObjectCast.transform.position;
+
+                        targetedObjectCast.selected = !targetedObjectCast.selected;
+                        objectSelected = targetedObjectCast.selected;
+
+                        if (objectSelected)
+                        {
+                            targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
+                        }
+                        else if (!objectSelected)
+                        {
+                            targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
+                        }
+
+                        if (targetedObjectCast.GetComponent<PlayerUnitExecution>() != null)
+                        {
+                            StartCoroutine(targetedObjectCast.GetComponent<PlayerUnitExecution>().abilityExceptionFrame());
+                        }
+                    } else
+                    {
+                        targetedObject = null;
+
+                        objectSelected = false;
                         targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
                     }
-                    else if (!objectSelected)
-                    {
-                        targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0.5f);
-                    }
-                } else
-                {
-                    targetedObject = null;
-
-                    objectSelected = false;
-                    targetPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
                 }
             }
         }

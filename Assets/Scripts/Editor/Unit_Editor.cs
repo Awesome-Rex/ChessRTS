@@ -20,7 +20,7 @@ public class Unit_Editor : Editor
 
         EditorGUILayout.BeginHorizontal();
 
-        for (int x = 0; x < 18; x++)
+        for (int x = 0; x < (target as Unit).movementArea.GetLength(0) + 1; x++)
         {
             EditorGUILayout.BeginVertical();
 
@@ -36,22 +36,19 @@ public class Unit_Editor : Editor
                 EditorGUILayout.LabelField(string.Empty, colStyle, GUILayout.Width(5));
             }
 
-            for (int y = 1; y < 18; y++)
+            for (int y = 1; y < (target as Unit).movementArea.GetLength(1) + 1; y++)
             {
                 if (x > 0)
                 {
-                    if (x != 9 || (x == 9 && y != 9))
-                    {
+                    if (
+                        /*x != 9 || (x == 9 && y != 9)*/
+                        ((target as Unit).movementArea.GetLength(0) % 2 == 0 || (target as Unit).movementArea.GetLength(1) % 2 == 0) ||
+                        (((target as Unit).movementArea.GetLength(0) % 2 != 0 && (target as Unit).movementArea.GetLength(1) % 2 != 0) &&
+                        (x != (Mathf.CeilToInt((target as Unit).movementArea.GetLength(0) / 2) + 1) || (x == (Mathf.CeilToInt((target as Unit).movementArea.GetLength(0) / 2) + 1) && y != (Mathf.CeilToInt((target as Unit).movementArea.GetLength(1) / 2) + 1))))
+                    ) {
                         if (((Unit)target).movementArea[x - 1, y - 1]) {
                             GUI.color = new Color(0, 1, 0);
                         }
-
-                        GUIStyle tileStyle = new GUIStyle();
-                        /*tileStyle.margin.left = 0;
-                        tileStyle.margin.right = 0;
-                        tileStyle.margin.top = 0;
-                        tileStyle.margin.bottom = 0;*/
-
                         
                         ((Unit)target).movementArea[x - 1, y - 1] = EditorGUILayout.Toggle(((Unit)target).movementArea[x - 1, y - 1]/*, tileStyle*/);
 
@@ -60,9 +57,6 @@ public class Unit_Editor : Editor
                     else
                     {
                         GUI.enabled = false;
-
-                        /*GUIStyle originStyle = new GUIStyle();
-                        originStyle.*/
 
                         GUI.color = new Color(0, 0, 1);
                         EditorGUILayout.Toggle(((Unit)target).movementArea[x - 1, y - 1]);
@@ -82,12 +76,14 @@ public class Unit_Editor : Editor
             }
             EditorGUILayout.EndVertical();
         }
-
         EditorGUILayout.EndHorizontal();
+
+        (target as Unit).movementAreaDimensions = EditorGUILayout.Vector2Field("Dimensions", (target as Unit).movementAreaDimensions);
+
 
         GUI.color = Color.red;
         if (GUILayout.Button("Clear")) {
-            (target as Unit).movementArea = new bool[17, 17];
+            (target as Unit).movementArea = new bool[Mathf.RoundToInt((target as Unit).movementAreaDimensions.x), Mathf.RoundToInt((target as Unit).movementAreaDimensions.y)];
         }
         GUI.color = Color.white;
 
@@ -122,7 +118,10 @@ public class Unit_Editor : Editor
             }
 
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
+
             (target as Unit).movementAreaListed = areas;
+            (target as Unit).savedMovementAreaDimensions = new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1));
+
             //visualizes
             foreach (Vector3 spot in areas)
             {
@@ -143,15 +142,19 @@ public class Unit_Editor : Editor
                 extraMovementSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }
         } if (GUILayout.Button("Load Movement List")) {
+            (target as Unit).movementArea = new bool[Mathf.RoundToInt((target as Unit).savedMovementAreaDimensions.x), Mathf.RoundToInt((target as Unit).savedMovementAreaDimensions.y)];
+
             (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed, new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1)));
         }
         EditorGUILayout.EndHorizontal();
+
+        
 
         EditorGUILayout.LabelField("Damage Area", areaStyle);
 
         EditorGUILayout.BeginHorizontal();
 
-        for (int x = 0; x < 18; x++)
+        for (int x = 0; x < (target as Unit).damageArea.GetLength(0) + 1; x++)
         {
             EditorGUILayout.BeginVertical();
 
@@ -169,12 +172,16 @@ public class Unit_Editor : Editor
 
             GUILayoutOption[] verticalLayout = { GUILayout.Width(20)};
 
-            for (int y = 1; y < 18; y++)
+            for (int y = 1; y < (target as Unit).damageArea.GetLength(1) + 1; y++)
             {
                 if (x > 0)
                 {
-                    if (x != 9 || (x == 9 && y != 9))
-                    {
+                    if (
+                        //x != 9 || (x == 9 && y != 9)
+                        ((target as Unit).damageArea.GetLength(0) % 2 == 0 || (target as Unit).damageArea.GetLength(1) % 2 == 0) ||
+                        (((target as Unit).damageArea.GetLength(0) % 2 != 0 && (target as Unit).damageArea.GetLength(1) % 2 != 0) &&
+                        (x != (Mathf.CeilToInt((target as Unit).damageArea.GetLength(0) / 2) + 1) || (x == (Mathf.CeilToInt((target as Unit).damageArea.GetLength(0) / 2) + 1) && y != (Mathf.CeilToInt((target as Unit).damageArea.GetLength(1) / 2) + 1))))
+                    ) {
                         if (((Unit)target).damageArea[x - 1, y - 1] > 0)
                         {
                             GUI.backgroundColor = Color.red;
@@ -206,13 +213,14 @@ public class Unit_Editor : Editor
             }
             EditorGUILayout.EndVertical();
         }
-
         EditorGUILayout.EndHorizontal();
+
+        (target as Unit).damageAreaDimensions = EditorGUILayout.Vector2Field("Dimensions", (target as Unit).damageAreaDimensions);
 
         GUI.color = Color.red;
         if (GUILayout.Button("Clear"))
         {
-            (target as Unit).damageArea = new int[17, 17];
+            (target as Unit).damageArea = new int[Mathf.RoundToInt((target as Unit).damageAreaDimensions.x), Mathf.RoundToInt((target as Unit).damageAreaDimensions.y)];
         }
         GUI.color = Color.white;
 
@@ -247,8 +255,10 @@ public class Unit_Editor : Editor
 
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
             List<int> damageList = GameplayControl.damageAreaToDamageList((target as Unit).damageArea);
+
             (target as Unit).damageAreaListed = areas;
             (target as Unit).damageListed = damageList;
+            (target as Unit).savedDamageAreaDimensions = new Vector2((target as Unit).damageArea.GetLength(0), (target as Unit).damageArea.GetLength(1));
 
             for (int index = 0; index < ((areas.Count + damageList.Count) / 2); index++) {
                 GameObject damageSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/DamageSpot")) as GameObject;
@@ -267,9 +277,13 @@ public class Unit_Editor : Editor
                 extraDamageSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }
         } if (GUILayout.Button("Load Damage List")) {
+            (target as Unit).damageArea = new int[Mathf.RoundToInt((target as Unit).savedDamageAreaDimensions.x), Mathf.RoundToInt((target as Unit).savedDamageAreaDimensions.y)];
+
             (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed, (target as Unit).damageListed, new Vector2((target as Unit).damageArea.GetLength(0), (target as Unit).damageArea.GetLength(1)));
         }
         EditorGUILayout.EndHorizontal();
+
+
 
         EditorGUILayout.LabelField("");
         (target as Unit).AI = EditorGUILayout.BeginToggleGroup("Is this an AI?", (target as Unit).AI);

@@ -27,6 +27,7 @@ public class Matter_Editor : Editor
             GUIStyle colStyle = new GUIStyle();
             colStyle.fontSize = 10;
 
+            //label along x axis
             if (x > 0)
             {
                 EditorGUILayout.LabelField((x - 1).ToString(), colStyle, GUILayout.Width(5));
@@ -41,16 +42,14 @@ public class Matter_Editor : Editor
                 if (x > 0)
                 {
                     if (
-                        ((target as Matter).matterArea.GetLength(0) % 2 != 0 && (target as Matter).matterArea.GetLength(1) % 2 != 0) && 
-                        (x != Mathf.CeilToInt((target as Matter).matterArea.GetLength(0) / 2) || (x == Mathf.CeilToInt((target as Matter).matterArea.GetLength(0) / 2) && y != Mathf.CeilToInt((target as Matter).matterArea.GetLength(1) / 2)))
+                        ((target as Matter).matterArea.GetLength(0) % 2 == 0 || (target as Matter).matterArea.GetLength(1) % 2 == 0) ||
+                        (((target as Matter).matterArea.GetLength(0) % 2 != 0 && (target as Matter).matterArea.GetLength(1) % 2 != 0) && 
+                        (x != (Mathf.CeilToInt((target as Matter).matterArea.GetLength(0) / 2) + 1) || (x == (Mathf.CeilToInt((target as Matter).matterArea.GetLength(0) / 2) + 1) && y != (Mathf.CeilToInt((target as Matter).matterArea.GetLength(1) / 2) + 1))))
                     ) {
                         if (((Matter)target).matterArea[x - 1, y - 1])
                         {
                             GUI.color = new Color(0, 0, 1);
                         }
-
-                        GUIStyle tileStyle = new GUIStyle();
-
 
                         ((Matter)target).matterArea[x - 1, y - 1] = EditorGUILayout.Toggle(((Matter)target).matterArea[x - 1, y - 1]);
 
@@ -61,7 +60,10 @@ public class Matter_Editor : Editor
                         GUI.enabled = false;
 
                         GUI.color = new Color(0, 0, 1);
+
+                        ((Matter)target).matterArea[x - 1, y - 1] = true;
                         EditorGUILayout.Toggle(((Matter)target).matterArea[x - 1, y - 1]);
+
                         GUI.color = Color.white;
 
                         GUI.enabled = true;
@@ -69,6 +71,7 @@ public class Matter_Editor : Editor
                 }
                 else if (x == 0)
                 {
+                    /// label along y axis
                     GUIStyle rowStyle = new GUIStyle();
                     rowStyle.fontSize = 10;
                     rowStyle.alignment = TextAnchor.MiddleRight;
@@ -81,10 +84,14 @@ public class Matter_Editor : Editor
 
         EditorGUILayout.EndHorizontal();
 
+        (target as Matter).matterDimensions = EditorGUILayout.Vector2Field("Dimensions", (target as Matter).matterDimensions);
+
+
+
         GUI.color = Color.red;
         if (GUILayout.Button("Clear"))
         {
-            (target as Matter).matterArea = new bool[17, 17];
+            (target as Matter).matterArea = new bool[Mathf.RoundToInt((target as Matter).matterDimensions.x), Mathf.RoundToInt((target as Matter).matterDimensions.y)];
         }
         GUI.color = Color.white;
 
@@ -93,10 +100,10 @@ public class Matter_Editor : Editor
         {
             if ((target as Matter).transform.Find("Colliders").GetChild(0).childCount > 0)
             {
-                foreach (Transform spot in (target as Matter).transform.Find("Collides").GetChild(0).GetComponentsInChildren<Transform>())
+                foreach (Transform spot in (target as Matter).transform.Find("Colliders").GetChild(0).GetComponentsInChildren<Transform>())
                 {
 
-                    if (spot.gameObject != (target as Matter).gameObject)
+                    if (spot.gameObject.GetInstanceID() != (target as Matter).transform.Find("Colliders").GetChild(0).gameObject.GetInstanceID())
                     {
                         Undo.DestroyObjectImmediate(spot.gameObject);
                     }
@@ -104,25 +111,23 @@ public class Matter_Editor : Editor
             }
 
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
+
             (target as Matter).matterAreaListed = areas;
+            (target as Matter).savedMatterDimensions = new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1));
+
             //visualizes
             foreach (Vector3 spot in areas)
             {
-                /*GameObject movementSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MovementSpot")) as GameObject;
+                GameObject colliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/ObjectColliderTile")) as GameObject;
 
-                movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
-                movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
-                movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
-                */
-
-                /*foreach ()
-                {
-
-                }*/
+                colliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("Colliders").GetChild(0));
+                colliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
             }
         }
         if (GUILayout.Button("Load Matter List"))
         {
+            (target as Matter).matterArea = new bool[Mathf.RoundToInt((target as Matter).savedMatterDimensions.x), Mathf.RoundToInt((target as Matter).savedMatterDimensions.y)];
+
             (target as Matter).matterArea = GameplayControl.listTo2DArray((target as Matter).matterAreaListed, new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1)));
         }
         EditorGUILayout.EndHorizontal();

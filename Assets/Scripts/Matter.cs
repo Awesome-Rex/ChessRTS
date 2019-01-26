@@ -5,24 +5,11 @@ using UnityEngine;
 public class Matter : MonoBehaviour
 {
     public bool[,] matterArea = new bool[17, 17];
+    public Vector2 matterDimensions = new Vector2(17, 17);
+
 
     public List<Vector3> matterAreaListed;
-
-    public void createCollider ()
-    {
-        if (transform.Find("Colliders").GetChild(0).childCount > 0)
-        {
-            foreach (Transform colliderChild in transform.Find("Colliders").GetChild(0).GetComponentInChildren<Transform>())
-            {
-                Destroy(colliderChild.gameObject);
-            }
-        }
-
-        foreach (Vector3 matterSpot in matterAreaListed)
-        {
-            
-        }
-    }
+    public Vector2 savedMatterDimensions = new Vector2(17, 17);
 
     // Start is called before the first frame update
     void Start()

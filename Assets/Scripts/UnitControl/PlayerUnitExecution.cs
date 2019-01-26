@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class PlayerUnitExecution : MonoBehaviour
 {
+    public bool abilityException;
+
     private SideDefine SideDefine_Comp;
     private Unit Unit_Comp;
+
+    public IEnumerator abilityExceptionFrame ()
+    {
+        abilityException = true;
+
+        yield return null;
+
+        abilityException = false;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        abilityException = false;
+
         SideDefine_Comp = GetComponent<SideDefine>();
         Unit_Comp = GetComponent<Unit>();
     }
@@ -17,47 +30,61 @@ public class PlayerUnitExecution : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameplayControl.gameplayControl.currentTurn == SideDefine_Comp.side && GetComponent<Selectable>().selected) {
+        if (!abilityException) {
+            if (GameplayControl.gameplayControl.currentTurn == SideDefine_Comp.side && GetComponent<Selectable>().selected)
+            {
 
-            if (Input.GetMouseButtonDown(0)) {
-                Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
-                if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement) {
-                    Vector3 selectedSpot = transform.position;
-
-                    foreach (Vector3 spot in Unit_Comp.movementAreaListed) {
-                        if (inputPosition == transform.position + spot) {
-                            selectedSpot = transform.position + spot;
-                        }
-                    }
-
-                    if (selectedSpot != transform.position) {
-                        if (Unit_Comp.checkMovable(selectedSpot)) {
-                            Unit_Comp.move(selectedSpot);
-                        }
-                    }
-                } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
-                    Vector3 selectedSpot = transform.position;
-
-                    foreach (Vector3 spot in Unit_Comp.damageAreaListed)
+                    if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                     {
-                        if (inputPosition == transform.position + spot)
+                        Vector3 selectedSpot = transform.position;
+
+                        foreach (Vector3 spot in Unit_Comp.movementAreaListed)
                         {
-                            selectedSpot = transform.position + spot;
+                            if (inputPosition == transform.position + spot)
+                            {
+                                selectedSpot = transform.position + spot;
+                            }
+                        }
+
+                        if (selectedSpot != transform.position)
+                        {
+                            if (Unit_Comp.checkMovable(selectedSpot))
+                            {
+                                Unit_Comp.move(selectedSpot);
+
+                                StartCoroutine(GameplayControl.gameplayControl.GetComponent<SelectionManagement>().selectionExceptionFrame());
+                            }
                         }
                     }
-
-                    if (selectedSpot != transform.position)
+                    else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
                     {
-                        if (Unit_Comp.checkDamagable(selectedSpot))
+                        Vector3 selectedSpot = transform.position;
+
+                        foreach (Vector3 spot in Unit_Comp.damageAreaListed)
                         {
-                            Unit_Comp.attack(selectedSpot);
+                            if (inputPosition == transform.position + spot)
+                            {
+                                selectedSpot = transform.position + spot;
+                            }
+                        }
+
+                        if (selectedSpot != transform.position)
+                        {
+                            if (Unit_Comp.checkDamagable(selectedSpot))
+                            {
+                                Unit_Comp.attack(selectedSpot);
+
+                                StartCoroutine(GameplayControl.gameplayControl.GetComponent<SelectionManagement>().selectionExceptionFrame());
+                            }
                         }
                     }
                 }
             }
-            
         }
     }
 }

@@ -29,7 +29,7 @@ public class GameplayControl : MonoBehaviour
     private UpgraderFunctions upgraderFunctions;
     //
 
-
+    //area to list
     public static List<Vector3> convert2DtoVector3 (bool[,] map) {
         List<Vector3> spots = new List<Vector3>();
 
@@ -58,7 +58,24 @@ public class GameplayControl : MonoBehaviour
 
         return spots;
     }
+    public static List<int> damageAreaToDamageList(int[,] map)
+    {
+        List<int> damageList = new List<int>();
 
+        for (int x = 0; x < map.GetLength(0); x++)
+        {
+            for (int y = 0; y < map.GetLength(1); y++)
+            {
+                if (map[x, y] > 0)
+                {
+                    damageList.Add(map[x, y]);
+                }
+            }
+        }
+
+        return damageList;
+    }
+    //list to area
     public static bool[,] listTo2DArray (List<Vector3> list, Vector2 dimensions)
     {
         bool[,] array = new bool[(int)dimensions.x, (int)dimensions.y];
@@ -80,22 +97,7 @@ public class GameplayControl : MonoBehaviour
         return array;
     }
 
-    public static List<int> damageAreaToDamageList(int[,] map) {
-        List<int> damageList = new List<int>();
 
-        for (int x = 0; x < map.GetLength(0); x++)
-        {
-            for (int y = 0; y < map.GetLength(1); y++)
-            {
-                if (map[x, y] > 0)
-                {
-                    damageList.Add(map[x, y]);
-                }
-            }
-        }
-
-        return damageList;
-    }
 
     public static bool objectInSpot (Vector3 spot)
     {
@@ -131,7 +133,8 @@ public class GameplayControl : MonoBehaviour
         }
 
         return false;
-    } public static bool containedInArea (List<Vector3> matter, Vector3 location, List<Vector3> area, Vector3 areaLocation)
+    }
+    public static bool containedInArea (List<Vector3> matter, Vector3 location, List<Vector3> area, Vector3 areaLocation)
     {
         foreach (Vector3 matterSpot in matter)
         {

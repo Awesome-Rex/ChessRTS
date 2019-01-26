@@ -6,19 +6,30 @@ public class Unit : MonoBehaviour
 {
     
     public bool[,] movementArea = new bool[17, 17];
+    public Vector2 movementAreaDimensions = new Vector2(17, 17);
+
     public bool movementWallCrossable;
     public bool movementAllyCrossable;
     public bool movementEnemyCrossable;
+
     public List<Vector3> movementAreaListed = new List<Vector3>();
+    public Vector2 savedMovementAreaDimensions;
 
     public enum MovementType {Straight, Autodirect, Jump, Teleport}
 
+
     public int[,] damageArea = new int[17, 17];
+    public Vector2 damageAreaDimensions = new Vector2(17, 17);
+
     public bool damageWallCrossable;
     public bool damageAllyCrossable;
     public bool damageEnemyCrossable;
+
     public List<Vector3> damageAreaListed = new List<Vector3>();
     public List<int> damageListed = new List<int>();
+    public Vector2 savedDamageAreaDimensions;
+
+
 
     public bool AI = false;
 
