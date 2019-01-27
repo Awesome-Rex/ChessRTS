@@ -11,6 +11,11 @@ public struct Spawnable
 public class Spawner : MonoBehaviour
 {
     public bool[,] spawnArea = new bool[9, 9];
+    public Vector2 spawnAreaDimensions = new Vector2(9, 9);
+
+    public List<Vector3> spawnAreaListed;
+    public Vector2 savedSpawnAreaDimensions = new Vector2(9, 9);
+
 
     public List<Spawnable> spawnObjects = new List<Spawnable>();
 

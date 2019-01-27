@@ -36,7 +36,12 @@ public class GameplayControl : MonoBehaviour
         for (int x = 0; x < map.GetLength(0); x++) {
             for (int y = 0; y < map.GetLength(1); y++) {
                 if (map[x, y] == true) {
-                    spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                    if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 != 0) {
+                        spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                    } else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
+                    {
+                        spots.Add(new Vector3((x - ((map.GetLength(0) / 2) + 0.5f)), -(y - ((map.GetLength(1) / 2) + 0.5f)), 0));
+                    }
                 }
             }
         }
@@ -51,7 +56,14 @@ public class GameplayControl : MonoBehaviour
             {
                 if (map[x, y] > 0)
                 {
-                    spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                    if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 != 0)
+                    {
+                        spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                    }
+                    else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
+                    {
+                        spots.Add(new Vector3((x - ((map.GetLength(0) / 2) + 0.5f)), -(y - ((map.GetLength(1) / 2) + 0.5f)), 0));
+                    }
                 }
             }
         }
@@ -81,7 +93,14 @@ public class GameplayControl : MonoBehaviour
         bool[,] array = new bool[(int)dimensions.x, (int)dimensions.y];
 
         for (int i = 0; i < list.Count; i++) {
-            array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = true;
+            if (dimensions.x % 2 != 0 && dimensions.y % 2 != 0)
+            {
+                array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = true;
+            }
+            else if (dimensions.x % 2 == 0 || dimensions.y % 2 == 0)
+            {
+                array[(int)(((dimensions.x / 2) - 0) + 0.5f) + ((int)(list[i].x)), (int)(((dimensions.x / 2) - 0) + 0.5f) + -((int)(list[i].y))] = true;
+            }
         }
 
         return array;
@@ -91,7 +110,15 @@ public class GameplayControl : MonoBehaviour
 
         for (int i = 0; i < ((list.Count + intList.Count) / 2); i++)
         {
-            array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
+            //array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
+            if (dimensions.x % 2 != 0 && dimensions.y % 2 != 0)
+            {
+                array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
+            }
+            else if (dimensions.x % 2 == 0 || dimensions.y % 2 == 0)
+            {
+                array[(int)(((dimensions.x / 2) - 0) + 0.5f) + ((int)(list[i].x)), (int)(((dimensions.x / 2) - 0) + 0.5f) + -((int)(list[i].y))] = intList[i];
+            }
         }
 
         return array;

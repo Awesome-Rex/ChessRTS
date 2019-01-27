@@ -144,7 +144,7 @@ public class Unit_Editor : Editor
         } if (GUILayout.Button("Load Movement List")) {
             (target as Unit).movementArea = new bool[Mathf.RoundToInt((target as Unit).savedMovementAreaDimensions.x), Mathf.RoundToInt((target as Unit).savedMovementAreaDimensions.y)];
 
-            (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed, new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1)));
+            (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed, new Vector2((target as Unit).savedMovementAreaDimensions.x, (target as Unit).savedMovementAreaDimensions.y));
         }
         EditorGUILayout.EndHorizontal();
 
@@ -279,7 +279,7 @@ public class Unit_Editor : Editor
         } if (GUILayout.Button("Load Damage List")) {
             (target as Unit).damageArea = new int[Mathf.RoundToInt((target as Unit).savedDamageAreaDimensions.x), Mathf.RoundToInt((target as Unit).savedDamageAreaDimensions.y)];
 
-            (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed, (target as Unit).damageListed, new Vector2((target as Unit).damageArea.GetLength(0), (target as Unit).damageArea.GetLength(1)));
+            (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed, (target as Unit).damageListed, new Vector2((target as Unit).savedDamageAreaDimensions.x, (target as Unit).savedDamageAreaDimensions.y));
         }
         EditorGUILayout.EndHorizontal();
 
