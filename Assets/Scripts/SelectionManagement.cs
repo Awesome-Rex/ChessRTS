@@ -63,15 +63,6 @@ public class SelectionManagement : MonoBehaviour
 
         selectionException = false;
         hoverException = false;
-
-        /////////////// test
-        /*Selectable targetedObjectCast = Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider != null ?
-                    Physics2D.Raycast(new Vector3(-1f, 1f, 0f), Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Selectable>() :
-                    null;
-        if (targetedObjectCast != null)
-        {
-            Debug.Log("Found!");
-        }*/
     }
 
     // Update is called once per frame
@@ -96,35 +87,38 @@ public class SelectionManagement : MonoBehaviour
 
 
                 bool includedInArea = false;
-                if (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+                if (/*!inputOnTargetObject && */targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
                 {
                     if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                     {
-                        foreach (Vector3 spot in targetedObject.GetComponent<Unit>().movementAreaListed)
+                        if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 || targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
                         {
-                            if (inputPosition == targetedObject.transform.position + spot)
-                            {
-                                includedInArea = true;
-                            }
+                            inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        }
+
+                        if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                        {
+                            includedInArea = true;
                         }
                     } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
                     {
-                        foreach (Vector3 spot in targetedObject.GetComponent<Unit>().damageAreaListed)
+                        if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().damageAreaListed, targetedObject.transform.position))
                         {
-                            if (inputPosition == targetedObject.transform.position + spot)
-                            {
-                                includedInArea = true;
-                            }
+                            includedInArea = true;
                         }
                     }
                 }
-
+                
                 //if player unit not selected
                 if (
-                    !(targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
-                    || (!includedInArea && (targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected && !inputOnTargetObject/*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
+                    !(/*!inputOnTargetObject && */targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected /*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
+                    || (!includedInArea && (/*!inputOnTargetObject && */targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected /*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))
                     ) {
                     //check if selection is outside of movement or damage area
+                    inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+
 
                     targetPosition = inputPosition;
                     // fixed ////////////////////////error
@@ -168,10 +162,29 @@ public class SelectionManagement : MonoBehaviour
 
         if (!hoverException) {
             if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f) {
+                
                 Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
-                hoverPosition = inputPosition;
+                if (targetedObject != null && targetedObject.GetComponent<Unit>() != null && GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement && (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 || targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)) {
+                    //if even
+
+                    if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                    {
+                        inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        hoverPosition = inputPosition;
+                    } else
+                    {
+                        inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+                        hoverPosition = inputPosition;
+                    }
+                } else
+                {
+                    // if odd
+
+                    inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+                    hoverPosition = inputPosition;
+                }
+                
 
                 //display selected hover data
             }

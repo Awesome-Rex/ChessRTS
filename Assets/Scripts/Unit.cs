@@ -92,6 +92,7 @@ public class Unit : MonoBehaviour
 
     //temp
     private Selectable Selectable_Comp;
+    private Matter Matter_Comp;
 
     public void move(Vector3 targetPosition) {
         //animate transition
@@ -178,6 +179,7 @@ public class Unit : MonoBehaviour
     void Start()
     {
         Selectable_Comp = GetComponent<Selectable>();
+        Matter_Comp = GetComponent<Matter>();
     }
 
     // Update is called once per frame
@@ -189,20 +191,15 @@ public class Unit : MonoBehaviour
                 if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement && GameplayControl.gameplayControl.visualUnitAbilityMovement != GameplayControl.VisualUnitAbility.Nothing)
                 {
                     Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
-                    bool includedInArea = false;
-                    
-                    foreach (Vector3 movementSpot in movementAreaListed)
+                    if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0) {
+                        inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+                    } else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0)
                     {
-                        if (movementSpot + transform.position == inputPosition)
-                        {
-                            includedInArea = true;
-                            break;
-                        }
+                        inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
                     }
 
-                    if (includedInArea) {
+                    if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
                         if (GameplayControl.gameplayControl.visualUnitAbilityMovement == GameplayControl.VisualUnitAbility.Movement)
                         {
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(true);
