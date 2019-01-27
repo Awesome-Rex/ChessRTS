@@ -128,7 +128,7 @@ public class Matter_Editor : Editor
         {
             (target as Matter).matterArea = new bool[Mathf.RoundToInt((target as Matter).savedMatterDimensions.x), Mathf.RoundToInt((target as Matter).savedMatterDimensions.y)];
 
-            (target as Matter).matterArea = GameplayControl.listTo2DArray((target as Matter).matterAreaListed, new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1)));
+            (target as Matter).matterArea = GameplayControl.listTo2DArray((target as Matter).matterAreaListed, new Vector2((target as Matter).savedMatterDimensions.x, (target as Matter).savedMatterDimensions.y));
         }
         EditorGUILayout.EndHorizontal();
     }

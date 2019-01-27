@@ -40,7 +40,7 @@ public class GameplayControl : MonoBehaviour
                         spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
                     } else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
                     {
-                        spots.Add(new Vector3((x - ((map.GetLength(0) / 2) + 0.5f)), -(y - ((map.GetLength(1) / 2) + 0.5f)), 0));
+                        spots.Add(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0));
                     }
                 }
             }
@@ -62,7 +62,7 @@ public class GameplayControl : MonoBehaviour
                     }
                     else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
                     {
-                        spots.Add(new Vector3((x - ((map.GetLength(0) / 2) + 0.5f)), -(y - ((map.GetLength(1) / 2) + 0.5f)), 0));
+                        spots.Add(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0));
                     }
                 }
             }
@@ -99,7 +99,7 @@ public class GameplayControl : MonoBehaviour
             }
             else if (dimensions.x % 2 == 0 || dimensions.y % 2 == 0)
             {
-                array[(int)(((dimensions.x / 2) - 0) + 0.5f) + ((int)(list[i].x)), (int)(((dimensions.x / 2) - 0) + 0.5f) + -((int)(list[i].y))] = true;
+                array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = true;
             }
         }
 
@@ -117,7 +117,7 @@ public class GameplayControl : MonoBehaviour
             }
             else if (dimensions.x % 2 == 0 || dimensions.y % 2 == 0)
             {
-                array[(int)(((dimensions.x / 2) - 0) + 0.5f) + ((int)(list[i].x)), (int)(((dimensions.x / 2) - 0) + 0.5f) + -((int)(list[i].y))] = intList[i];
+                array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = intList[i];
             }
         }
 
