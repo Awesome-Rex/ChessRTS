@@ -6,6 +6,9 @@ TextureImporter:
     21300002: DamageSpot
     21300004: SelectionMarker
     21300006: HoverMarker
+    21300008: MovementSpotBackground
+    21300010: DamageSpotBackground
+    21300012: MatterSpotBackground
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -200,13 +203,73 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: f17b9919740dc774aa2d8dd6822c09a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementSpotBackground
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1808
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e50c97d72954fe448cdd0b45a20ed4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DamageSpotBackground
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1808
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b065596c06f55844b895e112b4c98b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MatterSpotBackground
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1808
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9703f95cfacbf544f95117a3c2707edb
       vertices: []
       indices: 
       edges: []

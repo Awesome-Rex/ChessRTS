@@ -632,7 +632,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -788524239
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: e3937075d3361cd4ba4e90c0ac4093e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1221,6 +1221,7 @@ GameObject:
   - component: {fileID: 162877651}
   - component: {fileID: 162877650}
   - component: {fileID: 162877653}
+  - component: {fileID: 162877654}
   m_Layer: 0
   m_Name: GameplayControl
   m_TagString: Untagged
@@ -1258,7 +1259,7 @@ MonoBehaviour:
   turnsLife: 0
   turnsNature: 0
   turnsDeath: 0
-  visualUnitAbility: 1
+  visualUnitAbility: 2
   modularVisualUnitsAbility: 0
   visualUnitAbilityMovement: 2
 --- !u!4 &162877652
@@ -1294,6 +1295,18 @@ MonoBehaviour:
   hoverPositionObject: {fileID: 973562643}
   hoveredObject: {fileID: 0}
   hoverException: 0
+--- !u!114 &162877654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162877649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebb4f2e5acfaf94cb599bc030abef8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &168023340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2442,56 +2455,6 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
-  - m_Collider: {fileID: 0}
-    m_ColliderPaths:
-    - - X: 5000000
-        Y: 5000000
-      - X: -5000000
-        Y: 5000000
-      - X: -5000000
-        Y: -5000000
-      - X: 5000000
-        Y: -5000000
-  - m_Collider: {fileID: 0}
-    m_ColliderPaths:
-    - - X: 15000000
-        Y: 5000000
-      - X: 5000000
-        Y: 5000000
-      - X: 5000000
-        Y: -5000000
-      - X: 15000000
-        Y: -5000000
-  - m_Collider: {fileID: 0}
-    m_ColliderPaths:
-    - - X: 5000000
-        Y: 15000000
-      - X: -5000000
-        Y: 15000000
-      - X: -5000000
-        Y: 5000000
-      - X: 5000000
-        Y: 5000000
-  - m_Collider: {fileID: 0}
-    m_ColliderPaths:
-    - - X: -5000000
-        Y: 5000000
-      - X: -15000000
-        Y: 5000000
-      - X: -15000000
-        Y: -5000000
-      - X: -5000000
-        Y: -5000000
-  - m_Collider: {fileID: 0}
-    m_ColliderPaths:
-    - - X: 5000000
-        Y: -5000000
-      - X: -5000000
-        Y: -5000000
-      - X: -5000000
-        Y: -15000000
-      - X: 5000000
-        Y: -15000000
   - m_Collider: {fileID: 1246289415}
     m_ColliderPaths:
     - - X: 5000000
@@ -2504,18 +2467,10 @@ CompositeCollider2D:
         Y: -5000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -1.5, y: -0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: -0.5, y: -1.5}
-      - {x: 0.5, y: -1.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 1.5, y: -0.5}
-      - {x: 1.5, y: 0.5}
-      - {x: 0.5, y: 0.5}
-      - {x: 0.5, y: 1.5}
-      - {x: -0.5, y: 1.5}
+    - - {x: 0.5, y: 0.5}
       - {x: -0.5, y: 0.5}
-      - {x: -1.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.5, y: -0.5}
   m_VertexDistance: 0.0005
 --- !u!4 &241844805
 Transform:
@@ -8890,7 +8845,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -788524239
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300006, guid: e3937075d3361cd4ba4e90c0ac4093e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9356,8 +9311,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -420300539
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9671,8 +9626,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057519001}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -420300539
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!1 &1060337115
 GameObject:
@@ -12653,8 +12608,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -420300539
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16889,8 +16844,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910298429}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -420300539
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!1001 &1910399755
 PrefabInstance:
@@ -17738,8 +17693,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975271527}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -420300539
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!4 &1976692632 stripped
 Transform:
@@ -18609,8 +18564,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -420300539
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
