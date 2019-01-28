@@ -97,7 +97,7 @@ public class Unit_Editor : Editor
         {
             if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount > 0)
             {
-                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).GetComponentsInChildren<Transform>())
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
                 {
 
                     if (spot.gameObject.tag == "AbilitySpot")
@@ -107,7 +107,7 @@ public class Unit_Editor : Editor
                 }
             } if ((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).childCount > 0)
             {
-                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).GetComponentsInChildren<Transform>())
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
                 {
 
                     if (spot.gameObject.tag == "AbilitySpot")
@@ -129,7 +129,7 @@ public class Unit_Editor : Editor
 
                 movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
                 movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
-                movementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
+                movementSpotPrefab.transform.GetChild(0).right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
 
 
                 (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).position = (target as Unit).transform.position;
@@ -137,7 +137,7 @@ public class Unit_Editor : Editor
 
                 extraMovementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0));
                 extraMovementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
-                extraMovementSpotPrefab.transform.right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
+                extraMovementSpotPrefab.transform.GetChild(0).right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
 
                 extraMovementSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }
