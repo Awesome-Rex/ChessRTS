@@ -109,6 +109,17 @@ public class Matter_Editor : Editor
                     }
                 }
             }
+            if ((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).childCount > 0)
+            {
+                foreach (Transform spot in (target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).GetComponentsInChildren<Transform>())
+                {
+
+                    if (spot.gameObject.GetInstanceID() != (target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.GetInstanceID())
+                    {
+                        Undo.DestroyObjectImmediate(spot.gameObject);
+                    }
+                }
+            }
 
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
 
@@ -122,6 +133,11 @@ public class Matter_Editor : Editor
 
                 colliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("Colliders").GetChild(0));
                 colliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
+
+                GameObject visualColliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MatterSpot")) as GameObject;
+
+                visualColliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2));
+                visualColliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
             }
         }
         if (GUILayout.Button("Load Matter List"))
