@@ -192,7 +192,7 @@ public class Unit : MonoBehaviour
                 {
                     Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                    if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0) {
+                    if (Matter_Comp.savedMatterDimensions.x % 2f != 0 && Matter_Comp.savedMatterDimensions.y % 2f != 0) {
                         inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
                     } else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0)
                     {
@@ -200,39 +200,40 @@ public class Unit : MonoBehaviour
                     }
 
                     if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
-                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = false;
+                        //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = false;
+                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(false);
+                        Debug.Log("Supposed to be disabling hover object!");
+
+                        transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(true);
+                        transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).position = inputPosition;
 
                         if (GameplayControl.gameplayControl.visualUnitAbilityMovement == GameplayControl.VisualUnitAbility.Movement)
                         {
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(true);
-                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(true);
-
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).position = inputPosition;
-                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).position = inputPosition;
 
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                             //show extra movement area
                         } else if (GameplayControl.gameplayControl.visualUnitAbilityMovement == GameplayControl.VisualUnitAbility.Damage)
                         {
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(true);
-                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(true);
-
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).position = inputPosition;
-                            transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).position = inputPosition;
 
                             transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                             // show extra damage area
                         }
                     } else
                     {
-                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
+                        //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
+                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);
                         //disable visual areas
                     }
                 } else {
-                    GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
+                    //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
+                    GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
                     transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                     transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                     transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);
@@ -240,7 +241,8 @@ public class Unit : MonoBehaviour
                 }
             } else
             {
-                GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
+                //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
+                GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);
