@@ -43,30 +43,33 @@ public class PlayerUnitExecution : MonoBehaviour
 
                     if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                     {
-                        if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0) {
-                            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
-
-                            if (GameplayControl.containedInArea(inputPosition, Unit_Comp.movementAreaListed, transform.position))
-                            {
-                                if (Unit_Comp.checkMovable(inputPosition))
-                                {
-                                    Unit_Comp.move(inputPosition);
-
-                                    StartCoroutine(GameplayControl.gameplayControl.GetComponent<SelectionManagement>().selectionExceptionFrame());
-                                }
-                            }
-                        } else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0)
+                        if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0)
                         {
-                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
-
-                            if (GameplayControl.containedInArea(inputPosition, Unit_Comp.movementAreaListed, transform.position))
+                            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+                        }
+                        else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0)
+                        {
+                            if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0)
                             {
-                                if (Unit_Comp.checkMovable(inputPosition))
-                                {
-                                    Unit_Comp.move(inputPosition);
+                                inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            }
+                            else if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0)
+                            {
+                                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            }
+                            else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0)
+                            {
+                                inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
+                            }
+                        }
 
-                                    StartCoroutine(GameplayControl.gameplayControl.GetComponent<SelectionManagement>().selectionExceptionFrame());
-                                }
+                        if (GameplayControl.containedInArea(inputPosition, Unit_Comp.movementAreaListed, transform.position))
+                        {
+                            if (Unit_Comp.checkMovable(inputPosition))
+                            {
+                                Unit_Comp.move(inputPosition);
+
+                                StartCoroutine(GameplayControl.gameplayControl.GetComponent<SelectionManagement>().selectionExceptionFrame());
                             }
                         }
                     }

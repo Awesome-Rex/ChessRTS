@@ -196,12 +196,20 @@ public class Unit : MonoBehaviour
                         inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
                     } else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0)
                     {
-                        inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0) {
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        } else if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0)
+                        {
+                            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        } else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0)
+                        {
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
+                        }
                     }
 
                     if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
-                        //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = false;
-                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(false);
+                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().color = Color.clear;
+                        //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(false);
                         Debug.Log("Supposed to be disabling hover object!");
 
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(true);
@@ -225,15 +233,15 @@ public class Unit : MonoBehaviour
                     } else
                     {
                         //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
-                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
+                        GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);
                         //disable visual areas
                     }
                 } else {
-                    //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
-                    GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
+                    GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
                     transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                     transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                     transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);
@@ -241,8 +249,8 @@ public class Unit : MonoBehaviour
                 }
             } else
             {
-                //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().enabled = true;
-                GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
+                //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().color = Color.white;
+                //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(true);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);

@@ -94,7 +94,20 @@ public class SelectionManagement : MonoBehaviour
                         if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 || targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
                         {
                             inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+
+                            //inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
+                            {
+                                inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            }
+                            else if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 != 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
+                            {
+                                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            }
+                            else if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 != 0)
+                            {
+                                inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
+                            }
                         }
 
                         if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
@@ -168,9 +181,31 @@ public class SelectionManagement : MonoBehaviour
                 if (targetedObject != null && targetedObject.GetComponent<Unit>() != null && GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement && (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 || targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)) {
                     //if even
 
-                    if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                    bool inArea = false;
+
+                    if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
                     {
-                        inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position)) {
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            inArea = true;
+                        }
+                    } else if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 != 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
+                    {
+                        if (GameplayControl.containedInArea(new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                        {
+                            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                            inArea = true;
+                        }
+                    } else if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 != 0) {
+                        if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                        {
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
+                            inArea = true;
+                        }
+                    }
+
+                    if (inArea) {
+                        //inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
                         hoverPosition = inputPosition;
                     } else
                     {

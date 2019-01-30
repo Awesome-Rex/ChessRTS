@@ -233,7 +233,7 @@ public class Unit_Editor : Editor
         if (GUILayout.Button("Save Damage Area")) {
             if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).childCount > 0)
             {
-                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).GetComponentsInChildren<Transform>())
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
                 {
 
                     if (spot.gameObject.tag == "AbilitySpot")
@@ -243,7 +243,7 @@ public class Unit_Editor : Editor
                 }
             } if ((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).childCount > 0)
             {
-                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).GetComponentsInChildren<Transform>())
+                foreach (Transform spot in (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
                 {
 
                     if (spot.gameObject.tag == "AbilitySpot")
