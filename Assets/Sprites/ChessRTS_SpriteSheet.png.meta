@@ -9,6 +9,7 @@ TextureImporter:
     21300008: MovementSpotBackground
     21300010: DamageSpotBackground
     21300012: MatterSpotBackground
+    21300014: HealthPoint
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -41,15 +42,15 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 128
@@ -270,6 +271,30 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9703f95cfacbf544f95117a3c2707edb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthPoint
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1664
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a6312a8cbff3a4daedf7411599df6b
       vertices: []
       indices: 
       edges: []
