@@ -6,7 +6,7 @@ public class SideDefine : MonoBehaviour
 {
     public Side side;
 
-    public List<string> identities;
+    public List<string> tags;
 
     public List<string> allies;
     public List<string> enemies;

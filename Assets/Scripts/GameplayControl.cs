@@ -174,6 +174,18 @@ public class GameplayControl : MonoBehaviour
         } else {
             return false;
         }
+    } public static bool objectInSpot(Vector3 spot, GameObject ignoredObject)
+    {
+        RaycastHit2D objectCast = Physics2D.Raycast(spot, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+
+        if (objectCast.collider != null && objectCast.collider.gameObject != ignoredObject)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     } public static bool objectInSpot (List<Vector3> matter, Vector3 spot)
     {
         foreach (Vector3 matterSpot in matter) {

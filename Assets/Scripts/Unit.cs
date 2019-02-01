@@ -119,28 +119,102 @@ public class Unit : MonoBehaviour
     }
 
     public bool checkMovable(Vector3 targetPosition) {
-        if (!movementAllyCrossable) {
+        foreach (Vector3 spot in Matter_Comp.matterAreaListed)
+        {
+            if (GameplayControl.objectInSpot(targetPosition + spot, gameObject))
+            {
+                return false;
+            }
+        }
 
+
+        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, ~LayerMask.NameToLayer("Object"));
+
+        if (!movementAllyCrossable) {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side != Side.Nothing)
+                {
+                    bool isAlly = false;
+                    
+                    foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                    {
+                        if (GetComponent<SideDefine>().allies.Contains(castTag))
+                        {
+                            isAlly = true;
+                        }
+                    }
+
+                    if (objectCast.collider.GetComponent<SideDefine>().side == GetComponent<SideDefine>().side || isAlly)
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         if (!movementEnemyCrossable)
         {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side != Side.Nothing)
+                {
+                    bool isEnemy = false;
 
+                    foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                    {
+                        if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                        {
+                            isEnemy = true;
+                        }
+                    }
+
+                    if (objectCast.collider.GetComponent<SideDefine>().side != GetComponent<SideDefine>().side || isEnemy)
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         if (!movementWallCrossable)
         {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject) {
+                    /*bool isAlly = false;
+                    bool isEnemy = false;
 
+                    if (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing) {
+                        foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                        {
+                            if (GetComponent<SideDefine>().allies.Contains(castTag))
+                            {
+                                isAlly = true;
+                            }
+                            if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                            {
+                                isEnemy = true;
+                            }
+                        }
+                    }*/
+
+                    if (objectCast.collider.GetComponent<SideDefine>() == null || (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing/* && !isAlly && !isEnemy*/))
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         return true;
     } public bool checkDamagable(Vector3 targetPosition) {
-        if (!movementAllyCrossable)
+        if (!damageAllyCrossable)
         {
 
         }
-        if (!movementEnemyCrossable)
+        if (!damageEnemyCrossable)
         {
 
         }
-        if (!movementWallCrossable)
+        if (!damageWallCrossable)
         {
 
         }
@@ -210,7 +284,7 @@ public class Unit : MonoBehaviour
                     if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
                         GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().color = Color.clear;
                         //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(false);
-                        Debug.Log("Supposed to be disabling hover object!");
+                        //Debug.Log("Supposed to be disabling hover object!");
 
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(true);
                         transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).position = inputPosition;
