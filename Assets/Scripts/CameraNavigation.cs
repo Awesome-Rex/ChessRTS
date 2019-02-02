@@ -32,10 +32,35 @@ public class CameraNavigation : MonoBehaviour
         }
     }
 
+    public IEnumerator depth ()
+    {
+        while (true)
+        {
+            yield return null;
+
+            if (Input.GetKey(KeyCode.R) && Camera.main.orthographicSize > 1.5f) {
+                yield return StartCoroutine(zoomTo(Camera.main.orthographicSize - 1.5f));
+            } else if (Input.GetKey(KeyCode.F) && Camera.main.orthographicSize < 21f) {
+                yield return StartCoroutine(zoomTo(Camera.main.orthographicSize + 1.5f));
+            }
+        }
+    }
+
+    public IEnumerator zoomTo (float targetSize)
+    {
+        while (Camera.main.orthographicSize != targetSize)
+        {
+            yield return null;
+
+            Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, targetSize, 20f * Time.deltaTime);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(movement());
+        StartCoroutine(depth());
     }
 
     // Update is called once per frame

@@ -10,6 +10,7 @@ TextureImporter:
     21300010: DamageSpotBackground
     21300012: MatterSpotBackground
     21300014: HealthPoint
+    21300016: LifeIcon
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -280,7 +281,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 1664
+        y: 1696
         width: 16
         height: 16
       alignment: 0
@@ -295,6 +296,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 12a6312a8cbff3a4daedf7411599df6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeIcon
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1856
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1daf831dc62ca42827ec6e1d535956
       vertices: []
       indices: 
       edges: []
