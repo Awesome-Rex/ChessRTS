@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Matter))]
-[CanEditMultipleObjects]
+[CustomEditor(typeof(Matter))] [CanEditMultipleObjects]
 
 public class Matter_Editor : Editor
 {

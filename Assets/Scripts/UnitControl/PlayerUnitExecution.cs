@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerUnitExecution : MonoBehaviour
 {
+    public bool defender;
+
     public bool abilityException;
 
     private SideDefine SideDefine_Comp;

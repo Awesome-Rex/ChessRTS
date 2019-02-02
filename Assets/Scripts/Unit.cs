@@ -206,17 +206,95 @@ public class Unit : MonoBehaviour
         }
         return true;
     } public bool checkDamagable(Vector3 targetPosition) {
+        RaycastHit2D healthCast = Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+
+        if (GameplayControl.objectInSpot(targetPosition, gameObject))
+        {
+            if (healthCast.collider.GetComponent<Health>() == null) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+
+        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, ~LayerMask.NameToLayer("Object"));
+
         if (!damageAllyCrossable)
         {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject && objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side != Side.Nothing)
+                {
+                    bool isAlly = false;
 
+                    foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                    {
+                        if (GetComponent<SideDefine>().allies.Contains(castTag))
+                        {
+                            isAlly = true;
+                        }
+                    }
+
+                    if (objectCast.collider.GetComponent<SideDefine>().side == GetComponent<SideDefine>().side || isAlly)
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         if (!damageEnemyCrossable)
         {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject && objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side != Side.Nothing)
+                {
+                    bool isEnemy = false;
 
+                    foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                    {
+                        if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                        {
+                            isEnemy = true;
+                        }
+                    }
+
+                    if (objectCast.collider.GetComponent<SideDefine>().side != GetComponent<SideDefine>().side || isEnemy)
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         if (!damageWallCrossable)
         {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject)
+                {
+                    /*bool isAlly = false;
+                    bool isEnemy = false;
 
+                    if (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing) {
+                        foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                        {
+                            if (GetComponent<SideDefine>().allies.Contains(castTag))
+                            {
+                                isAlly = true;
+                            }
+                            if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                            {
+                                isEnemy = true;
+                            }
+                        }
+                    }*/
+
+                    if (objectCast.collider.GetComponent<SideDefine>() == null || (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing/* && !isAlly && !isEnemy*/))
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         return true;
     }
