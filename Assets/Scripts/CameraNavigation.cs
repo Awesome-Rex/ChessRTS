@@ -56,6 +56,8 @@ public class CameraNavigation : MonoBehaviour
         }
     }
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,12 @@ public class CameraNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles + new Vector3(0f, 0f, Time.deltaTime * 90f));
+        } else if (Input.GetKey(KeyCode.E))
+        {
+            Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles + new Vector3(0f, 0f, Time.deltaTime * -90f));
+        }
     }
 }
