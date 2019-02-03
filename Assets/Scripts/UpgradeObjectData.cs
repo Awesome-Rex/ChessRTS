@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Upgrade", menuName = "Game/Upgrade", order = 1)]
+[CreateAssetMenu(fileName = "New Upgrade", menuName = "Game/Upgrade", order = 1)]
 public class UpgradeObjectData : ScriptableObject
 {
     public string upgradeName;

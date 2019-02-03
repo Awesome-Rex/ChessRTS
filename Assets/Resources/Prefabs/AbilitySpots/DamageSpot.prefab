@@ -147,7 +147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1442177331
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: e3937075d3361cd4ba4e90c0ac4093e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -242,7 +242,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1442177331
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!222 &4297166170951298404
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -120,6 +120,11 @@ public class Matter_Editor : Editor
                 }
             }
 
+            float minX = 0f;
+            float maxX = 0f;
+            float minY = 0f;
+            float maxY = 0f;
+
             List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
 
             (target as Matter).matterAreaListed = areas;
@@ -128,6 +133,21 @@ public class Matter_Editor : Editor
             //visualizes
             foreach (Vector3 spot in areas)
             {
+                if (spot.x < minX)
+                {
+                    minX = spot.x;
+                } else if (spot.x > maxX)
+                {
+                    maxX = spot.x;
+                }
+                if (spot.y < minY)
+                {
+                    minY = spot.y;
+                } else if (spot.y > maxY)
+                {
+                    maxY = spot.y;
+                }
+
                 GameObject colliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/ObjectColliderTile")) as GameObject;
 
                 colliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("Colliders").GetChild(0));
@@ -138,6 +158,11 @@ public class Matter_Editor : Editor
                 visualColliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2));
                 visualColliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
             }
+
+            (target as Matter).savedMinX = minX;
+            (target as Matter).savedMaxX = maxX;
+            (target as Matter).savedMinY = minY;
+            (target as Matter).savedMaxY = maxY;
         }
         if (GUILayout.Button("Load Matter List"))
         {

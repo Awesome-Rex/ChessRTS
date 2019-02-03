@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideSettings : MonoBehaviour
+[CreateAssetMenu(fileName = "New Side", menuName = "Game/Side Settings", order = 1)]
+public class SideSettings : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Side side;
+    public Sprite icon;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Color healthColor;
+    public Color middleHealthColor;
+    public Color lowHealthColor;
 }

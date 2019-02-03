@@ -11,6 +11,13 @@ public class Matter : MonoBehaviour
     public List<Vector3> matterAreaListed;
     public Vector2 savedMatterDimensions = new Vector2(17, 17);
 
+
+    public float savedMinX;
+    public float savedMaxX;
+
+    public float savedMinY;
+    public float savedMaxY;
+
     // Start is called before the first frame update
     void Start()
     {
