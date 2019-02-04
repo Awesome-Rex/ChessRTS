@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Unit))] [CanEditMultipleObjects]
+[CustomEditor(typeof(Unit)), CanEditMultipleObjects]
 public class Unit_Editor : Editor
 {
+    protected static bool showDefaultInspector = false;
+
     private void OnEnable()
     {
         
@@ -299,12 +301,19 @@ public class Unit_Editor : Editor
 
         //DrawDefaultInspector();
 
-        
 
-        
+
+
 
         /*if (serializedObject.FindProperty("defensive").floatValue) {
 
         }*/
+
+        EditorGUILayout.LabelField(string.Empty);
+        showDefaultInspector = EditorGUILayout.Foldout(showDefaultInspector, "Default Inspector");
+        if (showDefaultInspector)
+        {
+            base.OnInspectorGUI();
+        }
     }
 }

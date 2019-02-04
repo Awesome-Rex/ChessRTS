@@ -11,6 +11,9 @@ TextureImporter:
     21300012: MatterSpotBackground
     21300014: HealthPoint
     21300016: LifeIcon
+    21300018: MovementPointer
+    21300020: DamagePointer
+    2186277476908879412: ImportLogs
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -309,13 +312,53 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: aa1daf831dc62ca42827ec6e1d535956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementPointer
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1720
+        width: 128
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53cd80a8466228840afd2d239c30fa21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DamagePointer
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1720
+        width: 128
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7a1b04c1742f740ab9892acda057a9
       vertices: []
       indices: 
       edges: []

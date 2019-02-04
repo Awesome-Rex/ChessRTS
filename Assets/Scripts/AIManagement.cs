@@ -40,6 +40,7 @@ public class AIManagement : MonoBehaviour
             if (picker >= unit.min && picker < unit.max)
             {
                 //make unit move/attack
+                (unit.element as AIUnitExecution).action();
             }
         }
     }

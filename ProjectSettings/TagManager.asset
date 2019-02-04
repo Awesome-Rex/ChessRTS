@@ -49,6 +49,9 @@ TagManager:
   - name: Objects
     uniqueID: 3874666757
     locked: 0
+  - name: HoverAbilitySpots
+    uniqueID: 2194667707
+    locked: 0
   - name: UI
     uniqueID: 3506443057
     locked: 0

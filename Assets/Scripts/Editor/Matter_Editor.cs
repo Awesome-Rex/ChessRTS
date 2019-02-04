@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Matter))] [CanEditMultipleObjects]
+[CustomEditor(typeof(Matter)), CanEditMultipleObjects]
 
 public class Matter_Editor : Editor
 {
+    protected static bool showDefaultInspector = false;
+
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
+        base.OnInspectorGUI();
 
         GUIStyle areaStyle = new GUIStyle();
         areaStyle.fontStyle = FontStyle.Bold;
@@ -171,5 +173,14 @@ public class Matter_Editor : Editor
             (target as Matter).matterArea = GameplayControl.listTo2DArray((target as Matter).matterAreaListed, new Vector2((target as Matter).savedMatterDimensions.x, (target as Matter).savedMatterDimensions.y));
         }
         EditorGUILayout.EndHorizontal();
+
+
+
+        EditorGUILayout.LabelField(string.Empty);
+        showDefaultInspector = EditorGUILayout.Foldout(showDefaultInspector, "Default Inspector");
+        if (showDefaultInspector)
+        {
+            base.OnInspectorGUI();
+        }
     }
 }

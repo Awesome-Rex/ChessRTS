@@ -33,6 +33,7 @@ public class Unit : MonoBehaviour
 
     public bool AI = false;
 
+    [SerializeField]
     private float _defensive;
     public float defensive {
         get {
@@ -44,6 +45,7 @@ public class Unit : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _offensive;
     public float offensive {
         get {
@@ -57,6 +59,7 @@ public class Unit : MonoBehaviour
 
     public float retreative = 50;
 
+    [SerializeField]
     private float _lowAggressive;
     public float lowAggressive {
         get {
@@ -68,6 +71,7 @@ public class Unit : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _highAggressive;
     public float highAggressive
     {
@@ -303,15 +307,16 @@ public class Unit : MonoBehaviour
     {
         if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement) {
             visualizeMovementArea();
+            //show movable/unmovable tiles
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
             visualizeDamageArea();
+            //same here
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Nothing) {
-
+            transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
+            transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.SetActive(false);
         }
     }
     public void onDeselect() {
-        //disable visualized ability
-
         transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
         transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.SetActive(false);
     }
@@ -340,6 +345,57 @@ public class Unit : MonoBehaviour
         if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f) {
             if (Selectable_Comp.selected)
             {
+                if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
+                {
+                    Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    if (Matter_Comp.savedMatterDimensions.x % 2f != 0 && Matter_Comp.savedMatterDimensions.y % 2f != 0){
+                        inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+                    } else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0){
+                        if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0){
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        }
+                        else if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0){
+                            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
+                        }
+                        else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0){
+                            inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
+                        }
+                    }
+
+                    if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(true);
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).right = inputPosition - transform.position;
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).GetComponent<SpriteRenderer>().size = new Vector2(Vector3.Distance(transform.position, inputPosition), 0.125f);
+
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(false);
+                    } else
+                    {
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(false);
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(false);
+                    }
+                } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
+                {
+                    Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
+
+                    if (GameplayControl.containedInArea(inputPosition, damageAreaListed, transform.position))
+                    {
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(true);
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).right = inputPosition - transform.position;
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).GetComponent<SpriteRenderer>().size = new Vector2(Vector3.Distance(transform.position, inputPosition), 0.125f);
+
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(false);
+                    } else
+                    {
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(false);
+                        transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(false);
+                    }
+                } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Nothing)
+                {
+                    transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(false);
+                    transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(false);
+                }
+
                 if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement && GameplayControl.gameplayControl.visualUnitAbilityMovement != GameplayControl.VisualUnitAbility.Nothing)
                 {
                     Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -406,6 +462,9 @@ public class Unit : MonoBehaviour
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0).gameObject.SetActive(false);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).gameObject.SetActive(false);
                 transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.SetActive(false);
+
+                transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(false);
+                transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(false);
                 //disable visual areass
             }
         }
