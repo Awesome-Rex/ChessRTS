@@ -41,7 +41,6 @@ public class PlayerUnitExecution : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    
 
                     if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement)
                     {
@@ -78,26 +77,7 @@ public class PlayerUnitExecution : MonoBehaviour
                     else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
                     {
                         inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
-                        /*if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0)
-                        {
-                            inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
-                        }
-                        else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 || Matter_Comp.savedMatterDimensions.y % 2 == 0)
-                        {
-                            if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0)
-                            {
-                                inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
-                            }
-                            else if (Matter_Comp.savedMatterDimensions.x % 2 != 0 && Matter_Comp.savedMatterDimensions.y % 2 == 0)
-                            {
-                                inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
-                            }
-                            else if (Matter_Comp.savedMatterDimensions.x % 2 == 0 && Matter_Comp.savedMatterDimensions.y % 2 != 0)
-                            {
-                                inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
-                            }
-                        }*/
-
+                        
                         if (GameplayControl.containedInArea(inputPosition, Unit_Comp.damageAreaListed, transform.position))
                         {
                             if (Unit_Comp.checkDamagable(inputPosition))

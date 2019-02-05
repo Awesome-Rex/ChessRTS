@@ -106,6 +106,23 @@ public class Unit : MonoBehaviour
             GameplayControl.gameplayControl.GetComponent<SelectionManagement>().relocateSelected(targetPosition);
         }
         transform.position = targetPosition;
+
+        if (GetComponent<Selectable>().selected)
+        {
+            visualizeMovementArea();
+
+            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
+            {
+                if (checkMovable(spot.position))
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                else
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                }
+            }
+        }
     } public void attack(Vector3 targetPosition) {
         Health damageTarget = Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider != null ? Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider.GetComponent<Health>() : null;
 
@@ -117,8 +134,22 @@ public class Unit : MonoBehaviour
                     //raycast and subtract health
 
                     damageTarget.takeDamage(damageListed[damageAreaListed.IndexOf(targetPosition)]);
-                //}
             //}
+            //}
+
+            visualizeDamageArea();
+
+            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
+            {
+                if (checkDamagable(spot.position))
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                else
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                }
+            }
         }
     }
 
@@ -132,7 +163,7 @@ public class Unit : MonoBehaviour
         }
 
 
-        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, ~LayerMask.NameToLayer("Object"));
+        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, Vector3.Distance(transform.position, targetPosition), ~LayerMask.NameToLayer("Object"));
 
         if (!movementAllyCrossable) {
             foreach (RaycastHit2D objectCast in objectCasts)
@@ -222,7 +253,7 @@ public class Unit : MonoBehaviour
         }
 
 
-        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, ~LayerMask.NameToLayer("Object"));
+        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, Vector3.Distance(transform.position, targetPosition), ~LayerMask.NameToLayer("Object"));
 
         if (!damageAllyCrossable)
         {
@@ -307,9 +338,32 @@ public class Unit : MonoBehaviour
     {
         if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement) {
             visualizeMovementArea();
+
+            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
+            {
+                if (checkMovable(spot.position))
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.white;
+                } else
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                }
+            }
             //show movable/unmovable tiles
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
             visualizeDamageArea();
+
+            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
+            {
+                if (checkDamagable(spot.position))
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                else
+                {
+                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                }
+            }
             //same here
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Nothing) {
             transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
