@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class Extensions
 {
+    //blah blah blaaaaaaaaaaaaaaaaaaah
+    //._. "o"
+    
     public static List<T> GetComponentsRecursive<T>(this GameObject gameObject) where T : Component
     {
         int length = gameObject.transform.childCount;
