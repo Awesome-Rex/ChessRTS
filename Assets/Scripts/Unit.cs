@@ -107,7 +107,7 @@ public class Unit : MonoBehaviour
         }
         transform.position = targetPosition;
 
-        if (GetComponent<Selectable>().selected)
+        if (Selectable_Comp.selected)
         {
             visualizeMovementArea();
 
@@ -137,17 +137,19 @@ public class Unit : MonoBehaviour
             //}
             //}
 
-            visualizeDamageArea();
+            if (Selectable_Comp.selected) {
+                visualizeDamageArea();
 
-            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
-            {
-                if (checkDamagable(spot.position))
+                foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
                 {
-                    spot.GetComponent<SpriteRenderer>().color = Color.white;
-                }
-                else
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                    if (checkDamagable(spot.position))
+                    {
+                        spot.GetComponent<SpriteRenderer>().color = Color.white;
+                    }
+                    else
+                    {
+                        spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                    }
                 }
             }
         }
