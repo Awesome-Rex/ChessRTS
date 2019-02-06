@@ -126,6 +126,7 @@ public class Unit_Editor : Editor
             extraDamageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().text = damageList[index].ToString();
 
             extraDamageSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            extraDamageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().color = new Color(1f, 0f, 0f, 0.5f);
         }
     }
 
