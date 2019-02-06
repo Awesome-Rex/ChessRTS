@@ -6,9 +6,9 @@ public class UpgraderFunctions : MonoBehaviour
 {
     //gem upgrades
     public void moreOrbs () {
-        Game.currentGame.addedTurnOrbs += 1;
+        Game.currentGame.findSide(Side.Life).addedOrbs += 1;
         if (GameplayControl.gameplayControl.currentTurn == Side.Life) {
-            GameplayControl.gameplayControl.turnOrbs += 1;
+            Game.currentGame.findSide(Side.Life).currentOrbs += 1;
         }
     }
 
@@ -23,6 +23,11 @@ public class UpgraderFunctions : MonoBehaviour
                     available = false;
                 }
             }
+
+            /*if (Resources.LoadAll("ScriptableObjects/AddedUnitUpgrades").)
+            {
+                available = true;
+            }*/
 
             if (available) {
                 availableUpgrades.Add((UpgradeObjectData)upgradeFile);

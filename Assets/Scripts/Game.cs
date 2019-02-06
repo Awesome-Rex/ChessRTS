@@ -4,25 +4,34 @@ using UnityEngine;
 [System.Serializable]
 public class SideData
 {
-    public SideSettings side;
+    public SideSettings sideSettings;
 
     public int addedOrbs;
 
     public int currentOrbs;
     public int turns;
+
+    public SideData (SideSettings sideSettings)
+    {
+        this.sideSettings = sideSettings;
+
+        addedOrbs = 0;
+
+        currentOrbs = 0;
+        turns = 0;
+    }
 }
 
 [System.Serializable]
 public class Game
 {
-    public List<Game> games;
+    public static List<Game> games;
     public static Game currentGame;
 
+    public List<SideData> sides;
     public int gems;
 
-
     //upgrades
-    public int addedTurnOrbs;
     public int fogViewRange;
 
     public List<string> unlockedHeroes;
@@ -39,7 +48,32 @@ public class Game
     //
 
     public Game() {
+        games.Add(this);
 
+
+        foreach (Object sideSetting in Resources.LoadAll("ScriptableObjects/Sides"))
+        {
+            sides.Add(new SideData(sideSetting as SideSettings));
+        }
+
+        gems = 0;
+        money = 0;
+
+        fogViewRange = 2;
+        unlockedHeroes = new List<string>();
+    }
+
+    public SideData findSide(Side targetSide)
+    {
+        foreach (SideData savedSide in sides)
+        {
+            if (savedSide.sideSettings.side == targetSide)
+            {
+                return savedSide;
+            }
+        }
+
+        return null;
     }
 
     public static void Save() {

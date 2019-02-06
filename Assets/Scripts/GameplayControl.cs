@@ -7,6 +7,8 @@ public enum Side { Life, Nature, Death, Nothing }
 public class GameplayControl : MonoBehaviour
 {
     public static GameplayControl gameplayControl;
+    public Game currentGame;
+
 
     public List<SideData> sideTurnOrder;
     
@@ -238,7 +240,8 @@ public class GameplayControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Game.currentGame = new Game();
+        currentGame = Game.currentGame;
     }
 
     // Update is called once per frame
