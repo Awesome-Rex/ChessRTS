@@ -22,6 +22,12 @@ public class SideData
     }
 }
 
+public class Global
+{
+    public List<Game> games;
+    public Game currentGame;
+}
+
 [System.Serializable]
 public class Game
 {
@@ -47,7 +53,13 @@ public class Game
     public int money;
     //
 
+    static Game ()
+    {
+        games = new List<Game>();
+    }
+
     public Game() {
+
         games.Add(this);
 
 
@@ -76,11 +88,11 @@ public class Game
         return null;
     }
 
-    public static void Save() {
+    public void Save() {
 
     }
 
-    public static void Load() {
+    public void Load() {
 
     }
 }

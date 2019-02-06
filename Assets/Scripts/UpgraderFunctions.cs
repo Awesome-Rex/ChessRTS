@@ -24,11 +24,6 @@ public class UpgraderFunctions : MonoBehaviour
                 }
             }
 
-            /*if (Resources.LoadAll("ScriptableObjects/AddedUnitUpgrades").)
-            {
-                available = true;
-            }*/
-
             if (available) {
                 availableUpgrades.Add((UpgradeObjectData)upgradeFile);
             }
@@ -46,7 +41,13 @@ public class UpgraderFunctions : MonoBehaviour
 
     //money upgrades
     public void addHealth () {
+        if (SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>() != null)
+        {
+            SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>().health += SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>().maxHealth / 2;
+        } else
+        {
 
+        }
     }
 
     public void addUnit () {

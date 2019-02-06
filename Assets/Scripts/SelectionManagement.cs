@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SelectionManagement : MonoBehaviour
 {
+    public static SelectionManagement selectionManagement;
+
     public GameObject targetPositionObject;
     public Vector3 targetPosition
     {
@@ -59,6 +61,8 @@ public class SelectionManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        selectionManagement = this;
+
         targetPositionObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
 
         selectionException = false;

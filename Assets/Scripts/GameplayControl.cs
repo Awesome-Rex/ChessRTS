@@ -232,16 +232,18 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
+    private void Awake() {
+        Game.currentGame = new Game();
+        currentGame = Game.currentGame;
+
         gameplayControl = this;
         upgraderFunctions = GetComponent<UpgraderFunctions>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        Game.currentGame = new Game();
-        currentGame = Game.currentGame;
+        
     }
 
     // Update is called once per frame
