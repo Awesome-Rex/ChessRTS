@@ -28,6 +28,10 @@ public class EditorControl : Editor
     [MenuItem("Game/GameObject Area Control/Reset Matter")]
     public static void resetMatter ()
     {
-
+        foreach (Matter matter in FindObjectsOfType<Matter>())
+        {
+            Matter_Editor.loadMatterList(matter);
+            Matter_Editor.saveMatterArea(matter);
+        }
     }
 }

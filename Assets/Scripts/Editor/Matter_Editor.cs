@@ -9,10 +9,93 @@ public class Matter_Editor : Editor
 {
     protected static bool showDefaultInspector = false;
 
+    public static void loadMatterList(Matter target)
+    {
+        (target as Matter).matterArea = new bool[Mathf.RoundToInt((target as Matter).savedMatterDimensions.x), Mathf.RoundToInt((target as Matter).savedMatterDimensions.y)];
+
+        (target as Matter).matterArea = GameplayControl.listTo2DArray((target as Matter).matterAreaListed, new Vector2((target as Matter).savedMatterDimensions.x, (target as Matter).savedMatterDimensions.y));
+    }
+    public static void saveMatterArea (Matter target)
+    {
+        if ((target as Matter).transform.Find("Colliders").GetChild(0).childCount > 0)
+        {
+            foreach (Transform spot in (target as Matter).transform.Find("Colliders").GetChild(0).GetComponentsInChildren<Transform>())
+            {
+
+                if (spot.gameObject.GetInstanceID() != (target as Matter).transform.Find("Colliders").GetChild(0).gameObject.GetInstanceID())
+                {
+                    Undo.DestroyObjectImmediate(spot.gameObject);
+                }
+            }
+        }
+        if ((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).childCount > 0)
+        {
+            foreach (Transform spot in (target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).GetComponentsInChildren<Transform>())
+            {
+
+                if (spot.gameObject.GetInstanceID() != (target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.GetInstanceID())
+                {
+                    Undo.DestroyObjectImmediate(spot.gameObject);
+                }
+            }
+        }
+
+        float minX = 0f;
+        float maxX = 0f;
+        float minY = 0f;
+        float maxY = 0f;
+
+        List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
+
+        (target as Matter).matterAreaListed = areas;
+        (target as Matter).savedMatterDimensions = new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1));
+
+        //visualizes
+        foreach (Vector3 spot in areas)
+        {
+            if (spot.x < minX)
+            {
+                minX = spot.x;
+            }
+            else if (spot.x > maxX)
+            {
+                maxX = spot.x;
+            }
+            if (spot.y < minY)
+            {
+                minY = spot.y;
+            }
+            else if (spot.y > maxY)
+            {
+                maxY = spot.y;
+            }
+
+            GameObject colliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/ObjectColliderTile")) as GameObject;
+
+            colliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("Colliders").GetChild(0));
+            colliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
+
+            GameObject visualColliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MatterSpot")) as GameObject;
+
+            visualColliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2));
+            visualColliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
+        }
+
+        (target as Matter).savedMinX = minX;
+        (target as Matter).savedMaxX = maxX;
+        (target as Matter).savedMinY = minY;
+        (target as Matter).savedMaxY = maxY;
+
+        //canvas resizing
+
+        (target as Matter).transform.Find("UI").Find("Canvas").GetComponent<RectTransform>().localPosition = new Vector3((target as Matter).savedMinX - 0.5f, (target as Matter).savedMaxY + 0.5f, 0f);
+        /*Rect canvasRect = (target as Matter).transform.Find("UI").Find("Canvas").GetComponent<RectTransform>().rect;
+        canvasRect.size = new Vector2(Mathf.Abs((target as Matter).savedMaxX - (target as Matter).savedMinX) + 1f, Mathf.Abs((target as Matter).savedMaxY - (target as Matter).savedMinY) + 1f);*/
+        (target as Matter).transform.Find("UI").Find("Canvas").GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Abs((target as Matter).savedMaxX - (target as Matter).savedMinX) + 1f, Mathf.Abs((target as Matter).savedMaxY - (target as Matter).savedMinY) + 1f) * 100f;
+    }
+
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
-
         GUIStyle areaStyle = new GUIStyle();
         areaStyle.fontStyle = FontStyle.Bold;
         areaStyle.alignment = TextAnchor.MiddleCenter;
@@ -99,78 +182,11 @@ public class Matter_Editor : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Save Matter Area"))
         {
-            if ((target as Matter).transform.Find("Colliders").GetChild(0).childCount > 0)
-            {
-                foreach (Transform spot in (target as Matter).transform.Find("Colliders").GetChild(0).GetComponentsInChildren<Transform>())
-                {
-
-                    if (spot.gameObject.GetInstanceID() != (target as Matter).transform.Find("Colliders").GetChild(0).gameObject.GetInstanceID())
-                    {
-                        Undo.DestroyObjectImmediate(spot.gameObject);
-                    }
-                }
-            }
-            if ((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).childCount > 0)
-            {
-                foreach (Transform spot in (target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).GetComponentsInChildren<Transform>())
-                {
-
-                    if (spot.gameObject.GetInstanceID() != (target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2).gameObject.GetInstanceID())
-                    {
-                        Undo.DestroyObjectImmediate(spot.gameObject);
-                    }
-                }
-            }
-
-            float minX = 0f;
-            float maxX = 0f;
-            float minY = 0f;
-            float maxY = 0f;
-
-            List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
-
-            (target as Matter).matterAreaListed = areas;
-            (target as Matter).savedMatterDimensions = new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1));
-
-            //visualizes
-            foreach (Vector3 spot in areas)
-            {
-                if (spot.x < minX)
-                {
-                    minX = spot.x;
-                } else if (spot.x > maxX)
-                {
-                    maxX = spot.x;
-                }
-                if (spot.y < minY)
-                {
-                    minY = spot.y;
-                } else if (spot.y > maxY)
-                {
-                    maxY = spot.y;
-                }
-
-                GameObject colliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/ObjectColliderTile")) as GameObject;
-
-                colliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("Colliders").GetChild(0));
-                colliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
-
-                GameObject visualColliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MatterSpot")) as GameObject;
-
-                visualColliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2));
-                visualColliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
-            }
-
-            (target as Matter).savedMinX = minX;
-            (target as Matter).savedMaxX = maxX;
-            (target as Matter).savedMinY = minY;
-            (target as Matter).savedMaxY = maxY;
+            saveMatterArea(target as Matter);
         }
         if (GUILayout.Button("Load Matter List"))
         {
-            (target as Matter).matterArea = new bool[Mathf.RoundToInt((target as Matter).savedMatterDimensions.x), Mathf.RoundToInt((target as Matter).savedMatterDimensions.y)];
-
-            (target as Matter).matterArea = GameplayControl.listTo2DArray((target as Matter).matterAreaListed, new Vector2((target as Matter).savedMatterDimensions.x, (target as Matter).savedMatterDimensions.y));
+            loadMatterList(target as Matter);
         }
         EditorGUILayout.EndHorizontal();
 

@@ -1,6 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
+public class SideData
+{
+    public SideSettings side;
+
+    public int addedOrbs;
+
+    public int currentOrbs;
+    public int turns;
+}
 
 [System.Serializable]
 public class Game

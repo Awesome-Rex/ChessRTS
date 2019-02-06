@@ -8,14 +8,10 @@ public class GameplayControl : MonoBehaviour
 {
     public static GameplayControl gameplayControl;
 
-    public int turnOrbs;
+    public List<SideData> sideTurnOrder;
     
     public Side currentTurn;
-    public int turns;
 
-    public int turnsLife;
-    public int turnsNature;
-    public int turnsDeath;
 
     public enum VisualUnitAbility {Nothing, Movement, Damage}
     public VisualUnitAbility visualUnitAbility;

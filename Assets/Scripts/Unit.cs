@@ -110,47 +110,15 @@ public class Unit : MonoBehaviour
         if (Selectable_Comp.selected)
         {
             visualizeMovementArea();
-
-            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
-            {
-                if (checkMovable(spot.position))
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.white;
-                }
-                else
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
-                }
-            }
         }
     } public void attack(Vector3 targetPosition) {
-        Health damageTarget = Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider != null ? Physics2D.Raycast(targetPosition, Vector3.zero, 0f).collider.GetComponent<Health>() : null;
+        Health damageTarget = Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Health>() != null ? Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Health>() : null;
 
         if (damageTarget != null) {
-            //checks if given damage is in damage area
-
-            //foreach (Vector3 damagePosition in damageAreaListed) {
-                //if (damagePosition == targetPosition) {
-                    //raycast and subtract health
-
-                    damageTarget.takeDamage(damageListed[damageAreaListed.IndexOf(targetPosition)]);
-            //}
-            //}
+            damageTarget.takeDamage(damageListed[damageAreaListed.IndexOf(targetPosition - transform.position)]);
 
             if (Selectable_Comp.selected) {
                 visualizeDamageArea();
-
-                foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
-                {
-                    if (checkDamagable(spot.position))
-                    {
-                        spot.GetComponent<SpriteRenderer>().color = Color.white;
-                    }
-                    else
-                    {
-                        spot.GetComponent<SpriteRenderer>().color = Color.grey;
-                    }
-                }
             }
         }
     }
@@ -242,17 +210,31 @@ public class Unit : MonoBehaviour
             }
         }
         return true;
-    } public bool checkDamagable(Vector3 targetPosition) {
+    }
+    public bool checkDamagable(Vector3 targetPosition) {
         RaycastHit2D healthCast = Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
 
-        if (GameplayControl.objectInSpot(targetPosition, gameObject))
+        if (GameplayControl.objectInSpot(targetPosition, gameObject) && healthCast.collider.GetComponent<Health>() != null)
         {
-            if (healthCast.collider.GetComponent<Health>() == null) {
-                return false;
+            if (healthCast.collider.GetComponent<SideDefine>().side != GetComponent<SideDefine>().side || healthCast.collider.GetComponent<SideDefine>().side == Side.Nothing) {
+
+            } else if (healthCast.collider.GetComponent<SideDefine>().side == GetComponent<SideDefine>().side)
+            {
+                foreach (string castTag in healthCast.collider.GetComponent<SideDefine>().tags)
+                {
+                    if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                    {
+                        
+                    } else
+                    {
+                        return false;
+                    }
+                }
             }
         } else {
             return false;
         }
+
 
 
         RaycastHit2D[] objectCasts = Physics2D.RaycastAll(transform.position, targetPosition - transform.position, Vector3.Distance(transform.position, targetPosition), ~LayerMask.NameToLayer("Object"));
@@ -309,23 +291,6 @@ public class Unit : MonoBehaviour
             {
                 if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject)
                 {
-                    /*bool isAlly = false;
-                    bool isEnemy = false;
-
-                    if (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing) {
-                        foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
-                        {
-                            if (GetComponent<SideDefine>().allies.Contains(castTag))
-                            {
-                                isAlly = true;
-                            }
-                            if (GetComponent<SideDefine>().enemies.Contains(castTag))
-                            {
-                                isEnemy = true;
-                            }
-                        }
-                    }*/
-
                     if (objectCast.collider.GetComponent<SideDefine>() == null || (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing/* && !isAlly && !isEnemy*/))
                     {
                         return false;
@@ -340,32 +305,9 @@ public class Unit : MonoBehaviour
     {
         if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Movement) {
             visualizeMovementArea();
-
-            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
-            {
-                if (checkMovable(spot.position))
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.white;
-                } else
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
-                }
-            }
             //show movable/unmovable tiles
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage) {
             visualizeDamageArea();
-
-            foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
-            {
-                if (checkDamagable(spot.position))
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.white;
-                }
-                else
-                {
-                    spot.GetComponent<SpriteRenderer>().color = Color.grey;
-                }
-            }
             //same here
         } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Nothing) {
             transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
@@ -381,11 +323,35 @@ public class Unit : MonoBehaviour
     public void visualizeMovementArea()
     {
         transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(true);
+
+        foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.GetComponentsInDirectChildren<Transform>())
+        {
+            if (checkMovable(spot.position))
+            {
+                spot.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                spot.GetComponent<SpriteRenderer>().color = Color.grey;
+            }
+        }
     }
 
     public void visualizeDamageArea()
     {
         transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.SetActive(true);
+
+        foreach (Transform spot in transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.GetComponentsInDirectChildren<Transform>())
+        {
+            if (checkDamagable(spot.position))
+            {
+                spot.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                spot.GetComponent<SpriteRenderer>().color = Color.grey;
+            }
+        }
     }
 
     // Start is called before the first frame update
