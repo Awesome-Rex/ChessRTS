@@ -86,7 +86,7 @@ public class Game
             sides.Add(definedSideData);
 
             if ((sideSetting as SideSettings).side == playerSide) {
-                definedSideData.playerControled = true;
+                definedSideData.playerControlled = true;
             }
         }
 
