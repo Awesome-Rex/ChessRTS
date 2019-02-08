@@ -100,6 +100,7 @@ public class Unit : MonoBehaviour
 
     public void move(Vector3 targetPosition) {
         //animate transition
+        Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs -= 1;
 
         if (GetComponent<Selectable>().selected)
         {
@@ -115,6 +116,8 @@ public class Unit : MonoBehaviour
         Health damageTarget = Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Health>() != null ? Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object")).collider.GetComponent<Health>() : null;
 
         if (damageTarget != null) {
+            Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs -= 1;
+
             damageTarget.takeDamage(damageListed[damageAreaListed.IndexOf(targetPosition - transform.position)]);
 
             if (Selectable_Comp.selected) {

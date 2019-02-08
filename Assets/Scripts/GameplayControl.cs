@@ -7,7 +7,6 @@ public enum Side { Life, Nature, Death, Nothing }
 public class GameplayControl : MonoBehaviour
 {
     public static GameplayControl gameplayControl;
-    public Game currentGame;
 
 
     public List<SideData> sideTurnOrder;
@@ -61,6 +60,11 @@ public class GameplayControl : MonoBehaviour
 
         sideTurnOrder[newSideIndex].currentOrbs = sideUnits.Count + sideTurnOrder[newSideIndex].addedOrbs;
         sideTurnOrder[newSideIndex].turns += 1;
+
+        if (!sideTurnOrder[newSideIndex].playerControlled)
+        {
+            GetComponent<AIManagement>().turn();
+        }
     }
 
 
@@ -272,7 +276,6 @@ public class GameplayControl : MonoBehaviour
     private void Awake() {
         if (true/*file doesnt exist*/) {
             Game.currentGame = new Game(Resources.LoadAll("ScriptableObjects/Sides"), Side.Life);
-            currentGame = Game.currentGame;
         } else
         {
             //load game
@@ -286,12 +289,30 @@ public class GameplayControl : MonoBehaviour
 
         gameplayControl = this;
         upgraderFunctions = GetComponent<UpgraderFunctions>();
+
+
+        //sets turn variables
+
+        List<Unit> sideUnits = new List<Unit>();
+        foreach (SideDefine sideUnit in Object.FindObjectsOfType<SideDefine>())
+        {
+            if (sideUnit.GetComponent<Unit>() != null && sideUnit.GetComponent<SideDefine>().side == currentTurn)
+            {
+                sideUnits.Add(sideUnit.GetComponent<Unit>());
+            }
+        }
+
+        Game.currentGame.findSide(currentTurn).currentOrbs = sideUnits.Count + Game.currentGame.findSide(currentTurn).addedOrbs;
+        Game.currentGame.findSide(currentTurn).turns += 1;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!Game.currentGame.findSide(currentTurn).playerControlled)
+        {
+            GetComponent<AIManagement>().turn();
+        }
     }
 
     // Update is called once per frame

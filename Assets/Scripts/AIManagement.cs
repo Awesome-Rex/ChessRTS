@@ -22,27 +22,38 @@ public class AIManagement : MonoBehaviour
 {
     public void turn ()
     {
-        List<RandomRangeElement> AIUnits = new List<RandomRangeElement>();
+        while (Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs > 0) {
+            List<RandomRangeElement> AIUnits = new List<RandomRangeElement>();
 
-        float highestMax = 0;
+            float highestMax = 0;
 
-        foreach (AIUnitExecution unit in GameObject.FindObjectsOfType<AIUnitExecution>())
-        {
-            AIUnits.Add(new RandomRangeElement(highestMax, unit.GetComponent<Unit>().priority, unit));
-            highestMax += unit.GetComponent<Unit>().priority;
-        }
-
-
-        float picker = Random.Range(0f, highestMax);
-
-        foreach (RandomRangeElement unit in AIUnits)
-        {
-            if (picker >= unit.min && picker < unit.max)
+            foreach (AIUnitExecution unit in GameObject.FindObjectsOfType<AIUnitExecution>())
             {
-                //make unit move/attack
-                (unit.element as AIUnitExecution).action();
+                if (unit.GetComponent<Side>() == GameplayControl.gameplayControl.currentTurn) {
+                    AIUnits.Add(new RandomRangeElement(highestMax, unit.GetComponent<Unit>().priority, unit));
+                    highestMax += unit.GetComponent<Unit>().priority;
+                }
+            }
+
+            if (AIUnits.Count <= 0)
+            {
+                GameplayControl.gameplayControl.nextTurn();
+                return;
+            }
+
+            float picker = Random.Range(0f, highestMax);
+
+            foreach (RandomRangeElement unit in AIUnits)
+            {
+                if (picker >= unit.min && picker < unit.max)
+                {
+                    //make unit move/attack
+                    (unit.element as AIUnitExecution).action();
+                }
             }
         }
+
+        GameplayControl.gameplayControl.nextTurn();
     }
 
     // Start is called before the first frame update

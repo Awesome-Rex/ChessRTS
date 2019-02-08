@@ -3456,18 +3456,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c447ab5444bf94449a5a46edc52f5f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGame:
-    sides: []
-    gems: 0
-    fogViewRange: 0
-    unlockedHeroes: []
-    upgrades: []
-    money: 0
-  sideTurnOrder: []
+  sideTurnOrder:
+  - sideSettings: {fileID: 0}
+    addedOrbs: 0
+    currentOrbs: 0
+    turns: 0
+    playerControlled: 0
+  - sideSettings: {fileID: 0}
+    addedOrbs: 0
+    currentOrbs: 0
+    turns: 0
+    playerControlled: 0
+  - sideSettings: {fileID: 0}
+    addedOrbs: 0
+    currentOrbs: 0
+    turns: 0
+    playerControlled: 0
   currentTurn: 0
   visualUnitAbility: 2
   modularVisualUnitsAbility: 0
   visualUnitAbilityMovement: 2
+  actionException: 0
 --- !u!4 &162877652
 Transform:
   m_ObjectHideFlags: 0

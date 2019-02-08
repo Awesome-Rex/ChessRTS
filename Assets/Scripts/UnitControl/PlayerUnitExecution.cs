@@ -35,7 +35,7 @@ public class PlayerUnitExecution : MonoBehaviour
     void Update()
     {
         if (!abilityException) {
-            if (GameplayControl.gameplayControl.currentTurn == SideDefine_Comp.side && GetComponent<Selectable>().selected)
+            if (GameplayControl.gameplayControl.currentTurn == SideDefine_Comp.side && Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs > 0 && GetComponent<Selectable>().selected)
             {
 
                 if (Input.GetMouseButtonDown(0))
