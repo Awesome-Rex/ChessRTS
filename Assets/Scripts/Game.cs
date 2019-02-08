@@ -11,6 +11,24 @@ public class SideData
     public int currentOrbs;
     public int turns;
 
+    public bool playerControlled;
+
+    public void startReset ()
+    {
+        List<Unit> sideUnits = new List<Unit>();
+        foreach (SideDefine sideUnit in Object.FindObjectsOfType<SideDefine>())
+        {
+            if (sideUnit.GetComponent<Unit>() != null && sideUnit.GetComponent<SideDefine>().side == sideSettings.side)
+            {
+                sideUnits.Add(sideUnit.GetComponent<Unit>());
+            }
+        }
+
+        currentOrbs = sideUnits.Count + addedOrbs;
+        
+        turns = 0;
+    }
+
     public SideData (SideSettings sideSettings)
     {
         this.sideSettings = sideSettings;
@@ -19,19 +37,26 @@ public class SideData
 
         currentOrbs = 0;
         turns = 0;
+
+        playerControlled = false;
     }
 }
 
-public class Global
+/*public class Global
 {
     public List<Game> games;
     public Game currentGame;
-}
+
+    public Global ()
+    {
+        games = new List<Game>();
+        
+    }
+}*/
 
 [System.Serializable]
 public class Game
 {
-    public static List<Game> games;
     public static Game currentGame;
 
     public List<SideData> sides;
@@ -53,19 +78,16 @@ public class Game
     public int money;
     //
 
-    static Game ()
-    {
-        games = new List<Game>();
-    }
-
-    public Game() {
-
-        games.Add(this);
-
-
-        foreach (Object sideSetting in Resources.LoadAll("ScriptableObjects/Sides"))
+    public Game(Object[] sideAssets, Side playerSide) {
+        foreach (Object sideSetting in sideAssets)
         {
-            sides.Add(new SideData(sideSetting as SideSettings));
+            SideData definedSideData = new SideData(sideSetting as SideSettings);
+
+            sides.Add(definedSideData);
+
+            if ((sideSetting as SideSettings).side == playerSide) {
+                definedSideData.playerControled = true;
+            }
         }
 
         gems = 0;

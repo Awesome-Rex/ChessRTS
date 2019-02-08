@@ -23,9 +23,46 @@ public class GameplayControl : MonoBehaviour
 
     public VisualUnitAbility visualUnitAbilityMovement;
 
+    public bool actionException;
+
     //temporary
     private UpgraderFunctions upgraderFunctions;
     //
+
+    
+    public void nextTurn ()
+    {
+        int sideIndex = 0;
+
+        for(sideIndex = 0; sideIndex < sideTurnOrder.Count; sideIndex++)
+        {
+            if (sideTurnOrder[sideIndex].sideSettings.side == currentTurn)
+            {
+                break;
+            }
+        }
+
+        int newSideIndex = sideIndex + 1;
+        if (sideIndex > sideTurnOrder.Count - 1)
+        {
+            newSideIndex = 0;
+        }
+
+        currentTurn = sideTurnOrder[newSideIndex].sideSettings.side;
+
+        List<Unit> sideUnits = new List<Unit>();
+        foreach (SideDefine sideUnit in Object.FindObjectsOfType<SideDefine>())
+        {
+            if (sideUnit.GetComponent<Unit>() != null && sideUnit.GetComponent<SideDefine>().side == sideTurnOrder[newSideIndex].sideSettings.side)
+            {
+                sideUnits.Add(sideUnit.GetComponent<Unit>());
+            }
+        }
+
+        sideTurnOrder[newSideIndex].currentOrbs = sideUnits.Count + sideTurnOrder[newSideIndex].addedOrbs;
+        sideTurnOrder[newSideIndex].turns += 1;
+    }
+
 
     //area to list
     public static List<Vector3> convert2DtoVector3 (bool[,] map) {
@@ -233,8 +270,19 @@ public class GameplayControl : MonoBehaviour
     }
 
     private void Awake() {
-        Game.currentGame = new Game();
-        currentGame = Game.currentGame;
+        if (true/*file doesnt exist*/) {
+            Game.currentGame = new Game(Resources.LoadAll("ScriptableObjects/Sides"), Side.Life);
+            currentGame = Game.currentGame;
+        } else
+        {
+            //load game
+
+            foreach (SideData sideData in Game.currentGame.sides)
+            {
+                sideData.startReset();
+            }
+        }
+        /////////////
 
         gameplayControl = this;
         upgraderFunctions = GetComponent<UpgraderFunctions>();
