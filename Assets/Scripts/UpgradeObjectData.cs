@@ -15,6 +15,7 @@ public class UpgradeObjectData : ScriptableObject
     public int gemCost;
     public int moneyCost;
 
+    public bool limitedCopies = true;
     public int copies = 1;
 
     [TextArea]
