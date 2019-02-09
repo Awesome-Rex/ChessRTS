@@ -12,5 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ca2b73c0606d74c96cbcd74b1e7c81, type: 3}
   m_Name: DataAccess
   m_EditorClassIdentifier: 
-  upgrades: []
-  sideSettings: []
+  upgraderFunctions: {fileID: 11400000, guid: b18d70dc2d0b51d4da5d2d256f237181, type: 2}
+  upgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sideSettings:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

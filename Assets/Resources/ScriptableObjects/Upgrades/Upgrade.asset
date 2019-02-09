@@ -14,8 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: 
   upgradeFunction: 
+  otherFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b18d70dc2d0b51d4da5d2d256f237181, type: 2}
+        m_MethodName: addUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: Unit, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   sampleImage: {fileID: 0}
   gemCost: 0
   moneyCost: 0
+  limitedCopies: 1
   copies: 1
+  availableAtFirst: 1
   description: 

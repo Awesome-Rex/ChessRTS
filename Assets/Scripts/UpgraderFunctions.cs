@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgraderFunctions : MonoBehaviour
+[CreateAssetMenu(fileName = "UpgraderFunctions", menuName = "Game/UpgraderFunctions", order = 1)]
+public class UpgraderFunctions : ScriptableObject
 {
     //gem upgrades
     public void moreOrbs () {

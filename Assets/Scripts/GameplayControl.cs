@@ -271,12 +271,12 @@ public class GameplayControl : MonoBehaviour
     } 
 
     public void executeUpgrade(Upgrade upgrade) {
-        if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
+        /*if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
             upgraderFunctions.Invoke(upgrade.upgradeObjectData.upgradeFunction, 0f);
             if (upgrade.upgradeObjectData.limitedCopies) {
                 upgrade.copiesLeft -= 1;
             }
-        }
+        }*/
     }
 
     void Awake() {
