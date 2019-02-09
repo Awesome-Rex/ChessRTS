@@ -78,7 +78,7 @@ public class Game
     public int money;
     //
 
-    public Game(Object[] sideAssets, Side playerSide) {
+    public Game(Object[] sideAssets, Object[] upgradeFiles, Side playerSide) {
         sides = new List<SideData>();
         foreach (Object sideSetting in sideAssets)
         {
@@ -88,6 +88,15 @@ public class Game
 
             if ((sideSetting as SideSettings).side == playerSide) {
                 definedSideData.playerControlled = true;
+            }
+        }
+
+        upgrades = new List<Upgrade>();
+        foreach (Object upgradeFile in upgradeFiles)
+        {
+            if ((upgradeFile as UpgradeObjectData).availableAtFirst)
+            {
+                upgrades.Add(new Upgrade(upgradeFile as UpgradeObjectData));
             }
         }
 

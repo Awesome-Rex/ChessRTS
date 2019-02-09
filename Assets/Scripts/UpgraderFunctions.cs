@@ -6,10 +6,10 @@ public class UpgraderFunctions : MonoBehaviour
 {
     //gem upgrades
     public void moreOrbs () {
-        Game.currentGame.findSide(Side.Life).addedOrbs += 1;
-        if (GameplayControl.gameplayControl.currentTurn == Side.Life) {
+        Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).addedOrbs += 1;
+        //if (GameplayControl.gameplayControl.currentTurn == Side.Life) {
             Game.currentGame.findSide(Side.Life).currentOrbs += 1;
-        }
+        //}
     }
 
     public void moreUnits() {
@@ -46,11 +46,11 @@ public class UpgraderFunctions : MonoBehaviour
             SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>().health += SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>().maxHealth / 2;
         } else
         {
-
+            //alert no health
         }
     }
 
-    public void addUnit () {
+    public void addUnit (Unit addedUnit) {
 
     }
     //

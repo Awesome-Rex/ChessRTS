@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Side { Life, Nature, Death, Nothing }
 
 public class GameplayControl : MonoBehaviour
 {
+    public UnityEvent testEvent;
+
     public Game currentGame;
     public static GameplayControl gameplayControl;
 
@@ -268,20 +271,23 @@ public class GameplayControl : MonoBehaviour
     } 
 
     public void executeUpgrade(Upgrade upgrade) {
-        if (upgrade.copiesLeft > 0) {
+        if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
             upgraderFunctions.Invoke(upgrade.upgradeObjectData.upgradeFunction, 0f);
-            upgrade.copiesLeft -= 1;
+            if (upgrade.upgradeObjectData.limitedCopies) {
+                upgrade.copiesLeft -= 1;
+            }
         }
     }
 
     void Awake() {
-        Debug.Log(Resources.LoadAll("ScriptableObjects/Sides"));
-
         if (true/*file doesnt exist*/) {
-            Game.currentGame = new Game(Resources.LoadAll("ScriptableObjects/Sides"), Side.Life);
+            List<Object> upgradeFiles = new List<Object>(Resources.LoadAll("ScriptableObjects/Upgrades"));
+            upgradeFiles.AddRange(Resources.LoadAll("ScriptableObjects/Upgrades/AddedUnitUpgrades"));
+
+            Game.currentGame = new Game(Resources.LoadAll("ScriptableObjects/Sides"), upgradeFiles.ToArray(), Side.Life);
         } else
         {
-            //load game
+            //load game | Game.currentGame = 
 
             foreach (SideData sideData in Game.currentGame.sides)
             {

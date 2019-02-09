@@ -9,6 +9,7 @@ public class UpgradeObjectData : ScriptableObject
     public string upgradeName;
     
     public string upgradeFunction = "Assign a function please!";
+    public UnityEvent otherFunction;
 
     public Texture2D sampleImage;
 
@@ -17,6 +18,8 @@ public class UpgradeObjectData : ScriptableObject
 
     public bool limitedCopies = true;
     public int copies = 1;
+
+    public bool availableAtFirst = true;
 
     [TextArea]
     public string description;
