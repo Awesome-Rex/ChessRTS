@@ -8,8 +8,7 @@ public class UpgradeObjectData : ScriptableObject
 {
     public string upgradeName;
     
-    public string upgradeFunction = "Assign a function please!";
-    public UnityEvent otherFunction;
+    public UnityEvent upgradeFunction;
 
     public Texture2D sampleImage;
 

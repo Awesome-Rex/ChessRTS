@@ -36,13 +36,14 @@ public class UpgraderFunctions : ScriptableObject
     }
 
     public void moreViewRange() {
+        ////////////////////////////// fix for multiple sides
         Game.currentGame.fogViewRange += 1;
     }
     //
 
     //money upgrades
     public void addHealth () {
-        if (SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>() != null)
+        if (SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>() != null && SelectionManagement.selectionManagement.targetedObject.GetComponent<SideDefine>().side == GameplayControl.gameplayControl.currentTurn)
         {
             SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>().health += SelectionManagement.selectionManagement.targetedObject.GetComponent<Health>().maxHealth / 2;
         } else
@@ -52,6 +53,7 @@ public class UpgraderFunctions : ScriptableObject
     }
 
     public void addUnit (Unit addedUnit) {
+        //create unit
 
     }
     //

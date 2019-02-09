@@ -42,22 +42,39 @@ public class SideData
     }
 }
 
-/*public class Global
+[System.Serializable]
+public class Settings
 {
-    public List<Game> games;
-    public Game currentGame;
+    //Gameplay
+    public bool automaticTurnSwitching;
+    public bool speedUpEnemyTurns;
+    public float turnSpeed;
 
-    public Global ()
+    //audio
+    public float musicVolume;
+    public float soundEffectsVolume;
+
+    //visual
+    public bool showHealthBars;
+    public bool showHealthValue;
+
+    public Settings ()
     {
-        games = new List<Game>();
-        
+
     }
-}*/
+
+    public void setToDefault ()
+    {
+
+    }
+}
 
 [System.Serializable]
 public class Game
 {
     public static Game currentGame;
+
+    public Settings settings;
 
     public List<SideData> sides;
     public int gems;
@@ -79,6 +96,8 @@ public class Game
     //
 
     public Game(Object[] sideAssets, Object[] upgradeFiles, Side playerSide) {
+        settings = new Settings();
+
         sides = new List<SideData>();
         foreach (Object sideSetting in sideAssets)
         {

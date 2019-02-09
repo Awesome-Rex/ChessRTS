@@ -7,8 +7,6 @@ public enum Side { Life, Nature, Death, Nothing }
 
 public class GameplayControl : MonoBehaviour
 {
-    public UnityEvent testEvent;
-
     public Game currentGame;
     public static GameplayControl gameplayControl;
 
@@ -29,7 +27,7 @@ public class GameplayControl : MonoBehaviour
     public bool actionException;
 
     //temporary
-    private UpgraderFunctions upgraderFunctions;
+    //private UpgraderFunctions upgraderFunctions;
     //
 
     
@@ -98,7 +96,8 @@ public class GameplayControl : MonoBehaviour
         }
 
         return spots;
-    } public static List<Vector3> convert2DtoVector3(int[,] map) {
+    }
+    public static List<Vector3> convert2DtoVector3(int[,] map) {
         List<Vector3> spots = new List<Vector3>();
 
         for (int x = 0; x < map.GetLength(0); x++)
@@ -217,7 +216,8 @@ public class GameplayControl : MonoBehaviour
         } else {
             return false;
         }
-    } public static bool objectInSpot(Vector3 spot, GameObject ignoredObject)
+    }
+    public static bool objectInSpot(Vector3 spot, GameObject ignoredObject)
     {
         RaycastHit2D objectCast = Physics2D.Raycast(spot, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
 
@@ -229,7 +229,9 @@ public class GameplayControl : MonoBehaviour
         {
             return false;
         }
-    } public static bool objectInSpot (List<Vector3> matter, Vector3 spot)
+    }
+
+    public static bool objectInSpot (List<Vector3> matter, Vector3 spot)
     {
         foreach (Vector3 matterSpot in matter) {
             RaycastHit2D objectCast = Physics2D.Raycast(spot + matterSpot, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
@@ -271,12 +273,12 @@ public class GameplayControl : MonoBehaviour
     } 
 
     public void executeUpgrade(Upgrade upgrade) {
-        /*if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
-            upgraderFunctions.Invoke(upgrade.upgradeObjectData.upgradeFunction, 0f);
+        if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
+            upgrade.upgradeObjectData.upgradeFunction.Invoke();
             if (upgrade.upgradeObjectData.limitedCopies) {
                 upgrade.copiesLeft -= 1;
             }
-        }*/
+        }
     }
 
     void Awake() {
@@ -298,8 +300,6 @@ public class GameplayControl : MonoBehaviour
 
         gameplayControl = this;
         currentGame = Game.currentGame;
-
-        upgraderFunctions = GetComponent<UpgraderFunctions>();
 
 
         //sets turn variables
