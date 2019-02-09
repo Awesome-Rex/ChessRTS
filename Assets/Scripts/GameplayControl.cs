@@ -6,10 +6,11 @@ public enum Side { Life, Nature, Death, Nothing }
 
 public class GameplayControl : MonoBehaviour
 {
+    public Game currentGame;
     public static GameplayControl gameplayControl;
 
 
-    public List<SideData> sideTurnOrder;
+    public List<SideSettings> sideTurnOrder;
     
     public Side currentTurn;
 
@@ -33,9 +34,9 @@ public class GameplayControl : MonoBehaviour
     {
         int sideIndex = 0;
 
-        for(sideIndex = 0; sideIndex < sideTurnOrder.Count; sideIndex++)
+        for(; sideIndex < sideTurnOrder.Count; sideIndex++)
         {
-            if (sideTurnOrder[sideIndex].sideSettings.side == currentTurn)
+            if (sideTurnOrder[sideIndex].side == currentTurn)
             {
                 break;
             }
@@ -47,21 +48,21 @@ public class GameplayControl : MonoBehaviour
             newSideIndex = 0;
         }
 
-        currentTurn = sideTurnOrder[newSideIndex].sideSettings.side;
+        currentTurn = sideTurnOrder[newSideIndex].side;
 
         List<Unit> sideUnits = new List<Unit>();
         foreach (SideDefine sideUnit in Object.FindObjectsOfType<SideDefine>())
         {
-            if (sideUnit.GetComponent<Unit>() != null && sideUnit.GetComponent<SideDefine>().side == sideTurnOrder[newSideIndex].sideSettings.side)
+            if (sideUnit.GetComponent<Unit>() != null && sideUnit.GetComponent<SideDefine>().side == currentTurn)
             {
                 sideUnits.Add(sideUnit.GetComponent<Unit>());
             }
         }
 
-        sideTurnOrder[newSideIndex].currentOrbs = sideUnits.Count + sideTurnOrder[newSideIndex].addedOrbs;
-        sideTurnOrder[newSideIndex].turns += 1;
+        Game.currentGame.findSide(currentTurn).currentOrbs = sideUnits.Count + Game.currentGame.findSide(currentTurn).addedOrbs;
+        Game.currentGame.findSide(currentTurn).turns += 1;
 
-        if (!sideTurnOrder[newSideIndex].playerControlled)
+        if (!Game.currentGame.findSide(currentTurn).playerControlled)
         {
             GetComponent<AIManagement>().turn();
         }
@@ -273,7 +274,9 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
-    private void Awake() {
+    void Awake() {
+        Debug.Log(Resources.LoadAll("ScriptableObjects/Sides"));
+
         if (true/*file doesnt exist*/) {
             Game.currentGame = new Game(Resources.LoadAll("ScriptableObjects/Sides"), Side.Life);
         } else
@@ -288,6 +291,8 @@ public class GameplayControl : MonoBehaviour
         /////////////
 
         gameplayControl = this;
+        currentGame = Game.currentGame;
+
         upgraderFunctions = GetComponent<UpgraderFunctions>();
 
 

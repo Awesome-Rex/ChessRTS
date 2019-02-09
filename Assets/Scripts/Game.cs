@@ -79,6 +79,7 @@ public class Game
     //
 
     public Game(Object[] sideAssets, Side playerSide) {
+        sides = new List<SideData>();
         foreach (Object sideSetting in sideAssets)
         {
             SideData definedSideData = new SideData(sideSetting as SideSettings);

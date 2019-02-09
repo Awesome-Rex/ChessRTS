@@ -29,7 +29,7 @@ public class AIManagement : MonoBehaviour
 
             foreach (AIUnitExecution unit in GameObject.FindObjectsOfType<AIUnitExecution>())
             {
-                if (unit.GetComponent<Side>() == GameplayControl.gameplayControl.currentTurn) {
+                if (unit.GetComponent<SideDefine>().side == GameplayControl.gameplayControl.currentTurn) {
                     AIUnits.Add(new RandomRangeElement(highestMax, unit.GetComponent<Unit>().priority, unit));
                     highestMax += unit.GetComponent<Unit>().priority;
                 }
@@ -45,6 +45,7 @@ public class AIManagement : MonoBehaviour
 
             foreach (RandomRangeElement unit in AIUnits)
             {
+                /////////////////////////// fix
                 if (picker >= unit.min && picker < unit.max)
                 {
                     //make unit move/attack
