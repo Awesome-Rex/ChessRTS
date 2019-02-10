@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Unit : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class Unit : MonoBehaviour
     public bool movementWallCrossable;
     public bool movementAllyCrossable;
     public bool movementEnemyCrossable;
-
-    public List<Vector3> movementAreaListed = new List<Vector3>();
-    public List<AbilitySpot> movementAreaListed_new = new List<AbilitySpot>();
+    
+    [FormerlySerializedAs("movementAreaListed_new")]
+    public List<AbilitySpot> movementAreaListed = new List<AbilitySpot>();
     public Vector2 savedMovementAreaDimensions;
 
     public enum MovementType {Straight, Autodirect, Jump, Teleport}
@@ -25,10 +26,9 @@ public class Unit : MonoBehaviour
     public bool damageWallCrossable;
     public bool damageAllyCrossable;
     public bool damageEnemyCrossable;
-
-    public List<Vector3> damageAreaListed = new List<Vector3>();
-    public List<AbilitySpot> damageAreaListed_new = new List<AbilitySpot>();
-    public List<int> damageListed = new List<int>();
+    
+    [FormerlySerializedAs("damageAreaListed_new")]
+    public List<AbilitySpot> damageAreaListed = new List<AbilitySpot>();
     public Vector2 savedDamageAreaDimensions;
 
 
