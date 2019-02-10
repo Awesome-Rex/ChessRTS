@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class EditorControl : Editor
 {
-    /*[MenuItem("Game/Update unit areas listed")]
+    [MenuItem("Game/Update unit areas listed")]
     public static void updateUnitAreas ()
     {
         foreach (Unit unit in FindObjectsOfType<Unit>())
@@ -22,19 +22,9 @@ public class EditorControl : Editor
                 unit.damageAreaListed_new.Add(new AbilitySpot(unit.damageAreaListed[i], unit.damageListed[i]));
             }
         }
-    }*/
-
-    [MenuItem("Game/check updated areas")]
-    public static void checkupdateUnitAreas()
-    {
-        foreach (Unit unit in FindObjectsOfType<Unit>())
-        {
-            Debug.Log(unit.movementAreaListed.Count);
-            Debug.Log(unit.damageAreaListed.Count);
-        }
     }
 
-    /*[MenuItem("Game/GameObject Area Control/Reset Unit Movement")]
+    [MenuItem("Game/GameObject Area Control/Reset Unit Movement")]
     public static void resetUnitMovement ()
     {
         foreach (Unit unit in FindObjectsOfType<Unit>())
@@ -62,5 +52,5 @@ public class EditorControl : Editor
             Matter_Editor.loadMatterList(matter);
             Matter_Editor.saveMatterArea(matter);
         }
-    }*/
+    }
 }
