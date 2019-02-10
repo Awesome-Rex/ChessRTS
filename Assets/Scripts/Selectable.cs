@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class Selectable : MonoBehaviour
 {
-    private bool _selected;
-    public bool selected
+    public bool _selected;
+    [SerializeField] public bool selected
     {
         get
         {

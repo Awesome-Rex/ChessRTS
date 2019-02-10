@@ -338,6 +338,7 @@ public class Unit : MonoBehaviour
                 spot.GetComponent<SpriteRenderer>().color = Color.grey;
             }
         }
+        transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1).gameObject.SetActive(false);
     }
 
     public void visualizeDamageArea()
@@ -355,6 +356,7 @@ public class Unit : MonoBehaviour
                 spot.GetComponent<SpriteRenderer>().color = Color.grey;
             }
         }
+        transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update

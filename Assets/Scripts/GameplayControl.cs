@@ -17,7 +17,24 @@ public class GameplayControl : MonoBehaviour
 
 
     public enum VisualUnitAbility {Nothing, Movement, Damage}
-    public VisualUnitAbility visualUnitAbility;
+    public VisualUnitAbility _visualUnitAbility;
+    [SerializeField] public VisualUnitAbility visualUnitAbility
+    {
+        get
+        {
+            return _visualUnitAbility;
+        }
+
+        set
+        {
+            _visualUnitAbility = value;
+
+            if (SelectionManagement.selectionManagement.targetedObject != null && SelectionManagement.selectionManagement.targetedObject.GetComponent<Unit>() != null)
+            {
+                SelectionManagement.selectionManagement.targetedObject.GetComponent<Unit>().onSelect();
+            }
+        }
+    }
 
     public enum ModularVisualUnitsAbility {Nothing, AllyMovement, AllyDamage, EnemyMovement, EnemyDamage}
     public ModularVisualUnitsAbility modularVisualUnitsAbility;
@@ -273,10 +290,18 @@ public class GameplayControl : MonoBehaviour
     } 
 
     public void executeUpgrade(Upgrade upgrade) {
-        if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
-            upgrade.upgradeObjectData.upgradeFunction.Invoke();
-            if (upgrade.upgradeObjectData.limitedCopies) {
-                upgrade.copiesLeft -= 1;
+        if (
+            (Game.currentGame.findSide(currentTurn).money >= upgrade.upgradeObjectData.moneyCost && upgrade.upgradeObjectData.moneyCost > 0) ||
+            (Game.currentGame.gems >= upgrade.upgradeObjectData.gemCost && upgrade.upgradeObjectData.gemCost > 0)
+        ) {
+            if ((upgrade.upgradeObjectData.limitedCopies && upgrade.copiesLeft > 0) || (!upgrade.upgradeObjectData.limitedCopies)) {
+                Game.currentGame.findSide(currentTurn).money -= upgrade.upgradeObjectData.moneyCost;
+                Game.currentGame.gems -= upgrade.upgradeObjectData.gemCost;
+
+                upgrade.upgradeObjectData.upgradeFunction.Invoke();
+                if (upgrade.upgradeObjectData.limitedCopies) {
+                    upgrade.copiesLeft -= 1;
+                }
             }
         }
     }
@@ -329,6 +354,6 @@ public class GameplayControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        visualUnitAbility = _visualUnitAbility;
     }
 }

@@ -9,7 +9,9 @@ public class SideData
     public int addedOrbs;
 
     public int currentOrbs;
+    public int money;
     public int turns;
+
 
     public bool playerControlled;
 
@@ -25,7 +27,8 @@ public class SideData
         }
 
         currentOrbs = sideUnits.Count + addedOrbs;
-        
+
+        money = 0;
         turns = 0;
     }
 
@@ -92,7 +95,7 @@ public class Game
     //
 
     //temporary
-    public int money;
+    
     //
 
     public Game(Object[] sideAssets, Object[] upgradeFiles, Side playerSide) {
@@ -120,7 +123,6 @@ public class Game
         }
 
         gems = 0;
-        money = 0;
 
         fogViewRange = 2;
         unlockedHeroes = new List<string>();

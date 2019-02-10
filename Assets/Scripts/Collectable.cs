@@ -9,7 +9,7 @@ public class Collectable : MonoBehaviour
 
     public void collect() {
         Game.currentGame.gems += addedGems;
-        Game.currentGame.money += addedMoney;
+        Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).money += addedMoney;
 
         Destroy(gameObject);
     }
