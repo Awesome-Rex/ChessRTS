@@ -5,6 +5,24 @@ using UnityEngine.Events;
 
 public enum Side { Life, Nature, Death, Nothing }
 
+[System.Serializable]
+public class AbilitySpot
+{
+    public Vector3 location;
+    public List<int> damageValues;
+    public float distanceFromSide;
+
+    public AbilitySpot (Vector3 location, int damageValue = 0)
+    {
+        damageValues = new List<int>();
+
+        this.location = location;
+        if (damageValue > 0) {
+            damageValues[0] = damageValue;
+        }
+    }
+}
+
 public class GameplayControl : MonoBehaviour
 {
     public Game currentGame;
@@ -12,11 +30,11 @@ public class GameplayControl : MonoBehaviour
 
 
     public List<SideSettings> sideTurnOrder;
-    
+
     public Side currentTurn;
 
 
-    public enum VisualUnitAbility {Nothing, Movement, Damage}
+    public enum VisualUnitAbility { Nothing, Movement, Damage }
     public VisualUnitAbility _visualUnitAbility;
     [SerializeField] public VisualUnitAbility visualUnitAbility
     {
@@ -36,7 +54,7 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
-    public enum ModularVisualUnitsAbility {Nothing, AllyMovement, AllyDamage, EnemyMovement, EnemyDamage}
+    public enum ModularVisualUnitsAbility { Nothing, AllyMovement, AllyDamage, EnemyMovement, EnemyDamage }
     public ModularVisualUnitsAbility modularVisualUnitsAbility;
 
     public VisualUnitAbility visualUnitAbilityMovement;
@@ -47,12 +65,12 @@ public class GameplayControl : MonoBehaviour
     //private UpgraderFunctions upgraderFunctions;
     //
 
-    
-    public void nextTurn ()
+
+    public void nextTurn()
     {
         int sideIndex = 0;
 
-        for(; sideIndex < sideTurnOrder.Count; sideIndex++)
+        for (; sideIndex < sideTurnOrder.Count; sideIndex++)
         {
             if (sideTurnOrder[sideIndex].side == currentTurn)
             {
@@ -86,6 +104,23 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
+    /*public static List<Vector3>
+
+    public static List<Vector3> getModularSide (Side ownSide) {
+        List<Vector3> combinedSpots = new List<Vector3>();
+
+        foreach (Unit unit in FindObjectsOfType<Unit>())
+        {
+            if (unit.GetComponent<SideDefine>() != null && unit.GetComponent<SideDefine>().side != Side.Nothing && unit.GetComponent<SideDefine>().side != ownSide)
+            {
+                
+            }
+        }
+    }
+    public static Dictionary<Vector3, int> getModularSide ()
+    {
+
+    }*/
 
     //area to list
     public static List<Vector3> convert2DtoVector3 (bool[,] map) {
@@ -278,11 +313,17 @@ public class GameplayControl : MonoBehaviour
     {
         foreach (Vector3 matterSpot in matter)
         {
+            bool matterSpotInArea = false;
             foreach (Vector3 areaSpot in area) {
-                if (!(location + matterSpot == areaLocation + areaSpot))
+                if ((location + matterSpot == areaLocation + areaSpot))
                 {
-                    return false;
+                    matterSpotInArea = true;
                 }
+            }
+
+            if (!matterSpotInArea)
+            {
+                return false;
             }
         }
 

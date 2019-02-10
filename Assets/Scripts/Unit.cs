@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     public bool movementEnemyCrossable;
 
     public List<Vector3> movementAreaListed = new List<Vector3>();
+    public List<AbilitySpot> movementAreaListed_new = new List<AbilitySpot>();
     public Vector2 savedMovementAreaDimensions;
 
     public enum MovementType {Straight, Autodirect, Jump, Teleport}
@@ -26,6 +27,7 @@ public class Unit : MonoBehaviour
     public bool damageEnemyCrossable;
 
     public List<Vector3> damageAreaListed = new List<Vector3>();
+    public List<AbilitySpot> damageAreaListed_new = new List<AbilitySpot>();
     public List<int> damageListed = new List<int>();
     public Vector2 savedDamageAreaDimensions;
 

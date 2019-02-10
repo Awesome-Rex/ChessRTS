@@ -5,6 +5,23 @@ using UnityEditor;
 
 public class EditorControl : Editor
 {
+    [MenuItem("Game/Update unit areas listed")]
+    public static void updateUnitAreas ()
+    {
+        foreach (Unit unit in FindObjectsOfType<Unit>())
+        {
+            foreach (Vector3 spot in unit.movementAreaListed)
+            {
+                unit.movementAreaListed_new.Add(new AbilitySpot(spot));
+            }
+
+            for (int i = 0; i < unit.damageAreaListed.Count; i++)
+            {
+                unit.damageAreaListed_new.Add(new AbilitySpot(unit.damageAreaListed[i], unit.damageListed[i]));
+            }
+        }
+    }
+
     [MenuItem("Game/GameObject Area Control/Reset Unit Movement")]
     public static void resetUnitMovement ()
     {
