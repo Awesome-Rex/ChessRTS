@@ -18,7 +18,7 @@ public class AbilitySpot
 
         this.location = location;
         if (damageValue > 0) {
-            damageValues[0] = damageValue;
+            damageValues.Add(damageValue);
         }
     }
 }
