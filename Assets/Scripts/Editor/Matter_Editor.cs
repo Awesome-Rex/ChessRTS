@@ -45,40 +45,40 @@ public class Matter_Editor : Editor
         float minY = 0f;
         float maxY = 0f;
 
-        List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
+        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
 
         (target as Matter).matterAreaListed = areas;
         (target as Matter).savedMatterDimensions = new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1));
 
         //visualizes
-        foreach (Vector3 spot in areas)
+        foreach (AbilitySpot spot in areas)
         {
-            if (spot.x < minX)
+            if (spot.location.x < minX)
             {
-                minX = spot.x;
+                minX = spot.location.x;
             }
-            else if (spot.x > maxX)
+            else if (spot.location.x > maxX)
             {
-                maxX = spot.x;
+                maxX = spot.location.x;
             }
-            if (spot.y < minY)
+            if (spot.location.y < minY)
             {
-                minY = spot.y;
+                minY = spot.location.y;
             }
-            else if (spot.y > maxY)
+            else if (spot.location.y > maxY)
             {
-                maxY = spot.y;
+                maxY = spot.location.y;
             }
 
             GameObject colliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/ObjectColliderTile")) as GameObject;
 
             colliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("Colliders").GetChild(0));
-            colliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
+            colliderSpotPrefab.transform.position = (target as Matter).transform.position + spot.location;
 
             GameObject visualColliderSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MatterSpot")) as GameObject;
 
             visualColliderSpotPrefab.transform.SetParent((target as Matter).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(2));
-            visualColliderSpotPrefab.transform.position = (target as Matter).transform.position + spot;
+            visualColliderSpotPrefab.transform.position = (target as Matter).transform.position + spot.location;
         }
 
         (target as Matter).savedMinX = minX;
@@ -89,8 +89,6 @@ public class Matter_Editor : Editor
         //canvas resizing
 
         (target as Matter).transform.Find("UI").Find("Canvas").GetComponent<RectTransform>().localPosition = new Vector3((target as Matter).savedMinX - 0.5f, (target as Matter).savedMaxY + 0.5f, 0f);
-        /*Rect canvasRect = (target as Matter).transform.Find("UI").Find("Canvas").GetComponent<RectTransform>().rect;
-        canvasRect.size = new Vector2(Mathf.Abs((target as Matter).savedMaxX - (target as Matter).savedMinX) + 1f, Mathf.Abs((target as Matter).savedMaxY - (target as Matter).savedMinY) + 1f);*/
         (target as Matter).transform.Find("UI").Find("Canvas").GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Abs((target as Matter).savedMaxX - (target as Matter).savedMinX) + 1f, Mathf.Abs((target as Matter).savedMaxY - (target as Matter).savedMinY) + 1f) * 100f;
     }
 

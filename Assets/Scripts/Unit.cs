@@ -135,9 +135,9 @@ public class Unit : MonoBehaviour
     }
 
     public bool checkMovable(Vector3 targetPosition) {
-        foreach (Vector3 spot in Matter_Comp.matterAreaListed)
+        foreach (AbilitySpot spot in Matter_Comp.matterAreaListed)
         {
-            if (GameplayControl.objectInSpot(targetPosition + spot, gameObject))
+            if (GameplayControl.objectInSpot(targetPosition + spot.location, gameObject))
             {
                 return false;
             }

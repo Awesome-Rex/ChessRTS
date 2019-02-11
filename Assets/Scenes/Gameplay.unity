@@ -3822,11 +3822,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 4, y: 4}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: -0.5, y: 0.5, z: 0}
   - {x: -0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
+  matterAreaListed:
+  - location: {x: -0.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: -0.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 4, y: 4}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -4010,87 +4027,115 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -4113,39 +4158,51 @@ MonoBehaviour:
   - {x: 2.5, y: -0.5, z: 0}
   damageAreaListed:
   - location: {x: -2.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -2.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1.5, y: 1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1.5, y: -1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -0.5, y: 2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -0.5, y: -2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0.5, y: 2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0.5, y: -2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1.5, y: 1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1.5, y: -1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 2.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 2.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -8261,51 +8318,67 @@ MonoBehaviour:
   - {x: 4, y: -2, z: 0}
   movementAreaListed:
   - location: {x: -4, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -4, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 4, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -4, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 4, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -4, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 4, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 4, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -8324,27 +8397,35 @@ MonoBehaviour:
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 0100000001000000010000000100000001000000010000000100000001000000
@@ -8447,8 +8528,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 17, y: 17}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: 0, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -16766,63 +16852,83 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -16841,27 +16947,35 @@ MonoBehaviour:
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
@@ -16943,8 +17057,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 4, y: 4}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: 0, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -25262,63 +25381,83 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -25337,27 +25476,35 @@ MonoBehaviour:
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
@@ -25439,8 +25586,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 4, y: 4}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: 0, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -37628,9 +37780,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 16, y: 5}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: -0.5, y: -0, z: 0}
   - {x: 0.5, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: -0.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 16, y: 5}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -37780,45 +37941,59 @@ MonoBehaviour:
   - {x: 4, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -4, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 4, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 15, y: 15}
@@ -37839,33 +38014,43 @@ MonoBehaviour:
   - {x: 5.5, y: -0, z: 0}
   damageAreaListed:
   - location: {x: -5.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -4.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -3.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: -2.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 03000000
     distanceFromSide: 0
   - location: {x: -1.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 04000000
     distanceFromSide: 0
   - location: {x: 1.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 04000000
     distanceFromSide: 0
   - location: {x: 2.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 03000000
     distanceFromSide: 0
   - location: {x: 3.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 4.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 5.5, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 01000000010000000200000003000000040000000400000003000000020000000100000001000000
@@ -43239,63 +43424,83 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -43314,27 +43519,35 @@ MonoBehaviour:
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
@@ -43416,8 +43629,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 4, y: 4}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: 0, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -51227,12 +51445,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 17, y: 17}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: -1, y: -0, z: 0}
   - {x: 0, y: 1, z: 0}
   - {x: 0, y: -0, z: 0}
   - {x: 0, y: -1, z: 0}
   - {x: 1, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: -1
   savedMaxX: 1
@@ -51434,87 +51673,115 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -51541,51 +51808,67 @@ MonoBehaviour:
   - {x: 3, y: -1, z: 0}
   damageAreaListed:
   - location: {x: -3, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: -3, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 3, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 3, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 01000000020000000100000001000000010000000100000001000000020000000200000001000000010000000100000001000000010000000200000001000000
@@ -58682,63 +58965,83 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -58757,27 +59060,35 @@ MonoBehaviour:
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
@@ -58960,8 +59271,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 4, y: 4}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
+  matterAreaListed:
+  - location: {x: 0, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -64345,11 +64661,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matterDimensions: {x: 4, y: 4}
-  matterAreaListed:
+  matterAreaListed_deprecated:
   - {x: -0.5, y: 0.5, z: 0}
   - {x: -0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
+  matterAreaListed:
+  - location: {x: -0.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: -0.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
+  - location: {x: 0.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
+    damageValues: 
+    distanceFromSide: 0
   savedMatterDimensions: {x: 4, y: 4}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -64525,63 +64858,83 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: -1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 0, y: -3, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: 1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 1, y: -1, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: 2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 2, y: -2, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   - location: {x: 3, y: -0, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
@@ -64604,39 +64957,51 @@ MonoBehaviour:
   - {x: 2.5, y: -0.5, z: 0}
   damageAreaListed:
   - location: {x: -2.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -2.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1.5, y: 1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -1.5, y: -1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -0.5, y: 2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: -0.5, y: -2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0.5, y: 2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 0.5, y: -2.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1.5, y: 1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 1.5, y: -1.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 2.5, y: 0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   - location: {x: 2.5, y: -0.5, z: 0}
+    worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
   damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

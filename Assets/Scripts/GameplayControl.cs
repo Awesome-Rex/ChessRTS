@@ -9,6 +9,7 @@ public enum Side { Life, Nature, Death, Nothing }
 public class AbilitySpot
 {
     public Vector3 location;
+    public Vector3 worldLocation;
     public List<int> damageValues;
     public float distanceFromSide;
 
@@ -123,24 +124,24 @@ public class GameplayControl : MonoBehaviour
     }*/
 
     //area to list
-    public static List<Vector3> convert2DtoVector3 (bool[,] map) {
-        List<Vector3> spots = new List<Vector3>();
+    public static List<AbilitySpot> convert2DtoVector3 (bool[,] map) {
+        List<AbilitySpot> spots = new List<AbilitySpot>();
 
         for (int x = 0; x < map.GetLength(0); x++) {
             for (int y = 0; y < map.GetLength(1); y++) {
                 if (map[x, y] == true) {
                     if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 != 0) {
-                        spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                        spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0)));
                     } else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
                     {
                         if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 == 0) {
-                            spots.Add(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0));
+                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0)));
                         } else if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 == 0)
                         {
-                            spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0));
+                            spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0)));
                         } else if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 != 0)
                         {
-                            spots.Add(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0)));
                         }
                     }
                 }
@@ -149,8 +150,8 @@ public class GameplayControl : MonoBehaviour
 
         return spots;
     }
-    public static List<Vector3> convert2DtoVector3(int[,] map) {
-        List<Vector3> spots = new List<Vector3>();
+    public static List<AbilitySpot> convert2DtoVector3(int[,] map) {
+        List<AbilitySpot> spots = new List<AbilitySpot>();
 
         for (int x = 0; x < map.GetLength(0); x++)
         {
@@ -160,21 +161,21 @@ public class GameplayControl : MonoBehaviour
                 {
                     if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 != 0)
                     {
-                        spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                        spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0), map[x, y]));
                     }
                     else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
                     {
                         if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 == 0)
                         {
-                            spots.Add(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0));
+                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0), map[x, y]));
                         }
                         else if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 == 0)
                         {
-                            spots.Add(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0));
+                            spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0), map[x, y]));
                         }
                         else if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 != 0)
                         {
-                            spots.Add(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0));
+                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0), map[x, y]));
                         }
                     }
                 }
@@ -183,7 +184,7 @@ public class GameplayControl : MonoBehaviour
 
         return spots;
     }
-    public static List<int> damageAreaToDamageList(int[,] map)
+    /* deprecated */ public static List<int> damageAreaToDamageList(int[,] map)
     {
         List<int> damageList = new List<int>();
 
@@ -200,56 +201,58 @@ public class GameplayControl : MonoBehaviour
 
         return damageList;
     }
+
+
     //list to area
-    public static bool[,] listTo2DArray (List<Vector3> list, Vector2 dimensions)
+    public static bool[,] listTo2DArray (List<AbilitySpot> list, Vector2 dimensions)
     {
         bool[,] array = new bool[(int)dimensions.x, (int)dimensions.y];
 
         for (int i = 0; i < list.Count; i++) {
             if (dimensions.x % 2 != 0 && dimensions.y % 2 != 0)
             {
-                array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = true;
+                array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].location.x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].location.y))] = true;
             }
             else if (dimensions.x % 2 == 0 || dimensions.y % 2 == 0)
             {
                 if (dimensions.x % 2 == 0 && dimensions.y % 2 == 0) {
-                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = true;
+                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].location.x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].location.y))] = true;
                 } else if (dimensions.x % 2 != 0 && dimensions.y % 2 == 0)
                 {
-                    array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = true;
+                    array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].location.x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].location.y))] = true;
                 } else if (dimensions.x % 2 == 0 && dimensions.y % 2 != 0)
                 {
-                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = true;
+                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].location.x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].location.y))] = true;
                 }
             }
         }
 
         return array;
     }
-    public static int[,] listTo2DArray(List<Vector3> list, List<int> intList, Vector2 dimensions) {
+    public static int[,] listTo2DArray(List<AbilitySpot> list, Vector2 dimensions, bool damageCondition) {
         int[,] array = new int[(int)dimensions.x, (int)dimensions.y];
 
-        for (int i = 0; i < ((list.Count + intList.Count) / 2); i++)
+        for (int i = 0; i < list.Count; i++)
         {
             //array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
             if (dimensions.x % 2 != 0 && dimensions.y % 2 != 0)
             {
-                array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
+                array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].location.x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].location.y))] = list[i].damageValues[0];
             }
             else if (dimensions.x % 2 == 0 || dimensions.y % 2 == 0)
             {
                 //array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = intList[i];
                 if (dimensions.x % 2 == 0 && dimensions.y % 2 == 0)
                 {
-                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = intList[i];
+                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].location.x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].location.y))] = list[i].damageValues[0];
                 }
                 else if (dimensions.x % 2 != 0 && dimensions.y % 2 == 0)
                 {
-                    array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].y))] = intList[i];
+                    array[(Mathf.CeilToInt(dimensions.x / 2) - 1) + ((int)(list[i].location.x)), (int)((((dimensions.x / 2) - 1) + 0.5f) + -(list[i].location.y))] = list[i].damageValues[0];
                 }
                 else if (dimensions.x % 2 == 0 && dimensions.y % 2 != 0)
                 {
-                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].y))] = intList[i];
+                    array[(int)((((dimensions.x / 2) - 1) + 0.5f) + (list[i].location.x)), (Mathf.CeilToInt(dimensions.y / 2) - 1) + -((int)(list[i].location.y))] = list[i].damageValues[0];
                 }
             }
         }
