@@ -3979,7 +3979,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: 1, z: 0}
@@ -4008,91 +4008,7 @@ MonoBehaviour:
   - {x: 2, y: -1, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
-  - location: {x: -3, y: -0, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -2, y: 1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -2, y: -1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -1, y: 2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: -1, y: -2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 1, y: 2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 1, y: -2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 2, y: 1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 2, y: -1, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
-    damageValues: 
-    distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
-    damageValues: 
-    distanceFromSide: 0
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -4182,7 +4098,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -2.5, y: 0.5, z: 0}
   - {x: -2.5, y: -0.5, z: 0}
   - {x: -1.5, y: 1.5, z: 0}
@@ -4195,7 +4111,7 @@ MonoBehaviour:
   - {x: 1.5, y: -1.5, z: 0}
   - {x: 2.5, y: 0.5, z: 0}
   - {x: 2.5, y: -0.5, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -2.5, y: 0.5, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -4232,7 +4148,7 @@ MonoBehaviour:
   - location: {x: 2.5, y: -0.5, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 10, y: 10}
   AI: 0
   _defensive: 0
@@ -8326,7 +8242,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 1
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -4, y: 2, z: 0}
   - {x: -4, y: -2, z: 0}
   - {x: -2, y: 4, z: 0}
@@ -8343,7 +8259,7 @@ MonoBehaviour:
   - {x: 2, y: -4, z: 0}
   - {x: 4, y: 2, z: 0}
   - {x: 4, y: -2, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -4, y: 2, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -8397,7 +8313,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -1, y: 1, z: 0}
   - {x: -1, y: -0, z: 0}
   - {x: -1, y: -1, z: 0}
@@ -8406,7 +8322,7 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -8431,7 +8347,7 @@ MonoBehaviour:
   - location: {x: 1, y: -1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 0100000001000000010000000100000001000000010000000100000001000000
+  damageListed_deprecated: 0100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
   _defensive: 0
@@ -16827,7 +16743,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: -0, z: 0}
@@ -16848,7 +16764,7 @@ MonoBehaviour:
   - {x: 2, y: -0, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -16914,7 +16830,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -1, y: 1, z: 0}
   - {x: -1, y: -0, z: 0}
   - {x: -1, y: -1, z: 0}
@@ -16923,7 +16839,7 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -16948,7 +16864,7 @@ MonoBehaviour:
   - location: {x: 1, y: -1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 0100000002000000010000000200000002000000010000000200000001000000
+  damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
   _defensive: 0
@@ -25323,7 +25239,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: -0, z: 0}
@@ -25344,7 +25260,7 @@ MonoBehaviour:
   - {x: 2, y: -0, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -25410,7 +25326,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -1, y: 1, z: 0}
   - {x: -1, y: -0, z: 0}
   - {x: -1, y: -1, z: 0}
@@ -25419,7 +25335,7 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -25444,7 +25360,7 @@ MonoBehaviour:
   - location: {x: 1, y: -1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 0100000002000000010000000200000002000000010000000200000001000000
+  damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
   _defensive: 0
@@ -37847,7 +37763,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -4, y: -0, z: 0}
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: -0, z: 0}
@@ -37862,7 +37778,7 @@ MonoBehaviour:
   - {x: 2, y: -0, z: 0}
   - {x: 3, y: -0, z: 0}
   - {x: 4, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -4, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -37910,7 +37826,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -5.5, y: -0, z: 0}
   - {x: -4.5, y: -0, z: 0}
   - {x: -3.5, y: -0, z: 0}
@@ -37921,7 +37837,7 @@ MonoBehaviour:
   - {x: 3.5, y: -0, z: 0}
   - {x: 4.5, y: -0, z: 0}
   - {x: 5.5, y: -0, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -5.5, y: -0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -37952,7 +37868,7 @@ MonoBehaviour:
   - location: {x: 5.5, y: -0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 01000000010000000200000003000000040000000400000003000000020000000100000001000000
+  damageListed_deprecated: 01000000010000000200000003000000040000000400000003000000020000000100000001000000
   savedDamageAreaDimensions: {x: 16, y: 15}
   AI: 0
   _defensive: 0
@@ -43300,7 +43216,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: -0, z: 0}
@@ -43321,7 +43237,7 @@ MonoBehaviour:
   - {x: 2, y: -0, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -43387,7 +43303,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -1, y: 1, z: 0}
   - {x: -1, y: -0, z: 0}
   - {x: -1, y: -1, z: 0}
@@ -43396,7 +43312,7 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -43421,7 +43337,7 @@ MonoBehaviour:
   - location: {x: 1, y: -1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 0100000002000000010000000200000002000000010000000200000001000000
+  damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
   _defensive: 0
@@ -51487,7 +51403,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: 1, z: 0}
@@ -51516,7 +51432,7 @@ MonoBehaviour:
   - {x: 2, y: -1, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -51606,7 +51522,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -3, y: 1, z: 0}
   - {x: -3, y: -0, z: 0}
   - {x: -3, y: -1, z: 0}
@@ -51623,7 +51539,7 @@ MonoBehaviour:
   - {x: 3, y: 1, z: 0}
   - {x: 3, y: -0, z: 0}
   - {x: 3, y: -1, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -3, y: 1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -51672,7 +51588,7 @@ MonoBehaviour:
   - location: {x: 3, y: -1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 01000000020000000100000001000000010000000100000001000000020000000200000001000000010000000100000001000000010000000200000001000000
+  damageListed_deprecated: 01000000020000000100000001000000010000000100000001000000020000000200000001000000010000000100000001000000010000000200000001000000
   savedDamageAreaDimensions: {x: 13, y: 13}
   AI: 0
   _defensive: 0
@@ -58743,7 +58659,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: -0, z: 0}
@@ -58764,7 +58680,7 @@ MonoBehaviour:
   - {x: 2, y: -0, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -58830,7 +58746,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -1, y: 1, z: 0}
   - {x: -1, y: -0, z: 0}
   - {x: -1, y: -1, z: 0}
@@ -58839,7 +58755,7 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -1, y: 1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -58864,7 +58780,7 @@ MonoBehaviour:
   - location: {x: 1, y: -1, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 0100000002000000010000000200000002000000010000000200000001000000
+  damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
   _defensive: 0
@@ -64586,7 +64502,7 @@ MonoBehaviour:
   movementWallCrossable: 0
   movementAllyCrossable: 0
   movementEnemyCrossable: 0
-  movementAreaListed:
+  movementAreaListed_deprecated:
   - {x: -3, y: -0, z: 0}
   - {x: -2, y: 2, z: 0}
   - {x: -2, y: -0, z: 0}
@@ -64607,7 +64523,7 @@ MonoBehaviour:
   - {x: 2, y: -0, z: 0}
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
-  movementAreaListed_new:
+  movementAreaListed:
   - location: {x: -3, y: -0, z: 0}
     damageValues: 
     distanceFromSide: 0
@@ -64673,7 +64589,7 @@ MonoBehaviour:
   damageWallCrossable: 0
   damageAllyCrossable: 1
   damageEnemyCrossable: 1
-  damageAreaListed:
+  damageAreaListed_deprecated:
   - {x: -2.5, y: 0.5, z: 0}
   - {x: -2.5, y: -0.5, z: 0}
   - {x: -1.5, y: 1.5, z: 0}
@@ -64686,7 +64602,7 @@ MonoBehaviour:
   - {x: 1.5, y: -1.5, z: 0}
   - {x: 2.5, y: 0.5, z: 0}
   - {x: 2.5, y: -0.5, z: 0}
-  damageAreaListed_new:
+  damageAreaListed:
   - location: {x: -2.5, y: 0.5, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
@@ -64723,7 +64639,7 @@ MonoBehaviour:
   - location: {x: 2.5, y: -0.5, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  damageListed: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 10, y: 10}
   AI: 0
   _defensive: 0

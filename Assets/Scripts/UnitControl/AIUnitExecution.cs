@@ -25,7 +25,7 @@ public class AIUnitExecution : MonoBehaviour
 
     public void move() {
         OrderedDictionary movableAreas = new OrderedDictionary();
-        foreach (Vector3 spot in Unit_Comp.movementAreaListed)
+        foreach (Vector3 spot in Unit_Comp.movementAreaListed_deprecated)
         {
             if (Unit_Comp.checkMovable(transform.position + spot))
             {

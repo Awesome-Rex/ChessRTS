@@ -114,13 +114,13 @@ public class SelectionManagement : MonoBehaviour
                             }
                         }
 
-                        if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                        if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().movementAreaListed_deprecated, targetedObject.transform.position))
                         {
                             includedInArea = true;
                         }
                     } else if (GameplayControl.gameplayControl.visualUnitAbility == GameplayControl.VisualUnitAbility.Damage)
                     {
-                        if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().damageAreaListed, targetedObject.transform.position))
+                        if (GameplayControl.containedInArea(inputPosition, targetedObject.GetComponent<Unit>().damageAreaListed_deprecated, targetedObject.transform.position))
                         {
                             includedInArea = true;
                         }
@@ -189,19 +189,19 @@ public class SelectionManagement : MonoBehaviour
 
                     if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
                     {
-                        if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position)) {
+                        if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed_deprecated, targetedObject.transform.position)) {
                             inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
                             inArea = true;
                         }
                     } else if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 != 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 == 0)
                     {
-                        if (GameplayControl.containedInArea(new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                        if (GameplayControl.containedInArea(new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f), targetedObject.GetComponent<Unit>().movementAreaListed_deprecated, targetedObject.transform.position))
                         {
                             inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Sign(inputPosition.y) * (Mathf.Abs((int)inputPosition.y) + 0.5f), 0f);
                             inArea = true;
                         }
                     } else if (targetedObject.GetComponent<Matter>().savedMatterDimensions.x % 2 == 0 && targetedObject.GetComponent<Matter>().savedMatterDimensions.y % 2 != 0) {
-                        if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f), targetedObject.GetComponent<Unit>().movementAreaListed, targetedObject.transform.position))
+                        if (GameplayControl.containedInArea(new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f), targetedObject.GetComponent<Unit>().movementAreaListed_deprecated, targetedObject.transform.position))
                         {
                             inputPosition = new Vector3(Mathf.Sign(inputPosition.x) * (Mathf.Abs((int)inputPosition.x) + 0.5f), Mathf.Round(inputPosition.y), 0f);
                             inArea = true;

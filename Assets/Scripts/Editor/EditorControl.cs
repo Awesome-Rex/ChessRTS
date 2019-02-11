@@ -10,16 +10,18 @@ public class EditorControl : Editor
     {
         foreach (Unit unit in FindObjectsOfType<Unit>())
         {
-            foreach (Vector3 spot in unit.movementAreaListed)
+            Undo.RegisterCompleteObjectUndo(unit, "movement Undo");
+            unit.movementAreaListed.Clear();
+            foreach (Vector3 spot in unit.movementAreaListed_deprecated)
             {
-                Undo.RegisterCompleteObjectUndo(unit, "movement Undo");
-                unit.movementAreaListed_new.Add(new AbilitySpot(spot));
+                unit.movementAreaListed.Add(new AbilitySpot(spot));
             }
 
-            for (int i = 0; i < unit.damageAreaListed.Count; i++)
+            Undo.RegisterCompleteObjectUndo(unit, "damage Undo");
+            unit.damageAreaListed.Clear();
+            for (int i = 0; i < unit.damageAreaListed_deprecated.Count; i++)
             {
-                Undo.RegisterCompleteObjectUndo(unit, "damage Undo");
-                unit.damageAreaListed_new.Add(new AbilitySpot(unit.damageAreaListed[i], unit.damageListed[i]));
+                unit.damageAreaListed.Add(new AbilitySpot(unit.damageAreaListed_deprecated[i], unit.damageListed_deprecated[i]));
             }
         }
     }
