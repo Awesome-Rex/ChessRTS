@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using System.Linq;
 
 public class Unit : MonoBehaviour
 {
@@ -126,7 +127,8 @@ public class Unit : MonoBehaviour
         if (damageTarget != null) {
             Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs -= 1;
 
-            damageTarget.takeDamage(damageListed_deprecated[damageAreaListed_deprecated.IndexOf(targetPosition - transform.position)]);
+            //damageTarget.takeDamage(damageAreaListed[damageAreaListed.IndexOf(damageAreaListed.FirstOrDefault(spot => targetPosition - transform.position == spot.location ? spot.damageValues[0] : 0))]);
+            damageTarget.takeDamage(damageAreaListed.Where(spot => spot.location == targetPosition - transform.position).FirstOrDefault().damageValues[0]);
 
             if (Selectable_Comp.selected) {
                 visualizeDamageArea();
@@ -397,7 +399,7 @@ public class Unit : MonoBehaviour
                         }
                     }
 
-                    if (GameplayControl.containedInArea(inputPosition, movementAreaListed_deprecated, transform.position)) {
+                    if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
                         transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).gameObject.SetActive(true);
                         transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).right = inputPosition - transform.position;
                         transform.Find("VisualAbilities").Find("VisualPointers").GetChild(0).GetComponent<SpriteRenderer>().size = new Vector2(Vector3.Distance(transform.position, inputPosition), 0.125f);
@@ -413,7 +415,7 @@ public class Unit : MonoBehaviour
                     Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
 
-                    if (GameplayControl.containedInArea(inputPosition, damageAreaListed_deprecated, transform.position))
+                    if (GameplayControl.containedInArea(inputPosition, damageAreaListed, transform.position))
                     {
                         transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).gameObject.SetActive(true);
                         transform.Find("VisualAbilities").Find("VisualPointers").GetChild(1).right = inputPosition - transform.position;
@@ -450,7 +452,7 @@ public class Unit : MonoBehaviour
                         }
                     }
 
-                    if (GameplayControl.containedInArea(inputPosition, movementAreaListed_deprecated, transform.position)) {
+                    if (GameplayControl.containedInArea(inputPosition, movementAreaListed, transform.position)) {
                         GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.GetComponent<SpriteRenderer>().color = Color.clear;
                         //GameplayControl.gameplayControl.GetComponent<SelectionManagement>().hoverPositionObject.SetActive(false);
                         //Debug.Log("Supposed to be disabling hover object!");

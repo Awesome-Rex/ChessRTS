@@ -300,11 +300,11 @@ public class GameplayControl : MonoBehaviour
         return false;
     }
 
-    public static bool containedInArea (Vector3 location, List<Vector3> area, Vector3 areaLocation)
+    public static bool containedInArea (Vector3 location, List<AbilitySpot> area, Vector3 areaLocation)
     {
-        foreach (Vector3 areaSpot in area)
+        foreach (AbilitySpot areaSpot in area)
         {
-            if (location == areaLocation + areaSpot)
+            if (location == areaLocation + areaSpot.location)
             {
                 return true;
             }
@@ -312,13 +312,13 @@ public class GameplayControl : MonoBehaviour
 
         return false;
     }
-    public static bool containedInArea (List<Vector3> matter, Vector3 location, List<Vector3> area, Vector3 areaLocation)
+    public static bool containedInArea (List<AbilitySpot> matter, Vector3 location, List<AbilitySpot> area, Vector3 areaLocation)
     {
-        foreach (Vector3 matterSpot in matter)
+        foreach (AbilitySpot matterSpot in matter)
         {
             bool matterSpotInArea = false;
-            foreach (Vector3 areaSpot in area) {
-                if ((location + matterSpot == areaLocation + areaSpot))
+            foreach (AbilitySpot areaSpot in area) {
+                if ((location + matterSpot.location == areaLocation + areaSpot.location))
                 {
                     matterSpotInArea = true;
                 }

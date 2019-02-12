@@ -64,7 +64,7 @@ public class PlayerUnitExecution : MonoBehaviour
                             }
                         }
 
-                        if (GameplayControl.containedInArea(inputPosition, Unit_Comp.movementAreaListed_deprecated, transform.position))
+                        if (GameplayControl.containedInArea(inputPosition, Unit_Comp.movementAreaListed, transform.position))
                         {
                             if (Unit_Comp.checkMovable(inputPosition))
                             {
@@ -78,7 +78,7 @@ public class PlayerUnitExecution : MonoBehaviour
                     {
                         inputPosition = new Vector3(Mathf.Round(inputPosition.x), Mathf.Round(inputPosition.y), 0f);
                         
-                        if (GameplayControl.containedInArea(inputPosition, Unit_Comp.damageAreaListed_deprecated, transform.position))
+                        if (GameplayControl.containedInArea(inputPosition, Unit_Comp.damageAreaListed, transform.position))
                         {
                             if (Unit_Comp.checkDamagable(inputPosition))
                             {
