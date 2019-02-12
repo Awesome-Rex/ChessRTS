@@ -25,12 +25,12 @@ public class AIUnitExecution : MonoBehaviour
 
     public void move() {
         OrderedDictionary movableAreas = new OrderedDictionary();
-        foreach (Vector3 spot in Unit_Comp.movementAreaListed_deprecated)
+        foreach (AbilitySpot spot in Unit_Comp.movementAreaListed)
         {
-            if (Unit_Comp.checkMovable(transform.position + spot))
+            if (Unit_Comp.checkMovable(transform.position + spot.location))
             {
                 //movableAreas.Add(transform.position + spot);
-                movableAreas.Add(transform.position + spot, Vector3.Distance(transform.position, Vector3.zero/** change later **/));
+                movableAreas.Add(transform.position + spot.location, Vector3.Distance(transform.position, Vector3.zero/** change later **/));
             }
         }
 

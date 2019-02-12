@@ -19,7 +19,7 @@ public class Unit_Editor : Editor
     {
         (target as Unit).movementArea = new bool[Mathf.RoundToInt((target as Unit).savedMovementAreaDimensions.x), Mathf.RoundToInt((target as Unit).savedMovementAreaDimensions.y)];
 
-        (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed_deprecated, new Vector2((target as Unit).savedMovementAreaDimensions.x, (target as Unit).savedMovementAreaDimensions.y));
+        (target as Unit).movementArea = GameplayControl.listTo2DArray((target as Unit).movementAreaListed, new Vector2((target as Unit).savedMovementAreaDimensions.x, (target as Unit).savedMovementAreaDimensions.y));
     }
     public static void saveMovementArea (Unit target) {
         if ((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).childCount > 0)
@@ -45,18 +45,18 @@ public class Unit_Editor : Editor
             }
         }
 
-        List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
+        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
 
-        (target as Unit).movementAreaListed_deprecated = areas;
+        (target as Unit).movementAreaListed = areas;
         (target as Unit).savedMovementAreaDimensions = new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1));
 
         //visualizes
-        foreach (Vector3 spot in areas)
+        foreach (AbilitySpot spot in areas)
         {
             GameObject movementSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MovementSpot")) as GameObject;
 
             movementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0));
-            movementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+            movementSpotPrefab.transform.position = (target as Unit).transform.position + spot.location;
             movementSpotPrefab.transform.GetChild(0).right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
 
 
@@ -64,7 +64,7 @@ public class Unit_Editor : Editor
             GameObject extraMovementSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/MovementSpot")) as GameObject;
 
             extraMovementSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(0));
-            extraMovementSpotPrefab.transform.position = (target as Unit).transform.position + spot;
+            extraMovementSpotPrefab.transform.position = (target as Unit).transform.position + spot.location;
             extraMovementSpotPrefab.transform.GetChild(0).right = movementSpotPrefab.transform.position - (target as Unit).transform.position;
 
             extraMovementSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
@@ -75,7 +75,7 @@ public class Unit_Editor : Editor
     {
         (target as Unit).damageArea = new int[Mathf.RoundToInt((target as Unit).savedDamageAreaDimensions.x), Mathf.RoundToInt((target as Unit).savedDamageAreaDimensions.y)];
 
-        (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed_deprecated, (target as Unit).damageListed_deprecated, new Vector2((target as Unit).savedDamageAreaDimensions.x, (target as Unit).savedDamageAreaDimensions.y));
+        (target as Unit).damageArea = GameplayControl.listTo2DArray((target as Unit).damageAreaListed, new Vector2((target as Unit).savedDamageAreaDimensions.x, (target as Unit).savedDamageAreaDimensions.y), true);
     }
     public static void saveDamageArea (Unit target)
     {
@@ -102,28 +102,28 @@ public class Unit_Editor : Editor
             }
         }
 
-        List<Vector3> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
-        List<int> damageList = GameplayControl.damageAreaToDamageList((target as Unit).damageArea);
+        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
+        //List<int> damageList = GameplayControl.damageAreaToDamageList((target as Unit).damageArea);
 
-        (target as Unit).damageAreaListed_deprecated = areas;
-        (target as Unit).damageListed_deprecated = damageList;
+        (target as Unit).damageAreaListed = areas;
+        //(target as Unit).damageListed_deprecated = damageList;
         (target as Unit).savedDamageAreaDimensions = new Vector2((target as Unit).damageArea.GetLength(0), (target as Unit).damageArea.GetLength(1));
 
-        for (int index = 0; index < ((areas.Count + damageList.Count) / 2); index++)
+        for (int index = 0; index < areas.Count; index++)
         {
             GameObject damageSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/DamageSpot")) as GameObject;
 
             damageSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("VisualAreas").GetChild(1));
-            damageSpotPrefab.transform.position = (target as Unit).transform.position + areas[index];
-            damageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().text = damageList[index].ToString();
+            damageSpotPrefab.transform.position = (target as Unit).transform.position + areas[index].location;
+            damageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().text = areas[index].damageValues[0].ToString();
             
             (target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1).position = (target as Unit).transform.position;
 
             GameObject extraDamageSpotPrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/AbilitySpots/DamageSpot")) as GameObject;
 
             extraDamageSpotPrefab.transform.SetParent((target as Unit).transform.Find("VisualAbilities").Find("ExtraVisualAreas").GetChild(1));
-            extraDamageSpotPrefab.transform.position = (target as Unit).transform.position + (target as Unit).damageAreaListed_deprecated[index];
-            extraDamageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().text = damageList[index].ToString();
+            extraDamageSpotPrefab.transform.position = (target as Unit).transform.position + areas[index].location;
+            extraDamageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().text = areas[index].damageValues[0].ToString();
 
             extraDamageSpotPrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             extraDamageSpotPrefab.transform.GetChild(1).GetComponent<TextMeshPro>().color = new Color(1f, 0f, 0f, 0.5f);
