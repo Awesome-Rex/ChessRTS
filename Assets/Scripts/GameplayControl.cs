@@ -19,18 +19,29 @@ public class AbilitySpot
     public float distanceFromSide;
     public float effectivityScore;
 
-    public AbilitySpot (Vector3 location, int damageValue = 0)
+    public AbilitySpot (MonoBehaviour source, Vector3 location, List<int> damageValues)
     {
-        damageValues = new List<int>();
+        this.source = source;
 
+        this.damageValues = damageValues;
+        this.location = location;
+    }
+
+    public AbilitySpot (MonoBehaviour source, Vector3 location, int damageValue = 0)
+    {
+        this.source = source;
+
+        damageValues = new List<int>();
         this.location = location;
         if (damageValue > 0) {
             damageValues.Add(damageValue);
         }
     }
 
-    public AbilitySpot (Vector3 location, Vector3 worldLocation, float distance)
+    public AbilitySpot (MonoBehaviour source, Vector3 location, Vector3 worldLocation, float distance)
     {
+        this.source = source;
+
         this.location = location;
         this.worldLocation = worldLocation;
         this.distanceFromSide = distance;
@@ -72,6 +83,7 @@ public class GameplayControl : MonoBehaviour
     public ModularVisualUnitsAbility modularVisualUnitsAbility;
 
     public VisualUnitAbility visualUnitAbilityMovement;
+
 
     public bool actionException;
 
@@ -118,43 +130,59 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
-    public static List<AbilitySpot> getModularDamage (Side ownSide) {
-        List<AbilitySpot> combinedSpots = new List<AbilitySpot>();
+    /*public static List<AbilitySpot> getModularDamage (Side ownSide) {
+        
+    }*/
+    
+    public static List<AbilitySpot> combineModularDamage (List<Side> includedSides)
+    {
+        List<AbilitySpot> combinedModularDamageList = new List<AbilitySpot>();
 
-        foreach (Unit unit in FindObjectsOfType<Unit>())
+        foreach (Side includedSide in includedSides)
         {
-            if (unit.GetComponent<SideDefine>() != null && unit.GetComponent<SideDefine>().side != Side.Nothing && unit.GetComponent<SideDefine>().side != ownSide)
-            {
-                combinedSpots.AddRange(unit.damageAreaListed);
-            }
+            combinedModularDamageList.AddRange(Game.currentGame.findSide(includedSide).getModularDamage());
         }
 
-        combinedSpots.GroupBy(spot => spot.source.transform.position + spot.location);
+        List <AbilitySpot> newCombinedModularDamageList = new List<AbilitySpot>();
+        combinedModularDamageList.GroupBy(spot => spot.source.transform.position + spot.location).ToList().ForEach(group =>
+        {
+            List<int> damageValuesList = new List<int>();
+            foreach (AbilitySpot spot in group)
+            {
+                damageValuesList.Add(spot.damageValues[0]);
+                //group.ToList().Remove(spot)
+            }
+
+            newCombinedModularDamageList.Add(new AbilitySpot(null, group.Key, damageValuesList));
+        });
+
+        return newCombinedModularDamageList;
     }
+
     /*public static Dictionary<Vector3, int> getModularSide ()
     {
 
     }*/
 
     //area to list
-    public static List<AbilitySpot> convert2DtoVector3 (bool[,] map) {
+    public static List<AbilitySpot> convert2DtoVector3 (bool[,] map, MonoBehaviour objectHolder) {
         List<AbilitySpot> spots = new List<AbilitySpot>();
 
         for (int x = 0; x < map.GetLength(0); x++) {
             for (int y = 0; y < map.GetLength(1); y++) {
                 if (map[x, y] == true) {
                     if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 != 0) {
-                        spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0)));
+                        spots.Add(new AbilitySpot(objectHolder, new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0)));
                     } else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
                     {
                         if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 == 0) {
-                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0)));
+                            spots.Add(new AbilitySpot(objectHolder, new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0)));
                         } else if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 == 0)
                         {
-                            spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0)));
+                            spots.Add(new AbilitySpot(objectHolder, new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0)));
                         } else if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 != 0)
                         {
-                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0)));
+                            spots.Add(new AbilitySpot(objectHolder, new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0)));
                         }
                     }
                 }
@@ -163,7 +191,7 @@ public class GameplayControl : MonoBehaviour
 
         return spots;
     }
-    public static List<AbilitySpot> convert2DtoVector3(int[,] map) {
+    public static List<AbilitySpot> convert2DtoVector3(int[,] map, MonoBehaviour objectHolder) {
         List<AbilitySpot> spots = new List<AbilitySpot>();
 
         for (int x = 0; x < map.GetLength(0); x++)
@@ -174,21 +202,21 @@ public class GameplayControl : MonoBehaviour
                 {
                     if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 != 0)
                     {
-                        spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0), map[x, y]));
+                        spots.Add(new AbilitySpot(objectHolder, new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0), map[x, y]));
                     }
                     else if (map.GetLength(0) % 2 == 0 || map.GetLength(1) % 2 == 0)
                     {
                         if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 == 0)
                         {
-                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0), map[x, y]));
+                            spots.Add(new AbilitySpot(objectHolder, new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0), map[x, y]));
                         }
                         else if (map.GetLength(0) % 2 != 0 && map.GetLength(1) % 2 == 0)
                         {
-                            spots.Add(new AbilitySpot(new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0), map[x, y]));
+                            spots.Add(new AbilitySpot(objectHolder, new Vector3((x - Mathf.Ceil(map.GetLength(0) / 2)), -(y - (((map.GetLength(1) / 2) - 1) + 0.5f)), 0), map[x, y]));
                         }
                         else if (map.GetLength(0) % 2 == 0 && map.GetLength(1) % 2 != 0)
                         {
-                            spots.Add(new AbilitySpot(new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0), map[x, y]));
+                            spots.Add(new AbilitySpot(objectHolder, new Vector3((x - (((map.GetLength(0) / 2) - 1) + 0.5f)), -(y - Mathf.Ceil(map.GetLength(1) / 2)), 0), map[x, y]));
                         }
                     }
                 }

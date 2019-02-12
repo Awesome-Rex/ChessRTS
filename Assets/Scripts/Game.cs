@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 [System.Serializable]
 public class SideData
 {
@@ -12,8 +14,40 @@ public class SideData
     public int money;
     public int turns;
 
+    public List<AbilitySpot> currentModularDamage;
+    public List<AbilitySpot> currentModularMovement;
+
 
     public bool playerControlled;
+
+    public List<AbilitySpot> getModularDamage ()
+    {
+        List<AbilitySpot> combinedSpots = new List<AbilitySpot>();
+
+        foreach (Unit unit in Object.FindObjectsOfType<Unit>())
+        {
+            if (unit.GetComponent<SideDefine>() != null && unit.GetComponent<SideDefine>().side == sideSettings.side)
+            {
+                combinedSpots.AddRange(unit.damageAreaListed);
+            }
+        }
+
+        List<AbilitySpot> collapsedCombinedSpots = new List<AbilitySpot>();
+
+        combinedSpots.GroupBy(spot => spot.source.transform.position + spot.location).ToList().ForEach(group => 
+        {
+            List<int> damageValuesList = new List<int>();
+            foreach (AbilitySpot spot in group)
+            {
+                damageValuesList.Add(spot.damageValues[0]);
+                //group.ToList().Remove(spot)
+            }
+
+            collapsedCombinedSpots.Add(new AbilitySpot(null, group.Key, damageValuesList));
+        });
+
+        return collapsedCombinedSpots;
+    }
 
     public void startReset ()
     {

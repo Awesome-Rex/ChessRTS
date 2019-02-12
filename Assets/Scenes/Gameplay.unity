@@ -4206,22 +4206,30 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   matterAreaListed:
-  - location: {x: -0.5, y: 0.5, z: 0}
+  - source: {fileID: 121792499}
+    location: {x: -0.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -0.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792499}
+    location: {x: -0.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792499}
+    location: {x: 0.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792499}
+    location: {x: 0.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 4, y: 4}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -4404,118 +4412,174 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 121792504}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -2, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -2, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 10, y: 10}
   damageWallCrossable: 0
@@ -4535,54 +4599,78 @@ MonoBehaviour:
   - {x: 2.5, y: 0.5, z: 0}
   - {x: 2.5, y: -0.5, z: 0}
   damageAreaListed:
-  - location: {x: -2.5, y: 0.5, z: 0}
+  - source: {fileID: 121792504}
+    location: {x: -2.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -2.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -2.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -1.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: 2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -0.5, y: 2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: -2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: -0.5, y: -2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: 2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0.5, y: 2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: -2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 0.5, y: -2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 1.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 121792504}
+    location: {x: 2.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 10, y: 10}
   AI: 0
@@ -9700,70 +9788,102 @@ MonoBehaviour:
   - {x: 4, y: 2, z: 0}
   - {x: 4, y: -2, z: 0}
   movementAreaListed:
-  - location: {x: -4, y: 2, z: 0}
+  - source: {fileID: 241844802}
+    location: {x: -4, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -4, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -4, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 4, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -2, y: 4, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -2, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -2, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -4, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -2, y: -4, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -1, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -1, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 1, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 1, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 4, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 2, y: 4, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 2, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 2, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -4, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 2, y: -4, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 4, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 4, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 4, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 4, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 17, y: 17}
   damageWallCrossable: 0
@@ -9779,38 +9899,54 @@ MonoBehaviour:
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
-  - location: {x: -1, y: 1, z: 0}
+  - source: {fileID: 241844802}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 241844802}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 0100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
@@ -9914,10 +10050,12 @@ MonoBehaviour:
   matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: 0, y: -0, z: 0}
+  - source: {fileID: 241844806}
+    location: {x: 0, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -19916,86 +20054,126 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 477128080}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 17, y: 17}
   damageWallCrossable: 0
@@ -20011,38 +20189,54 @@ MonoBehaviour:
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
-  - location: {x: -1, y: 1, z: 0}
+  - source: {fileID: 477128080}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 477128080}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
@@ -20125,10 +20319,12 @@ MonoBehaviour:
   matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: 0, y: -0, z: 0}
+  - source: {fileID: 477128083}
+    location: {x: 0, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -29502,86 +29698,126 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 746443260}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 17, y: 17}
   damageWallCrossable: 0
@@ -29597,38 +29833,54 @@ MonoBehaviour:
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
-  - location: {x: -1, y: 1, z: 0}
+  - source: {fileID: 746443260}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 746443260}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
@@ -29711,10 +29963,12 @@ MonoBehaviour:
   matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: 0, y: -0, z: 0}
+  - source: {fileID: 746443263}
+    location: {x: 0, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -43330,14 +43584,18 @@ MonoBehaviour:
   - {x: -0.5, y: -0, z: 0}
   - {x: 0.5, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: -0.5, y: -0, z: 0}
+  - source: {fileID: 1096424969}
+    location: {x: -0.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424969}
+    location: {x: 0.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 16, y: 5}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -43486,62 +43744,90 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   - {x: 4, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -4, y: -0, z: 0}
+  - source: {fileID: 1096424974}
+    location: {x: -4, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 4, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 4, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 15, y: 15}
   damageAreaDimensions: {x: 16, y: 15}
   damageWallCrossable: 0
@@ -43559,46 +43845,66 @@ MonoBehaviour:
   - {x: 4.5, y: -0, z: 0}
   - {x: 5.5, y: -0, z: 0}
   damageAreaListed:
-  - location: {x: -5.5, y: -0, z: 0}
+  - source: {fileID: 1096424974}
+    location: {x: -5.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -4.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -4.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -3.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -3.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -2.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -2.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 03000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: -1.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 04000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 1.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 04000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 2.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 03000000
     distanceFromSide: 0
-  - location: {x: 3.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 3.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 4.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 4.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 5.5, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1096424974}
+    location: {x: 5.5, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 01000000010000000200000003000000040000000400000003000000020000000100000001000000
   savedDamageAreaDimensions: {x: 16, y: 15}
   AI: 0
@@ -49274,86 +49580,126 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 1271489982}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 17, y: 17}
   damageWallCrossable: 0
@@ -49369,38 +49715,54 @@ MonoBehaviour:
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
-  - location: {x: -1, y: 1, z: 0}
+  - source: {fileID: 1271489982}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1271489982}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
@@ -49483,10 +49845,12 @@ MonoBehaviour:
   matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: 0, y: -0, z: 0}
+  - source: {fileID: 1271489985}
+    location: {x: 0, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -59032,26 +59396,36 @@ MonoBehaviour:
   - {x: 0, y: -1, z: 0}
   - {x: 1, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: -1, y: -0, z: 0}
+  - source: {fileID: 1543419826}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419826}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419826}
+    location: {x: 0, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419826}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419826}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: -1
   savedMaxX: 1
@@ -59252,118 +59626,174 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 1543419831}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 13, y: 13}
   damageWallCrossable: 0
@@ -59387,70 +59817,102 @@ MonoBehaviour:
   - {x: 3, y: -0, z: 0}
   - {x: 3, y: -1, z: 0}
   damageAreaListed:
-  - location: {x: -3, y: 1, z: 0}
+  - source: {fileID: 1543419831}
+    location: {x: -3, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -3, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -3, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: -1, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 1, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 3, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 3, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 3, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1543419831}
+    location: {x: 3, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 01000000020000000100000001000000010000000100000001000000020000000200000001000000010000000100000001000000010000000200000001000000
   savedDamageAreaDimensions: {x: 13, y: 13}
   AI: 0
@@ -61273,22 +61735,30 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   matterAreaListed:
-  - location: {x: -0.5, y: 0.5, z: 0}
+  - source: {fileID: 1588149565}
+    location: {x: -0.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -0.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149565}
+    location: {x: -0.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149565}
+    location: {x: 0.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149565}
+    location: {x: 0.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 4, y: 4}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -61471,102 +61941,150 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: 1, z: 0}
+  - source: {fileID: 1588149570}
+    location: {x: -3, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -3, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -3, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 3, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 3, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 10, y: 10}
   damageWallCrossable: 0
@@ -61586,86 +62104,126 @@ MonoBehaviour:
   - {x: 2.5, y: 0.5, z: 0}
   - {x: 2.5, y: -0.5, z: 0}
   damageAreaListed:
-  - location: {x: -2.5, y: 0.5, z: 0}
+  - source: {fileID: 1588149570}
+    location: {x: -2.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -2.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -2.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -1.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: 2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -0.5, y: 2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -0.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -0.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: -2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: -0.5, y: -2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: 2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0.5, y: 2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: -2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 0.5, y: -2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 1.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 2.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1588149570}
+    location: {x: 2.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 10, y: 10}
   AI: 0
@@ -68042,86 +68600,126 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 1765844908}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 17, y: 17}
   damageWallCrossable: 0
@@ -68137,38 +68735,54 @@ MonoBehaviour:
   - {x: 1, y: -0, z: 0}
   - {x: 1, y: -1, z: 0}
   damageAreaListed:
-  - location: {x: -1, y: 1, z: 0}
+  - source: {fileID: 1765844908}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 02000000
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1765844908}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
   AI: 0
@@ -68352,10 +68966,12 @@ MonoBehaviour:
   matterAreaListed_deprecated:
   - {x: 0, y: -0, z: 0}
   matterAreaListed:
-  - location: {x: 0, y: -0, z: 0}
+  - source: {fileID: 1765844916}
+    location: {x: 0, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 17, y: 17}
   savedMinX: 0
   savedMaxX: 0
@@ -74295,22 +74911,30 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   matterAreaListed:
-  - location: {x: -0.5, y: 0.5, z: 0}
+  - source: {fileID: 1897516400}
+    location: {x: -0.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -0.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516400}
+    location: {x: -0.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516400}
+    location: {x: 0.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516400}
+    location: {x: 0.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMatterDimensions: {x: 4, y: 4}
   savedMinX: -0.5
   savedMaxX: 0.5
@@ -74485,86 +75109,126 @@ MonoBehaviour:
   - {x: 2, y: -2, z: 0}
   - {x: 3, y: -0, z: 0}
   movementAreaListed:
-  - location: {x: -3, y: -0, z: 0}
+  - source: {fileID: 1897516405}
+    location: {x: -3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: -1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0, y: 3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 0, y: -3, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0, y: -3, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: 1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 1, y: 1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 1, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 1, y: -1, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 1, y: -1, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: 2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 2, y: 2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 2, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 2, y: -2, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 2, y: -2, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
-  - location: {x: 3, y: -0, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 3, y: -0, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 
     distanceFromSide: 0
+    effectivityScore: 0
   savedMovementAreaDimensions: {x: 17, y: 17}
   damageAreaDimensions: {x: 10, y: 10}
   damageWallCrossable: 0
@@ -74584,54 +75248,78 @@ MonoBehaviour:
   - {x: 2.5, y: 0.5, z: 0}
   - {x: 2.5, y: -0.5, z: 0}
   damageAreaListed:
-  - location: {x: -2.5, y: 0.5, z: 0}
+  - source: {fileID: 1897516405}
+    location: {x: -2.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -2.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -2.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -1.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -1.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -1.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: 2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -0.5, y: 2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: -0.5, y: -2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: -0.5, y: -2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: 2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0.5, y: 2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 0.5, y: -2.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 0.5, y: -2.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: 1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 1.5, y: 1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 1.5, y: -1.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 1.5, y: -1.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: 0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 2.5, y: 0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
-  - location: {x: 2.5, y: -0.5, z: 0}
+    effectivityScore: 0
+  - source: {fileID: 1897516405}
+    location: {x: 2.5, y: -0.5, z: 0}
     worldLocation: {x: 0, y: 0, z: 0}
     damageValues: 01000000
     distanceFromSide: 0
+    effectivityScore: 0
   damageListed_deprecated: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   savedDamageAreaDimensions: {x: 10, y: 10}
   AI: 0

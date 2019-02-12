@@ -31,7 +31,7 @@ public class EditorControl : Editor
                 unit.matterAreaListed.Add(new AbilitySpot(spot));
             }*/
 
-            Undo.RegisterCompleteObjectUndo(unit, "ability spots Undo");
+            /*Undo.RegisterCompleteObjectUndo(unit, "ability spots Undo");
             foreach (AbilitySpot spot in unit.movementAreaListed)
             {
                 spot.source = unit;
@@ -40,10 +40,14 @@ public class EditorControl : Editor
             {
                 spot.source = unit;
             }
-            foreach (AbilitySpot spot in unit.GetComponent<Matter>().matterAreaListed)
+        }
+            foreach (Matter matter in FindObjectsOfType<Matter>())
             {
-                spot.source = unit.GetComponent<Matter>();
-            }
+                Undo.RegisterCompleteObjectUndo(matter, "ability spots Undo");
+                foreach (AbilitySpot spot in matter.GetComponent<Matter>().matterAreaListed)
+                {
+                spot.source = matter;
+            }*/
         }
     }
 

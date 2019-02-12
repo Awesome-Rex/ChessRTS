@@ -45,7 +45,7 @@ public class Unit_Editor : Editor
             }
         }
 
-        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea);
+        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Unit).movementArea, target as Unit);
 
         (target as Unit).movementAreaListed = areas;
         (target as Unit).savedMovementAreaDimensions = new Vector2((target as Unit).movementArea.GetLength(0), (target as Unit).movementArea.GetLength(1));
@@ -102,7 +102,7 @@ public class Unit_Editor : Editor
             }
         }
 
-        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea);
+        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Unit).damageArea, target as Unit);
         //List<int> damageList = GameplayControl.damageAreaToDamageList((target as Unit).damageArea);
 
         (target as Unit).damageAreaListed = areas;

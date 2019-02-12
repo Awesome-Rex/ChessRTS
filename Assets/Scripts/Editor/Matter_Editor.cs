@@ -45,7 +45,7 @@ public class Matter_Editor : Editor
         float minY = 0f;
         float maxY = 0f;
 
-        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea);
+        List<AbilitySpot> areas = GameplayControl.convert2DtoVector3((target as Matter).matterArea, target as Matter);
 
         (target as Matter).matterAreaListed = areas;
         (target as Matter).savedMatterDimensions = new Vector2((target as Matter).matterArea.GetLength(0), (target as Matter).matterArea.GetLength(1));
