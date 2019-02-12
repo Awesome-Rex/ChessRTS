@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 public enum Side { Life, Nature, Death, Nothing }
 
 [System.Serializable]
 public class AbilitySpot
 {
+    public MonoBehaviour source;
+
     public Vector3 location;
     public Vector3 worldLocation;
+
+
     public List<int> damageValues;
     public float distanceFromSide;
+    public float effectivityScore;
 
     public AbilitySpot (Vector3 location, int damageValue = 0)
     {
@@ -21,6 +27,13 @@ public class AbilitySpot
         if (damageValue > 0) {
             damageValues.Add(damageValue);
         }
+    }
+
+    public AbilitySpot (Vector3 location, Vector3 worldLocation, float distance)
+    {
+        this.location = location;
+        this.worldLocation = worldLocation;
+        this.distanceFromSide = distance;
     }
 }
 
@@ -105,20 +118,20 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
-    /*public static List<Vector3>
-
-    public static List<Vector3> getModularSide (Side ownSide) {
-        List<Vector3> combinedSpots = new List<Vector3>();
+    public static List<AbilitySpot> getModularDamage (Side ownSide) {
+        List<AbilitySpot> combinedSpots = new List<AbilitySpot>();
 
         foreach (Unit unit in FindObjectsOfType<Unit>())
         {
             if (unit.GetComponent<SideDefine>() != null && unit.GetComponent<SideDefine>().side != Side.Nothing && unit.GetComponent<SideDefine>().side != ownSide)
             {
-                
+                combinedSpots.AddRange(unit.damageAreaListed);
             }
         }
+
+        combinedSpots.GroupBy(spot => spot.source.transform.position + spot.location);
     }
-    public static Dictionary<Vector3, int> getModularSide ()
+    /*public static Dictionary<Vector3, int> getModularSide ()
     {
 
     }*/
@@ -286,10 +299,10 @@ public class GameplayControl : MonoBehaviour
         }
     }
 
-    public static bool objectInSpot (List<Vector3> matter, Vector3 spot)
+    public static bool objectInSpot (List<AbilitySpot> matter, Vector3 spot)
     {
-        foreach (Vector3 matterSpot in matter) {
-            RaycastHit2D objectCast = Physics2D.Raycast(spot + matterSpot, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+        foreach (AbilitySpot matterSpot in matter) {
+            RaycastHit2D objectCast = Physics2D.Raycast(spot + matterSpot.location, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
 
             if (objectCast.collider != null)
             {

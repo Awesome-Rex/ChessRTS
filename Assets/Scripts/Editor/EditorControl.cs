@@ -8,7 +8,7 @@ public class EditorControl : Editor
     [MenuItem("Game/Update unit areas listed")]
     public static void updateUnitAreas ()
     {
-        foreach (Matter unit in FindObjectsOfType<Matter>())
+        foreach (Unit unit in FindObjectsOfType<Unit>())
         {
             /*Undo.RegisterCompleteObjectUndo(unit, "movement Undo");
             unit.movementAreaListed.Clear();
@@ -30,6 +30,20 @@ public class EditorControl : Editor
             {
                 unit.matterAreaListed.Add(new AbilitySpot(spot));
             }*/
+
+            Undo.RegisterCompleteObjectUndo(unit, "ability spots Undo");
+            foreach (AbilitySpot spot in unit.movementAreaListed)
+            {
+                spot.source = unit;
+            }
+            foreach (AbilitySpot spot in unit.damageAreaListed)
+            {
+                spot.source = unit;
+            }
+            foreach (AbilitySpot spot in unit.GetComponent<Matter>().matterAreaListed)
+            {
+                spot.source = unit.GetComponent<Matter>();
+            }
         }
     }
 
