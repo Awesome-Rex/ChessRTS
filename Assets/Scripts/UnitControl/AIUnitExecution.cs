@@ -109,13 +109,27 @@ public class AIUnitExecution : MonoBehaviour
                     targetDamageSpots.Add(spot);
                 }
             }
+
+            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count)].worldLocation);
             /////////add damage and health score
             Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count)].worldLocation);
         } else if (lowHighAggresive_Picker > Unit_Comp.lowAggressive)
         {
             //attack high health
 
-            
+            List<AbilitySpot> targetDamageSpots = new List<AbilitySpot>();
+
+            foreach (AbilitySpot spot in damagableSpots)
+            {
+                RaycastHit2D enemyCast = Physics2D.Raycast(spot.worldLocation, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+                if (enemyCast.collider != null && enemyCast.collider.GetComponent<Health>() != null && enemyCast.collider.GetComponent<Health>().health > Mathf.FloorToInt(enemyCast.collider.GetComponent<Health>().maxHealth / 2))
+                {
+                    targetDamageSpots.Add(spot);
+                }
+            }
+
+            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count)].worldLocation);
+            /////////add damage and health score
         }
     }
 

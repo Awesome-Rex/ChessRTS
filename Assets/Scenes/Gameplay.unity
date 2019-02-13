@@ -6651,9 +6651,9 @@ MonoBehaviour:
     unlockedHeroes: []
     upgrades: []
   sideTurnOrder:
+  - {fileID: 11400000, guid: da8e89c1c2747b04faee2be2c5859486, type: 2}
   - {fileID: 11400000, guid: 44dd01e7a78314548bf1c50a9b2532da, type: 2}
   - {fileID: 11400000, guid: 9bf30aba3c52b4b478fbfda246539bdf, type: 2}
-  - {fileID: 11400000, guid: da8e89c1c2747b04faee2be2c5859486, type: 2}
   currentTurn: 0
   _visualUnitAbility: 1
   modularVisualUnitsAbility: 0
@@ -20239,15 +20239,15 @@ MonoBehaviour:
     effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
-  AI: 0
-  _defensive: 0
-  _offensive: 100
+  AI: 1
+  _defensive: 50
+  _offensive: 50
   retreative: 50
-  _lowAggressive: 0
-  _highAggressive: 100
-  defenseInfluence: 5
-  retreatInfluence: 2
-  priority: 0
+  _lowAggressive: 50
+  _highAggressive: 50
+  defenseInfluence: 0
+  retreatInfluence: 0
+  priority: 1
   hasDeterminedPriority: 0
   determinedPriority: 0
 --- !u!114 &477128081
@@ -29883,15 +29883,15 @@ MonoBehaviour:
     effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
-  AI: 0
-  _defensive: 0
-  _offensive: 100
+  AI: 1
+  _defensive: 50
+  _offensive: 50
   retreative: 50
-  _lowAggressive: 0
-  _highAggressive: 100
-  defenseInfluence: 5
-  retreatInfluence: 2
-  priority: 0
+  _lowAggressive: 50
+  _highAggressive: 50
+  defenseInfluence: 0
+  retreatInfluence: 0
+  priority: 1
   hasDeterminedPriority: 0
   determinedPriority: 0
 --- !u!114 &746443261
@@ -49765,15 +49765,15 @@ MonoBehaviour:
     effectivityScore: 0
   damageListed_deprecated: 0100000002000000010000000200000002000000010000000200000001000000
   savedDamageAreaDimensions: {x: 17, y: 17}
-  AI: 0
-  _defensive: 0
-  _offensive: 100
+  AI: 1
+  _defensive: 50
+  _offensive: 50
   retreative: 50
-  _lowAggressive: 0
-  _highAggressive: 100
-  defenseInfluence: 5
-  retreatInfluence: 2
-  priority: 0
+  _lowAggressive: 50
+  _highAggressive: 50
+  defenseInfluence: 0
+  retreatInfluence: 0
+  priority: 1
   hasDeterminedPriority: 0
   determinedPriority: 0
 --- !u!114 &1271489983

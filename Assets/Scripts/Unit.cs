@@ -41,9 +41,10 @@ public class Unit : MonoBehaviour
 
 
     public bool AI = false;
+    
 
+    public float _defensive;
     [SerializeField]
-    private float _defensive;
     public float defensive {
         get {
             return _defensive;
@@ -54,8 +55,9 @@ public class Unit : MonoBehaviour
         }
     }
 
+    
+    public float _offensive;
     [SerializeField]
-    private float _offensive;
     public float offensive {
         get {
             return _offensive;
@@ -67,9 +69,9 @@ public class Unit : MonoBehaviour
     }
 
     public float retreative = 50;
-
+    
+    public float _lowAggressive;
     [SerializeField]
-    private float _lowAggressive;
     public float lowAggressive {
         get {
             return _lowAggressive;
@@ -80,8 +82,9 @@ public class Unit : MonoBehaviour
         }
     }
 
+    
+    public float _highAggressive;
     [SerializeField]
-    private float _highAggressive;
     public float highAggressive
     {
         get
