@@ -127,7 +127,8 @@ public class SelectionManagement : MonoBehaviour
                     }
                 }
                 
-                //if player unit not selected
+                //if player unit area not selected
+                //if there is peviously selected object and object is player unit and object is selected and object has side and object side is currentv turn
                 if (
                     !(/*!inputOnTargetObject && */targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected /*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side)
                     || (!includedInArea && (/*!inputOnTargetObject && */targetedObject != null && targetedObject.GetComponent<PlayerUnitExecution>() != null && targetedObject.selected /*inputPosition != targetedObject.transform.position*/ && GameplayControl.gameplayControl.visualUnitAbility != GameplayControl.VisualUnitAbility.Nothing && GameplayControl.gameplayControl.currentTurn == targetedObject.GetComponent<SideDefine>().side))

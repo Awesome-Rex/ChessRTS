@@ -43,7 +43,10 @@ public class SideData
                 //group.ToList().Remove(spot)
             }
 
-            collapsedCombinedSpots.Add(new AbilitySpot(null, group.Key, damageValuesList));
+            AbilitySpot damageSpot = new AbilitySpot(null, group.Key, damageValuesList);
+            damageSpot.worldLocation = group.Key;
+
+            collapsedCombinedSpots.Add(damageSpot);
         });
 
         return collapsedCombinedSpots;

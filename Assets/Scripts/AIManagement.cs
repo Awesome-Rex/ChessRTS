@@ -41,6 +41,8 @@ public class AIManagement : MonoBehaviour
                 return;
             }
 
+            Debug.Log(AIUnits.Count);
+
             float picker = Random.Range(0f, highestMax);
 
             foreach (RandomRangeElement unit in AIUnits)

@@ -13,6 +13,8 @@ public class AIUnitExecution : MonoBehaviour
 
     public void action ()
     {
+        Debug.Log("I did an action!");
+
         float moveAttack_Picker = Random.Range(0f, 100f);
 
         if (moveAttack_Picker <= Unit_Comp.defensive)
@@ -60,7 +62,10 @@ public class AIUnitExecution : MonoBehaviour
             }
         }
 
-
+        if (safeMovableAreas.Count <= 0)
+        {
+            return;
+        }
 
         float retreativeDodgitive_Picker = Random.Range(0f, 100f);
 
@@ -69,11 +74,13 @@ public class AIUnitExecution : MonoBehaviour
             ////////////////retreat
             safeMovableAreas = safeMovableAreas.OrderBy(x => x.distanceFromSide).ToList();
 
-            Unit_Comp.move(safeMovableAreas.ElementAt(Random.Range(Mathf.FloorToInt(safeMovableAreas.Count() / 2f) - 1, safeMovableAreas.Count())).worldLocation);
+            Unit_Comp.move(safeMovableAreas.ElementAt(Random.Range(Mathf.FloorToInt(safeMovableAreas.Count() / 2f) - 1, safeMovableAreas.Count() - 1)).worldLocation);
             
         } else if (retreativeDodgitive_Picker > Unit_Comp.retreative)
         {
             //dodge / move forward
+
+            safeMovableAreas = safeMovableAreas.OrderBy(x => x.distanceFromSide).ToList();
 
             Unit_Comp.move(safeMovableAreas.ElementAt(Random.Range(0, Mathf.CeilToInt(safeMovableAreas.Count() / 2f) - 1)).worldLocation);
         }
@@ -92,6 +99,10 @@ public class AIUnitExecution : MonoBehaviour
             }
         }
 
+        if (damagableSpots.Count <= 0)
+        {
+            return;
+        }
 
         float lowHighAggresive_Picker = Random.Range(0f, 100f);
 
@@ -110,9 +121,13 @@ public class AIUnitExecution : MonoBehaviour
                 }
             }
 
-            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count)].worldLocation);
+            if (targetDamageSpots.Count <= 0)
+            {
+                return;
+            }
+
+            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count - 1)].worldLocation);
             /////////add damage and health score
-            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count)].worldLocation);
         } else if (lowHighAggresive_Picker > Unit_Comp.lowAggressive)
         {
             //attack high health
@@ -128,13 +143,18 @@ public class AIUnitExecution : MonoBehaviour
                 }
             }
 
-            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count)].worldLocation);
+            if (targetDamageSpots.Count <= 0)
+            {
+                return;
+            }
+
+            Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count - 1)].worldLocation);
             /////////add damage and health score
         }
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Unit_Comp = GetComponent<Unit>();
         Health_Comp = GetComponent<Health>();

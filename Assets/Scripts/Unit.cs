@@ -373,7 +373,7 @@ public class Unit : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Selectable_Comp = GetComponent<Selectable>();
         Matter_Comp = GetComponent<Matter>();

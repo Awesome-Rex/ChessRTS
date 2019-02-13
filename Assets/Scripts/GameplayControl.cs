@@ -144,7 +144,7 @@ public class GameplayControl : MonoBehaviour
         }
 
         List <AbilitySpot> newCombinedModularDamageList = new List<AbilitySpot>();
-        combinedModularDamageList.GroupBy(spot => spot.source.transform.position + spot.location).ToList().ForEach(group =>
+        combinedModularDamageList.GroupBy(spot => spot.worldLocation).ToList().ForEach(group =>
         {
             List<int> damageValuesList = new List<int>();
             foreach (AbilitySpot spot in group)
