@@ -129,11 +129,8 @@ public class GameplayControl : MonoBehaviour
             GetComponent<AIManagement>().turn();
         }
     }
-
-    /*public static List<AbilitySpot> getModularDamage (Side ownSide) {
-        
-    }*/
     
+
     public static List<AbilitySpot> combineModularDamage (List<Side> includedSides)
     {
         List<AbilitySpot> combinedModularDamageList = new List<AbilitySpot>();
@@ -159,10 +156,6 @@ public class GameplayControl : MonoBehaviour
         return newCombinedModularDamageList;
     }
 
-    /*public static Dictionary<Vector3, int> getModularSide ()
-    {
-
-    }*/
 
     //area to list
     public static List<AbilitySpot> convert2DtoVector3 (bool[,] map, MonoBehaviour objectHolder) {
@@ -243,7 +236,6 @@ public class GameplayControl : MonoBehaviour
         return damageList;
     }
 
-
     //list to area
     public static bool[,] listTo2DArray (List<AbilitySpot> list, Vector2 dimensions)
     {
@@ -300,7 +292,7 @@ public class GameplayControl : MonoBehaviour
 
         return array;
     }
-
+    
 
 
     public static bool objectInSpot (Vector3 spot)
@@ -372,7 +364,14 @@ public class GameplayControl : MonoBehaviour
         }
 
         return true;
-    } 
+    }
+
+    public static IEnumerator invokeLines(System.Action function)
+    {
+        yield return null;
+
+        function();
+    }
 
     public void executeUpgrade(Upgrade upgrade) {
         if (
@@ -389,6 +388,11 @@ public class GameplayControl : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void startCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
     }
 
     void Awake() {

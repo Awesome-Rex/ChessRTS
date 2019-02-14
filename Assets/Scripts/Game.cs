@@ -14,7 +14,19 @@ public class SideData
     public int money;
     public int turns;
 
-    public List<AbilitySpot> currentModularDamage;
+    private List<AbilitySpot> _currentModularDamage;
+    public List<AbilitySpot> currentModularDamage
+    {
+        get
+        {
+            return _currentModularDamage;
+        }
+        set
+        {
+            _currentModularDamage = value;
+            GameplayControl.gameplayControl.StartCoroutine(GameplayControl.invokeLines(() => _currentModularDamage = null));
+        }
+    }
     public List<AbilitySpot> currentModularMovement;
 
 
@@ -22,34 +34,41 @@ public class SideData
 
     public List<AbilitySpot> getModularDamage ()
     {
-        List<AbilitySpot> combinedSpots = new List<AbilitySpot>();
+        if (currentModularDamage == null) {
+            List<AbilitySpot> combinedSpots = new List<AbilitySpot>();
 
-        foreach (Unit unit in Object.FindObjectsOfType<Unit>())
-        {
-            if (unit.GetComponent<SideDefine>() != null && unit.GetComponent<SideDefine>().side == sideSettings.side)
+            foreach (Unit unit in Object.FindObjectsOfType<Unit>())
             {
-                combinedSpots.AddRange(unit.damageAreaListed);
+                if (unit.GetComponent<SideDefine>() != null && unit.GetComponent<SideDefine>().side == sideSettings.side)
+                {
+                    combinedSpots.AddRange(unit.damageAreaListed);
+                }
             }
-        }
 
-        List<AbilitySpot> collapsedCombinedSpots = new List<AbilitySpot>();
+            List<AbilitySpot> collapsedCombinedSpots = new List<AbilitySpot>();
 
-        combinedSpots.GroupBy(spot => spot.source.transform.position + spot.location).ToList().ForEach(group => 
-        {
-            List<int> damageValuesList = new List<int>();
-            foreach (AbilitySpot spot in group)
+            combinedSpots.GroupBy(spot => spot.source.transform.position + spot.location).ToList().ForEach(group =>
             {
-                damageValuesList.Add(spot.damageValues[0]);
+                List<int> damageValuesList = new List<int>();
+                foreach (AbilitySpot spot in group)
+                {
+                    damageValuesList.Add(spot.damageValues[0]);
                 //group.ToList().Remove(spot)
             }
 
-            AbilitySpot damageSpot = new AbilitySpot(null, group.Key, damageValuesList);
-            damageSpot.worldLocation = group.Key;
+                AbilitySpot damageSpot = new AbilitySpot(null, group.Key, damageValuesList);
+                damageSpot.worldLocation = group.Key;
 
-            collapsedCombinedSpots.Add(damageSpot);
-        });
+                collapsedCombinedSpots.Add(damageSpot);
+            });
 
-        return collapsedCombinedSpots;
+            currentModularDamage = collapsedCombinedSpots;
+
+            return collapsedCombinedSpots;
+        } else
+        {
+            return currentModularDamage;
+        }
     }
 
     public void startReset ()
@@ -67,6 +86,8 @@ public class SideData
 
         money = 0;
         turns = 0;
+
+        _currentModularDamage = null;
     }
 
     public SideData (SideSettings sideSettings)
