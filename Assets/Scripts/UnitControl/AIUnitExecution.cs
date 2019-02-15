@@ -13,7 +13,7 @@ public class AIUnitExecution : MonoBehaviour
 
     public void action ()
     {
-        Debug.Log("I did an action!");
+        //Debug.Log("I did an action!");
 
         float moveAttack_Picker = Random.Range(0f, 100f);
 

@@ -74,7 +74,7 @@ public class GameplayControl : MonoBehaviour
 
             if (SelectionManagement.selectionManagement.targetedObject != null && SelectionManagement.selectionManagement.targetedObject.GetComponent<Unit>() != null)
             {
-                SelectionManagement.selectionManagement.targetedObject.GetComponent<Unit>().onSelect();
+                SelectionManagement.selectionManagement.targetedObject.GetComponent<Unit>().resetSelect();
             }
         }
     }

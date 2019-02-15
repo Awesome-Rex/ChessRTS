@@ -6657,7 +6657,7 @@ MonoBehaviour:
   currentTurn: 2
   _visualUnitAbility: 1
   modularVisualUnitsAbility: 0
-  visualUnitAbilityMovement: 2
+  visualUnitAbilityMovement: 0
   actionException: 0
 --- !u!4 &162877652
 Transform:

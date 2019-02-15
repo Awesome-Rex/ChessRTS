@@ -28,7 +28,6 @@ public class Selectable : MonoBehaviour
     public UnityEvent deselectEvents;
 
     public void select() {
-
         selectEvents.Invoke();
 
         if (GetComponent<Unit>() != null) {
