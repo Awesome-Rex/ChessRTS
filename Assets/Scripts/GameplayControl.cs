@@ -16,6 +16,7 @@ public class AbilitySpot
 
 
     public List<int> damageValues;
+    public Health damageTarget;
     public float distanceFromSide;
     public float effectivityScore;
 
@@ -443,6 +444,6 @@ public class GameplayControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        visualUnitAbility = _visualUnitAbility;
+        //visualUnitAbility = _visualUnitAbility;
     }
 }

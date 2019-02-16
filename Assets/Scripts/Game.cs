@@ -14,9 +14,9 @@ public class SideData
     public int money;
     public int turns;
 
-    private List<AbilitySpot> _currentModularDamage;
-    public List<AbilitySpot> currentModularDamage
-    {
+    //private List<AbilitySpot> _currentModularDamage;
+    public List<AbilitySpot> currentModularDamage;
+    /*{
         get
         {
             return _currentModularDamage;
@@ -24,9 +24,9 @@ public class SideData
         set
         {
             _currentModularDamage = value;
-            GameplayControl.gameplayControl.StartCoroutine(GameplayControl.invokeLines(() => _currentModularDamage = null));
+            //GameplayControl.gameplayControl.StartCoroutine(GameplayControl.invokeLines(() => _currentModularDamage = null));
         }
-    }
+    }*/
     public List<AbilitySpot> currentModularMovement;
 
 
@@ -87,7 +87,7 @@ public class SideData
         money = 0;
         turns = 0;
 
-        _currentModularDamage = null;
+        currentModularDamage = null;
     }
 
     public SideData (SideSettings sideSettings)

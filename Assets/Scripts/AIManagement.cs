@@ -24,24 +24,42 @@ public class AIManagement : MonoBehaviour
     {
         while (Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs > 0) {
             List<RandomRangeElement> AIUnits = new List<RandomRangeElement>();
-
             float highestMax = 0;
+
+            List<Unit> determinedPriorityUnits = new List<Unit>();
 
             foreach (AIUnitExecution unit in GameObject.FindObjectsOfType<AIUnitExecution>())
             {
-                if (unit.GetComponent<SideDefine>().side == GameplayControl.gameplayControl.currentTurn) {
+                if (unit.GetComponent<SideDefine>().side == GameplayControl.gameplayControl.currentTurn && !unit.GetComponent<Unit>().hasDeterminedPriority) {
                     AIUnits.Add(new RandomRangeElement(highestMax, unit.GetComponent<Unit>().priority, unit));
                     highestMax += unit.GetComponent<Unit>().priority;
+                } else
+                {
+                    //add ai determined priority, percentage
+                    determinedPriorityUnits.Add(unit.GetComponent<Unit>());
                 }
             }
 
-            if (AIUnits.Count <= 0)
+            if (AIUnits.Count + determinedPriorityUnits.Count <= 0)
             {
                 GameplayControl.gameplayControl.nextTurn();
                 return;
             }
 
-            //Debug.Log(AIUnits.Count);
+            float savedHighestMax = highestMax;
+
+            float totalPercentage = 0f;
+
+            foreach (Unit unit in determinedPriorityUnits)
+            {
+                totalPercentage += unit.determinedPriority;
+            }
+            foreach (Unit unit in determinedPriorityUnits) {
+                AIUnits.Add(new RandomRangeElement(highestMax, (savedHighestMax / (100f - totalPercentage)) * unit.determinedPriority/*unit.determinedPriority*/, unit.GetComponent<AIUnitExecution>()));
+                highestMax += (savedHighestMax / (100f - totalPercentage)) * unit.determinedPriority;
+            } ///////////////fix here
+
+
 
             float picker = Random.Range(0f, highestMax);
 
@@ -52,6 +70,7 @@ public class AIManagement : MonoBehaviour
                 {
                     //make unit move/attack
                     (unit.element as AIUnitExecution).action();
+                    Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentModularDamage = null;
                 }
             }
         }

@@ -312,7 +312,7 @@ public class Unit_Editor : Editor
 
 
 
-        EditorGUILayout.LabelField("");
+        EditorGUILayout.LabelField(string.Empty);
         (target as Unit).AI = EditorGUILayout.BeginToggleGroup("Is this an AI?", (target as Unit).AI);
 
         (target as Unit).defensive = EditorGUILayout.Slider("Defensive/Offensive", (target as Unit).defensive, 0f, 100f);
@@ -321,6 +321,19 @@ public class Unit_Editor : Editor
 
         (target as Unit).defenseInfluence = EditorGUILayout.FloatField("Defence Influence", (target as Unit).defenseInfluence);
         (target as Unit).retreatInfluence = EditorGUILayout.FloatField("Retreat Influence", (target as Unit).retreatInfluence);
+
+        EditorGUILayout.LabelField(string.Empty);
+
+        if ((target as Unit).hasDeterminedPriority) {
+            GUI.enabled = false;
+        }
+        (target as Unit).priority = EditorGUILayout.FloatField("Priority", (target as Unit).priority);
+        GUI.enabled = true;
+
+        (target as Unit).hasDeterminedPriority = EditorGUILayout.Toggle("Has determined priority?", (target as Unit).hasDeterminedPriority);
+        if ((target as Unit).hasDeterminedPriority) {
+            (target as Unit).determinedPriority = EditorGUILayout.FloatField("Determined Priority (%)", (target as Unit).determinedPriority);
+        }
 
         EditorGUILayout.EndToggleGroup();
 
