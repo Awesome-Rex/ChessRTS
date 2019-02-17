@@ -11,3 +11,15 @@ public class DataAccess : ScriptableObject
 
     public List<SideSettings> sideSettings;
 }
+
+public class Tools
+{
+    public static int underZero(int number)
+    {
+        if (number < 0)
+        {
+            return 0;
+        }
+        return number;
+    }
+}

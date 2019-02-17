@@ -68,12 +68,12 @@ public class AIUnitExecution : MonoBehaviour
             {
                 safeMovableAreas = safeMovableAreas.OrderBy(x => x.distanceFromSide).ToList();
 
-                Unit_Comp.move(safeMovableAreas.ElementAt(Random.Range(Mathf.FloorToInt(safeMovableAreas.Count() / 2f) - 1, safeMovableAreas.Count() - 1)).worldLocation);
+                Unit_Comp.move(safeMovableAreas.ElementAt(Random.Range(Tools.underZero(Mathf.FloorToInt(safeMovableAreas.Count() / 2f) - 1), safeMovableAreas.Count() - 1)).worldLocation);
             } else if (safeMovableAreas.Count <= 0 && movableAreas.Count > 0)
             {
                 movableAreas = movableAreas.OrderBy(x => x.distanceFromSide).ToList();
 
-                Unit_Comp.move(movableAreas.ElementAt(Random.Range(Mathf.FloorToInt(movableAreas.Count() / 2f) - 1, movableAreas.Count() - 1)).worldLocation);
+                Unit_Comp.move(movableAreas.ElementAt(Random.Range(Tools.underZero(Mathf.FloorToInt(movableAreas.Count() / 2f) - 1), movableAreas.Count() - 1)).worldLocation);
             } else if (movableAreas.Count <= 0)
             {
                 return;
@@ -160,7 +160,7 @@ public class AIUnitExecution : MonoBehaviour
             }
 
             Unit_Comp.attack(targetDamageSpots[Random.Range(0, targetDamageSpots.Count - 1)].worldLocation);*/
-            Unit_Comp.attack(damagableSpots[Random.Range(0, Mathf.FloorToInt((Unit_Comp.lowAggressive / 100f) * (damagableSpots.Count - 1)) + 1)].worldLocation);
+            Unit_Comp.attack(damagableSpots[Random.Range(0, Tools.underZero(Mathf.FloorToInt((Unit_Comp.lowAggressive / 100f) * (damagableSpots.Count - 1))) + 1)].worldLocation);
             Debug.Log("I just attacked!");
             /////////add damage and health score
         } else if (lowHighAggresive_Picker > Unit_Comp.lowAggressive) {
