@@ -378,10 +378,17 @@ public class Unit : MonoBehaviour
             if (checkDamagable(spot.position))
             {
                 spot.GetComponent<SpriteRenderer>().color = Color.white;
+
+                RaycastHit2D healthCast = Physics2D.Raycast(spot.position, Vector2.zero, 0f, ~LayerMask.NameToLayer("Object"));
+                if (healthCast.collider.GetComponent<Health>() != null)
+                {
+                    healthCast.collider.GetComponent<Health>().showReducedHealth(damageAreaListed.Find(listedSpot => listedSpot.location == spot.position - transform.position).damageValues[0]);
+                    //Debug.Log(healthCast);
+                }
             }
             else
             {
-                spot.GetComponent<SpriteRenderer>().color = Color.grey;
+                spot.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
         transform.Find("VisualAbilities").Find("VisualAreas").GetChild(0).gameObject.SetActive(false);
