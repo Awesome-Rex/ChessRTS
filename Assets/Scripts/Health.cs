@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
 
         transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0).GetComponent<Image>().enabled = true;
         //transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(Mathf.Lerp(Matter_Comp.savedMinX, Matter_Comp.savedMaxX, 0.5f) + (((1f - ((float)health / (float)maxHealth)) - 0.5f) * (Mathf.Abs(Matter_Comp.savedMaxX - Matter_Comp.savedMinX) + 1f)), 0f, 0f);
-        transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0)/*.GetComponent<RectTransform>()*/.localPosition = new Vector3((Matter_Comp.savedMinX - 0.5f) + (Mathf.Abs((Matter_Comp.savedMinX - 0.5f) - (Matter_Comp.savedMaxX + 0.5f)) * (health / maxHealth)), 0f, 0f) * 100f;
+        transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0)/*.GetComponent<RectTransform>()*/.localPosition = new Vector3((Matter_Comp.savedMinX - 0.5f) + (Mathf.Abs((Matter_Comp.savedMinX - 0.5f) - (Matter_Comp.savedMaxX + 0.5f)) * ((float)health / (float)maxHealth)), 0f, 0f) * 100f;
 
         transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(((float)damage / (float)maxHealth) * (Mathf.Abs((Matter_Comp.savedMaxX + 0.5f) - (Matter_Comp.savedMinX - 0.5f))/* + 1f*/) * 100f, 12.5f);
 
@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
 
     public void resetReducedHealth ()
     {
-        transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0)/*.GetComponent<RectTransform>()*/.localPosition = new Vector3((Matter_Comp.savedMinX - 0.5f) + (Mathf.Abs((Matter_Comp.savedMinX - 0.5f) - (Matter_Comp.savedMaxX + 0.5f)) * (health / maxHealth)), 0f, 0f) * 100f;
+        transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0)/*.GetComponent<RectTransform>()*/.localPosition = new Vector3((Matter_Comp.savedMinX - 0.5f) + (Mathf.Abs((Matter_Comp.savedMinX - 0.5f) - (Matter_Comp.savedMaxX + 0.5f)) * ((float)health / (float)maxHealth)), 0f, 0f) * 100f;
 
         transform.Find("UI").Find("Canvas").Find("MaxHealth").GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(((float)damageTaken / (float)maxHealth) * (Mathf.Abs((Matter_Comp.savedMaxX + 0.5f) - (Matter_Comp.savedMinX - 0.5f))/* + 1f*/) * 100f, 12.5f);
     }
