@@ -6,6 +6,25 @@ using System.Collections.Specialized;
 
 public class AIUnitExecution : MonoBehaviour
 {
+    public bool canAttackJackpot;
+    
+    public int maxDangerDamage;
+    public float avgDangerDamage;
+    
+    public Unit highestHealthEnemy;
+    public Unit lowestHealthEnemy;
+    
+    public Unit highestAvgDamageEnemy;
+    public Unit lowestAvgDamageEnemy;    
+    
+    public int movableSpotCount;
+    public int safeMovableSpotCount;
+    
+    public int farSafeMovableSpotCount;
+    public int closeSafeMovableSpotCount;
+    
+    
+    
     private Unit Unit_Comp;
     private Health Health_Comp;
     private Matter Matter_Comp;
