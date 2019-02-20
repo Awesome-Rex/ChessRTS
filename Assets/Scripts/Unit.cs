@@ -114,6 +114,16 @@ public class Unit : MonoBehaviour
         //animate transition
         Game.currentGame.findSide(GameplayControl.gameplayControl.currentTurn).currentOrbs -= 1;
 
+        foreach (AbilitySpot matterSpot in Matter_Comp.matterAreaListed)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(targetPosition + matterSpot.location, Vector3.zero, 0f, ~LayerMask.NameToLayer("Collectable"));
+
+            if (hit.collider != null && hit.collider.GetComponent<Collectable>() != null)
+            {
+                hit.collider.GetComponent<Collectable>().collect();
+            }
+        }
+
         if (GetComponent<Selectable>().selected)
         {
             GameplayControl.gameplayControl.GetComponent<SelectionManagement>().relocateSelected(targetPosition);
