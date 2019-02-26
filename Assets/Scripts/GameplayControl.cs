@@ -18,7 +18,14 @@ public class AbilitySpot
     public List<int> damageValues;
     public Health damageTarget;
     public float distanceFromSide;
+
+
     public float effectivityScore;
+
+    public AbilitySpot ()
+    {
+
+    }
 
     public AbilitySpot (MonoBehaviour source, Vector3 location, List<int> damageValues)
     {
@@ -46,6 +53,21 @@ public class AbilitySpot
         this.location = location;
         this.worldLocation = worldLocation;
         this.distanceFromSide = distance;
+    }
+
+    public AbilitySpot Clone()
+    {
+        AbilitySpot newSpot = new AbilitySpot();
+
+        newSpot.source = source;
+        newSpot.location = location;
+        newSpot.worldLocation = worldLocation;
+        newSpot.damageValues = damageValues;
+        newSpot.damageTarget = damageTarget;
+        newSpot.distanceFromSide = distanceFromSide;
+        newSpot.effectivityScore = effectivityScore;
+
+        return newSpot;
     }
 }
 

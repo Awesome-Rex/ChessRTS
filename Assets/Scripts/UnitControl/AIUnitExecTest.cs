@@ -48,7 +48,13 @@ public class AIUnitExecTest : MonoBehaviour
 
                 if (healthCast.collider != null && healthCast.collider.GetComponent<Health>() != null)
                 {
+                    AbilitySpot newScoredAction = damageSpot.Clone();
 
+                    float damageDoneEffectiviness = ((healthCast.collider.GetComponent<Health>().health - (healthCast.collider.GetComponent<Health>().health - damageSpot.damageValues[0])) / healthCast.collider.GetComponent<Health>().health) * 1;
+                    float targetKillEffectiviness = (healthCast.collider.GetComponent<Health>().health - damageSpot.damageValues[0]) <= 0 ? 1 : 0;
+                    float targetStrengthEffectiviness
+
+                    newScoredAction.effectivityScore = 
                 }
             }
         }
