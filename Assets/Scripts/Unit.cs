@@ -327,6 +327,101 @@ public class Unit : MonoBehaviour
         }
         return true;
     }
+    public bool checkDamagable(Vector3 newOrigin, Vector3 targetPosition)
+    {
+        RaycastHit2D healthCast = Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+
+        if (GameplayControl.objectInSpot(targetPosition, gameObject) && healthCast.collider.GetComponent<Health>() != null)
+        {
+            if (healthCast.collider.GetComponent<SideDefine>().side != GetComponent<SideDefine>().side || healthCast.collider.GetComponent<SideDefine>().side == Side.Nothing)
+            {
+
+            }
+            else if (healthCast.collider.GetComponent<SideDefine>().side == GetComponent<SideDefine>().side)
+            {
+                foreach (string castTag in healthCast.collider.GetComponent<SideDefine>().tags)
+                {
+                    if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                    {
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+
+
+        RaycastHit2D[] objectCasts = Physics2D.RaycastAll(newOrigin, targetPosition - newOrigin, Vector3.Distance(newOrigin, targetPosition), ~LayerMask.NameToLayer("Object"));
+
+        if (!damageAllyCrossable)
+        {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject && objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side != Side.Nothing)
+                {
+                    bool isAlly = false;
+
+                    foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                    {
+                        if (GetComponent<SideDefine>().allies.Contains(castTag))
+                        {
+                            isAlly = true;
+                        }
+                    }
+
+                    if (objectCast.collider.GetComponent<SideDefine>().side == GetComponent<SideDefine>().side || isAlly)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        if (!damageEnemyCrossable)
+        {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject && objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side != Side.Nothing)
+                {
+                    bool isEnemy = false;
+
+                    foreach (string castTag in objectCast.collider.GetComponent<SideDefine>().tags)
+                    {
+                        if (GetComponent<SideDefine>().enemies.Contains(castTag))
+                        {
+                            isEnemy = true;
+                        }
+                    }
+
+                    if (objectCast.collider.GetComponent<SideDefine>().side != GetComponent<SideDefine>().side || isEnemy)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        if (!damageWallCrossable)
+        {
+            foreach (RaycastHit2D objectCast in objectCasts)
+            {
+                if (objectCast.collider.gameObject != gameObject && objectCast.collider.gameObject != healthCast.collider.gameObject)
+                {
+                    if (objectCast.collider.GetComponent<SideDefine>() == null || (objectCast.collider.GetComponent<SideDefine>() != null && objectCast.collider.GetComponent<SideDefine>().side == Side.Nothing/* && !isAlly && !isEnemy*/))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
     public void onSelect()
     {

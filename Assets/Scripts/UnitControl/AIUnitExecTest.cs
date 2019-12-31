@@ -23,6 +23,20 @@ public class AIUnitExecTest : MonoBehaviour
     private Matter Matter_Comp;
     private SideDefine SideDefine_Comp;
 
+    float damageScore (AbilitySpot damageSpot, Vector3 targetPosition)
+    {
+        RaycastHit2D healthCast = Physics2D.Raycast(targetPosition, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
+
+        if (healthCast.collider != null && healthCast.collider.GetComponent<Health>() != null)
+        {
+            float damageDoneEffectiviness = ((healthCast.collider.GetComponent<Health>().health - (healthCast.collider.GetComponent<Health>().health - damageSpot.damageValues[0])) / healthCast.collider.GetComponent<Health>().health) * 1;
+            float targetKillEffectiviness = (healthCast.collider.GetComponent<Health>().health - damageSpot.damageValues[0]) <= 0 ? 1 : 0;
+            float targetStrengthEffectiviness = healthCast.collider.GetComponent<Unit>().movementAreaListed.Count + healthCast.collider.GetComponent<Unit>().damageAreaListed.Sum(spot => spot.damageValues[0]);
+
+            newScoredAction.effectivityScore =
+        }
+    }
+
     public void doAction ()
     {
         List<AbilitySpot> actions = new List<AbilitySpot>();
@@ -34,6 +48,14 @@ public class AIUnitExecTest : MonoBehaviour
                 ///////// score can be negative!
                 //form movement score (based on distance, damagable spots next, danger damage)
 
+                float damagableSpotsNextEffectiviness = 0;
+                foreach (AbilitySpot damageSpot in Unit_Comp.damageAreaListed)
+                {
+                    if (Unit_Comp.checkDamagable(transform.position + movementSpot.location, (transform.position + movementSpot.location) + damageSpot.location)) ;
+                    {
+                        damageScore(damageSpot, (transform.position + movementSpot.location) + damageSpot.location);
+                    }
+                }
 
             }
         }
@@ -44,18 +66,8 @@ public class AIUnitExecTest : MonoBehaviour
             {
                 //form damage score (based on target health, damage done, will kill unit)
 
-                RaycastHit2D healthCast = Physics2D.Raycast(transform.position + damageSpot.location, Vector3.zero, 0f, ~LayerMask.NameToLayer("Object"));
 
-                if (healthCast.collider != null && healthCast.collider.GetComponent<Health>() != null)
-                {
-                    AbilitySpot newScoredAction = damageSpot.Clone();
-
-                    float damageDoneEffectiviness = ((healthCast.collider.GetComponent<Health>().health - (healthCast.collider.GetComponent<Health>().health - damageSpot.damageValues[0])) / healthCast.collider.GetComponent<Health>().health) * 1;
-                    float targetKillEffectiviness = (healthCast.collider.GetComponent<Health>().health - damageSpot.damageValues[0]) <= 0 ? 1 : 0;
-                    float targetStrengthEffectiviness
-
-                    newScoredAction.effectivityScore = 
-                }
+                damageScore(damageSpot, transform.position + damageSpot.location);
             }
         }
 
